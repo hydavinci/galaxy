@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Galaxy</title>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { width: 100%; height: 100%; overflow: hidden; background: #060810; font-family: -apple-system, sans-serif; }
+canvas { display: block; width: 100%; height: 100%; }
+#hud {
+  position: absolute; top: 12px; left: 12px;
+  color: rgba(180, 200, 255, 0.8); font: 12px monospace;
+  pointer-events: none; line-height: 1.6;
+}
+#toolbar {
+  position: absolute; bottom: 12px; left: 50%; transform: translateX(-50%);
+  display: flex; gap: 6px; align-items: center;
+}
+#toolbar button {
+  background: rgba(30, 40, 70, 0.7); border: 1px solid rgba(100, 140, 255, 0.3);
+  color: #8af; padding: 6px 12px; border-radius: 4px; cursor: pointer; font-size: 12px;
+  transition: all 0.2s;
+}
+#toolbar button:hover { background: rgba(50, 60, 110, 0.8); }
+#toolbar button.active { background: rgba(60, 80, 140, 0.8); border-color: #8af; }
+.toolbar-sep { width: 1px; height: 20px; background: rgba(100, 140, 255, 0.2); margin: 0 4px; }
+#time-speed { color: #8af; font-size: 11px; min-width: 30px; text-align: center; }
+#search {
+  position: absolute; top: 12px; left: 50%; transform: translateX(-50%);
+  background: rgba(20, 28, 50, 0.8); border: 1px solid rgba(100, 140, 255, 0.3);
+  color: #cdf; padding: 6px 16px; border-radius: 16px; font-size: 13px;
+  width: 260px; text-align: center; outline: none;
+}
+#search::placeholder { color: rgba(140, 170, 255, 0.5); }
+#search:focus { border-color: #8af; background: rgba(20, 28, 50, 0.95); }
+#info-panel {
+  display: none; position: absolute; top: 60px; right: 12px;
+  width: 280px; background: rgba(10, 15, 30, 0.92);
+  border: 1px solid rgba(100, 140, 255, 0.3); border-radius: 8px;
+  padding: 16px; color: #cdf; font-size: 13px;
+  backdrop-filter: blur(8px);
+}
+#info-close {
+  position: absolute; top: 8px; right: 12px; cursor: pointer;
+  color: rgba(140, 170, 255, 0.6); font-size: 18px; line-height: 1;
+}
+#info-close:hover { color: #fff; }
+.info-row { display: flex; justify-content: space-between; padding: 4px 0; border-bottom: 1px solid rgba(100, 140, 255, 0.1); }
+.info-row span:first-child { opacity: 0.6; }
+#selection-marker {
+  display: none; position: absolute; pointer-events: none;
+  transform: translate(-50%, -50%);
+}
+#selection-marker .arm {
+  position: absolute; background: rgba(255, 255, 255, 0.9);
+}
+#selection-marker .arm-h {
+  width: 10px; height: 2px; top: 50%; margin-top: -1px;
+}
+#selection-marker .arm-v {
+  height: 10px; width: 2px; left: 50%; margin-left: -1px;
+}
+#selection-marker .arm-left { right: calc(50% + var(--gap)); }
+#selection-marker .arm-right { left: calc(50% + var(--gap)); }
+#selection-marker .arm-top { bottom: calc(50% + var(--gap)); }
+#selection-marker .arm-bottom { top: calc(50% + var(--gap)); }
+</style>
+</head>
+<body>
+<div id="canvas-container" style="position:relative;width:100%;height:100%;">
+<canvas id="canvas"></canvas>
+<div id="selection-marker">
+  <div class="arm arm-h arm-left"></div>
+  <div class="arm arm-h arm-right"></div>
+  <div class="arm arm-v arm-top"></div>
+  <div class="arm arm-v arm-bottom"></div>
+</div>
+</div>
+<div id="hud"></div>
+<input id="search" type="text" placeholder="Search stars, planets, constellations...">
+<div id="toolbar">
+  <button id="btn-grid">Grid</button>
+  <button id="btn-const">Constellations</button>
+  <button id="btn-solar">Solar System</button>
+  <div class="toolbar-sep"></div>
+  <button id="btn-rw">◀◀</button>
+  <button id="btn-pause">▶</button>
+  <button id="btn-ff">▶▶</button>
+  <span id="time-speed">1×</span>
+</div>
+<div id="info-panel">
+  <span id="info-close">✕</span>
+  <div id="info-body"></div>
+</div>
+<script type="module" src="./app.ts"></script>
+</body>
+</html>
