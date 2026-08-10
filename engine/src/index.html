@@ -4,10 +4,14 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Galaxy</title>
+<link rel="icon" href="/favicon.ico?v=20260807" sizes="any">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png?v=20260807">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=20260807">
 <style>
 * { margin: 0; padding: 0; box-sizing: border-box; }
 html, body { width: 100%; height: 100%; overflow: hidden; background: #060810; font-family: -apple-system, sans-serif; }
+#canvas-container { position: fixed; top: 0; left: 0; width: 100%; height: 100%; }
 canvas { display: block; width: 100%; height: 100%; }
 #hud {
   position: absolute; top: 12px; left: 12px;
@@ -69,7 +73,7 @@ canvas { display: block; width: 100%; height: 100%; }
 </style>
 </head>
 <body>
-<div id="canvas-container" style="position:relative;width:100%;height:100%;">
+<div id="canvas-container">
 <canvas id="canvas"></canvas>
 <div id="selection-marker">
   <div class="arm arm-h arm-left"></div>

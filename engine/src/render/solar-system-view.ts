@@ -84,12 +84,22 @@ void main(){ o = u_color; }`;
 const F_PLANET = `#version 300 es
 precision highp float;
 uniform vec4 u_color;
+uniform sampler2D u_tex;
+uniform bool u_useTex;
 out vec4 o;
 void main(){
   vec2 c = gl_PointCoord - 0.5;
   float d = dot(c,c);
   if(d > 0.25) discard;
-  o = vec4(u_color.rgb, u_color.a * smoothstep(0.25, 0.1, d));
+  float alpha = smoothstep(0.25, 0.1, d);
+  if(u_useTex){
+    // Spherical UV from point coord
+    vec2 uv = gl_PointCoord;
+    uv.y = 1.0 - uv.y;
+    o = vec4(texture(u_tex, uv).rgb, alpha);
+  } else {
+    o = vec4(u_color.rgb, u_color.a * alpha);
+  }
 }`;
 
 const V_STAR = `#version 300 es
@@ -163,6 +173,7 @@ export class SolarSystemView {
   private planetNames = Object.keys(PLANETS);
   private animId = 0;
   private labelContainer!: HTMLElement;
+  private planetTextures: Map<string, WebGLTexture> = new Map();
 
   constructor() {
     this.container = document.createElement('div');
@@ -192,9 +203,9 @@ export class SolarSystemView {
     document.getElementById('ss-close')!.addEventListener('click', () => this.hide());
     document.getElementById('ss-inner')!.addEventListener('click', () => { this.camDist = 3.5; });
     document.getElementById('ss-all')!.addEventListener('click', () => { this.camDist = 50; });
-    document.getElementById('ss-rw')!.addEventListener('click', () => { if (this.time) { const s = this.time.getSpeed(); this.time.setSpeed(s <= -1 ? s * 2 : -1); this.updateHUD(); } });
-    document.getElementById('ss-pause')!.addEventListener('click', () => { if (this.time) { this.time.setSpeed(this.time.getSpeed() === 0 ? 1 : 0); this.updateHUD(); } });
-    document.getElementById('ss-ff')!.addEventListener('click', () => { if (this.time) { const s = this.time.getSpeed(); this.time.setSpeed(s >= 1 ? s * 2 : 1); this.updateHUD(); } });
+    document.getElementById('ss-rw')!.addEventListener('click', () => { if (this.time) { this.time.rewind(); this.updateHUD(); } });
+    document.getElementById('ss-pause')!.addEventListener('click', () => { if (this.time) { this.time.togglePause(); this.updateHUD(); } });
+    document.getElementById('ss-ff')!.addEventListener('click', () => { if (this.time) { this.time.fastForward(); this.updateHUD(); } });
     this.canvas.addEventListener('wheel', (e) => { e.preventDefault(); this.camDist *= e.deltaY > 0 ? 1.1 : 0.9; this.camDist = Math.max(0.5, Math.min(120, this.camDist)); }, { passive: false });
     this.canvas.addEventListener('mousedown', (e) => { this.dragging = true; this.lastX = e.clientX; this.lastY = e.clientY; });
     this.canvas.addEventListener('mousemove', (e) => { if (!this.dragging) return; this.camPhi -= (e.clientX - this.lastX) * 0.005; this.camTheta = Math.max(5 * DEG2RAD, Math.min(85 * DEG2RAD, this.camTheta + (e.clientY - this.lastY) * 0.005)); this.lastX = e.clientX; this.lastY = e.clientY; });
@@ -234,6 +245,35 @@ export class SolarSystemView {
     const sp = gl.getAttribLocation(this.starP, 'a_position'); gl.enableVertexAttribArray(sp); gl.vertexAttribPointer(sp, 3, gl.FLOAT, false, 16, 0);
     const sb = gl.getAttribLocation(this.starP, 'a_brightness'); gl.enableVertexAttribArray(sb); gl.vertexAttribPointer(sb, 1, gl.FLOAT, false, 16, 12);
     gl.bindVertexArray(null);
+
+    // Planet textures
+    const texMap: Record<string, string> = {
+      Sun: './textures/2k_sun.jpg',
+      Mercury: './textures/2k_mercury.jpg',
+      Venus: './textures/2k_venus_surface.jpg',
+      Earth: './textures/2k_earth_daymap.jpg',
+      Mars: './textures/2k_mars.jpg',
+      Jupiter: './textures/2k_jupiter.jpg',
+      Saturn: './textures/2k_saturn.jpg',
+      Uranus: './textures/2k_uranus.jpg',
+      Neptune: './textures/2k_neptune.jpg',
+    };
+    for (const [name, url] of Object.entries(texMap)) {
+      const tex = gl.createTexture()!;
+      gl.bindTexture(gl.TEXTURE_2D, tex);
+      gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, 1, 1, 0, gl.RGBA, gl.UNSIGNED_BYTE, new Uint8Array([128, 128, 128, 255]));
+      const img = new Image();
+      img.crossOrigin = 'anonymous';
+      img.onload = () => {
+        gl.bindTexture(gl.TEXTURE_2D, tex);
+        gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE, img);
+        gl.generateMipmap(gl.TEXTURE_2D);
+        gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR_MIPMAP_LINEAR);
+        gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.LINEAR);
+      };
+      img.src = url;
+      this.planetTextures.set(name, tex);
+    }
   }
 
   private mkProg(vs: string, fs: string): WebGLProgram {
@@ -249,8 +289,31 @@ export class SolarSystemView {
 
   private resize() { const d = window.devicePixelRatio || 1; this.canvas.width = this.canvas.clientWidth * d; this.canvas.height = this.canvas.clientHeight * d; this.gl.viewport(0, 0, this.canvas.width, this.canvas.height); }
 
-  show(jd: number, time?: TimeSystem) { this.jd = jd; if (time) this.time = time; this.visible = true; this.container.style.display = 'block'; if (!this.gl) this.initGL(); this.resize(); window.addEventListener('resize', this.onResize); this.renderLoop(); }
-  hide() { this.visible = false; this.container.style.display = 'none'; window.removeEventListener('resize', this.onResize); if (this.animId) cancelAnimationFrame(this.animId); this.labelContainer.innerHTML = ''; }
+  show(jd: number, time?: TimeSystem) {
+    this.jd = jd;
+    if (time) this.time = time;
+    this.visible = true;
+    this.container.style.display = 'block';
+    this.setMainToolbarVisible(false);
+    if (!this.gl) this.initGL();
+    this.resize();
+    window.addEventListener('resize', this.onResize);
+    this.renderLoop();
+  }
+
+  hide() {
+    this.visible = false;
+    this.container.style.display = 'none';
+    this.setMainToolbarVisible(true);
+    window.removeEventListener('resize', this.onResize);
+    if (this.animId) cancelAnimationFrame(this.animId);
+    this.labelContainer.innerHTML = '';
+  }
+
+  private setMainToolbarVisible(visible: boolean) {
+    const toolbar = document.getElementById('toolbar');
+    if (toolbar) toolbar.style.display = visible ? 'flex' : 'none';
+  }
   isVisible() { return this.visible; }
   updateJD(jd: number) { this.jd = jd; }
   private onResize = () => { if (this.visible) this.resize(); };
@@ -312,6 +375,13 @@ export class SolarSystemView {
     gl.bufferData(gl.ARRAY_BUFFER, sunBuf, gl.DYNAMIC_DRAW);
     const aloc = gl.getAttribLocation(this.planetP, 'a_position');
     gl.enableVertexAttribArray(aloc); gl.vertexAttribPointer(aloc, 3, gl.FLOAT, false, 0, 0);
+    const useTexLoc = gl.getUniformLocation(this.planetP, 'u_useTex');
+    const texLoc = gl.getUniformLocation(this.planetP, 'u_tex');
+    gl.uniform1i(texLoc, 0);
+    // Sun with texture
+    const sunTex = this.planetTextures.get('Sun');
+    if (sunTex) { gl.activeTexture(gl.TEXTURE0); gl.bindTexture(gl.TEXTURE_2D, sunTex); gl.uniform1i(useTexLoc, 1); }
+    else { gl.uniform1i(useTexLoc, 0); }
     gl.uniform1f(gl.getUniformLocation(this.planetP, 'u_pointSize'), PLANET_PT_SIZE.Sun);
     const sc = PLANET_COLORS.Sun;
     gl.uniform4f(gl.getUniformLocation(this.planetP, 'u_color'), sc[0], sc[1], sc[2], 1.0);
@@ -329,6 +399,9 @@ export class SolarSystemView {
       const c = PLANET_COLORS[name];
       gl.uniform1f(gl.getUniformLocation(this.planetP, 'u_pointSize'), PLANET_PT_SIZE[name] || 6);
       gl.uniform4f(gl.getUniformLocation(this.planetP, 'u_color'), c[0], c[1], c[2], 1.0);
+      const tex = this.planetTextures.get(name);
+      if (tex) { gl.activeTexture(gl.TEXTURE0); gl.bindTexture(gl.TEXTURE_2D, tex); gl.uniform1i(useTexLoc, 1); }
+      else { gl.uniform1i(useTexLoc, 0); }
       gl.drawArrays(gl.POINTS, 0, 1);
       const sp = proj3D(pos, mvp, w, h);
       if (sp) labels += `<span style="position:absolute;left:${sp[0] + 10}px;top:${sp[1] - 6}px;color:rgb(${Math.round(c[0] * 255)},${Math.round(c[1] * 255)},${Math.round(c[2] * 255)});">${name}</span>`;

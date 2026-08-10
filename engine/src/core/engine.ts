@@ -75,17 +75,15 @@ export class Engine {
 
     // Time controls
     document.getElementById('btn-rw')!.addEventListener('click', () => {
-      const s = this.time.getSpeed();
-      this.time.setSpeed(s <= -1 ? s * 2 : -1);
+      this.time.rewind();
       this.updateTimeLabel();
     });
     document.getElementById('btn-pause')!.addEventListener('click', () => {
-      this.time.setSpeed(this.time.getSpeed() === 0 ? 1 : 0);
+      this.time.togglePause();
       this.updateTimeLabel();
     });
     document.getElementById('btn-ff')!.addEventListener('click', () => {
-      const s = this.time.getSpeed();
-      this.time.setSpeed(s >= 1 ? s * 2 : 1);
+      this.time.fastForward();
       this.updateTimeLabel();
     });
   }

@@ -1,6 +1,7 @@
 export class TimeSystem {
   private date: Date;
-  private speed = 1; // 1 = realtime, 0 = paused, >1 = fast forward
+  private speed = 1; // 1 = realtime, 0 = paused, >1 = fast forward, <0 = rewind
+  private lastNonZeroSpeed = 1;
   private lastReal: number;
 
   constructor() {
@@ -15,8 +16,33 @@ export class TimeSystem {
     this.date = new Date(this.date.getTime() + dt * this.speed);
   }
 
-  setSpeed(s: number) { this.speed = s; }
+  setSpeed(s: number) {
+    this.speed = s;
+    if (s !== 0) this.lastNonZeroSpeed = s;
+  }
   getSpeed(): number { return this.speed; }
+  isPaused(): boolean { return this.speed === 0; }
+
+  togglePause() {
+    if (this.speed === 0) this.setSpeed(this.lastNonZeroSpeed || 1);
+    else this.speed = 0;
+  }
+
+  rewind() {
+    const s = this.speed;
+    if (s > 1) this.setSpeed(s / 2);
+    else if (s === 1) this.setSpeed(0);
+    else if (s === 0) this.setSpeed(-1);
+    else this.setSpeed(s * 2);
+  }
+
+  fastForward() {
+    const s = this.speed;
+    if (s < -1) this.setSpeed(s / 2);
+    else if (s === -1) this.setSpeed(0);
+    else if (s === 0) this.setSpeed(1);
+    else this.setSpeed(s * 2);
+  }
 
   getDate(): Date { return this.date; }
 
