@@ -1,0 +1,55 @@
+{
+  "retrievedAt": "2026-10-14T02:04:49.022708+00:00",
+  "sourceURL": "https://www.solarsystemscope.com/textures/download/8k_earth_daymap.jpg",
+  "actualWidth": 8192,
+  "assets": [
+    {
+      "path": "textures/2k_earth_daymap.jpg",
+      "sourceURL": "https://www.solarsystemscope.com/textures/download/2k_earth_daymap.jpg",
+      "source": "Solar System Scope / INOVE",
+      "license": "CC BY 4.0",
+      "licenseURL": "https://creativecommons.org/licenses/by/4.0/",
+      "bytes": 463087,
+      "dimensions": [
+        2048,
+        1024
+      ],
+      "sha256": "767ee1dc6eb3802699bfccf6f264880f8acd0b80de3191cd24984fe279b07b7c",
+      "matchesOfficialSource": true,
+      "modification": "none; existing base asset retained"
+    },
+    {
+      "path": "textures/detail/8k_earth_daymap.jpg",
+      "sourceURL": "https://www.solarsystemscope.com/textures/download/8k_earth_daymap.jpg",
+      "source": "Solar System Scope / INOVE",
+      "license": "CC BY 4.0",
+      "licenseURL": "https://creativecommons.org/licenses/by/4.0/",
+      "bytes": 4565076,
+      "dimensions": [
+        8192,
+        4096
+      ],
+      "sha256": "88ab060b6e7d241cfc590c69f528fab2b3247b738d40124cb590999a6fe44abc",
+      "modification": "none; local tier name reflects decoded dimensions"
+    },
+    {
+      "path": "textures/detail/4k_earth_daymap.jpg",
+      "sourceURL": "https://www.solarsystemscope.com/textures/download/8k_earth_daymap.jpg",
+      "source": "Solar System Scope / INOVE",
+      "license": "CC BY 4.0",
+      "licenseURL": "https://creativecommons.org/licenses/by/4.0/",
+      "bytes": 1465063,
+      "dimensions": [
+        4096,
+        2048
+      ],
+      "sha256": "514a18ca47564d3be1bba447214819222a330585e35539e0425c6e70ee711360",
+      "modification": "Lanczos downsample from official8192x4096; JPEG92; no synthetic upscaling"
+    }
+  ],
+  "disclosure": "Illustrative enhanced visualization texture, not a live satellite/weather map; source page and CC BY4.0 attribution apply.",
+  "sourcePage": "https://www.solarsystemscope.com/textures/",
+  "license": "CC BY 4.0",
+  "creator": "Solar System Scope / INOVE",
+  "inspectorBudget": "64MiB, therefore up to4K per bounded resident policy;8Ksource retained but not force-loaded"
+}

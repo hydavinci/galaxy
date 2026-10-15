@@ -1,0 +1,8 @@
+Solar-system detail textures by Solar System Scope / INOVE
+Source: https://www.solarsystemscope.com/textures/
+License: Creative Commons Attribution 4.0 International (CC BY 4.0)
+https://creativecommons.org/licenses/by/4.0/
+
+Changes: Moon, Mercury and Mars 4K versions were downsampled from linked8K sources using Lanczos and JPEG encoding. Other downloaded bytes are unchanged. Sun/Jupiter/Saturn source filenames say8K but decoded files are4096x2048; local names correctly say4K.
+
+Source textures are based on NASA data, with enhanced colors and some fictional gap-filled areas; these are visualization textures, not entirely direct photographs or authoritative scientific maps. See credits.json for per-file URLs, dimensions, hashes and modifications.

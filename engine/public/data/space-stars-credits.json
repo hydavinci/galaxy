@@ -1,0 +1,71 @@
+{
+  "schemaVersion": 1,
+  "asset": "space-stars.json",
+  "assetSha256": "d7ff593765bcbe4a5f30befac1b1d08d520e256212d117c18f156f8177021e47",
+  "assetBytes": 1692763,
+  "source": {
+    "name": "HYG Database",
+    "version": "4.1",
+    "author": "David Nash / Astronomy Nexus",
+    "archiveRepositoryUrl": "https://github.com/astronexus/HYG-Database",
+    "currentProjectUrl": "https://codeberg.org/astronexus/hyg",
+    "url": "https://raw.githubusercontent.com/astronexus/HYG-Database/c7f7f883fe678cc7680169a50ccd7dcc49b060ce/hyg/CURRENT/hygdata_v41.csv",
+    "commit": "c7f7f883fe678cc7680169a50ccd7dcc49b060ce",
+    "gitBlobSha1": "ba2dec4eb0f6768914c7fc1051258100214ddf84",
+    "sha256": "d9f69fd86bbf90a4e4d52b4c5c53eacfa6dfc0bfdef85bfd94f095e0bebe4ebd",
+    "bytes": 33932548,
+    "documentationUrl": "https://raw.githubusercontent.com/astronexus/HYG-Database/c7f7f883fe678cc7680169a50ccd7dcc49b060ce/hyg/README.md",
+    "licenseSourceUrl": "https://raw.githubusercontent.com/astronexus/HYG-Database/c7f7f883fe678cc7680169a50ccd7dcc49b060ce/hyg/CURRENT/LICENSE",
+    "licenseSha256": "f404190403d31e0ce7223f4cb7af954485ad88077358330754dc5c892a856627"
+  },
+  "sourceLicense": "CC-BY-SA-4.0",
+  "derivedDataLicense": "CC-BY-SA-4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "sourceLicenseNotice": "Shield: [![CC BY-SA 4.0][cc-by-sa-shield]][cc-by-sa]\n\nThis work is licensed under a\n[Creative Commons Attribution-ShareAlike 4.0 International License][cc-by-sa].\n\n[![CC BY-SA 4.0][cc-by-sa-image]][cc-by-sa]\n\n[cc-by-sa]: http://creativecommons.org/licenses/by-sa/4.0/\n[cc-by-sa-image]: https://licensebuttons.net/l/by-sa/4.0/88x31.png\n[cc-by-sa-shield]: https://img.shields.io/badge/License-CC%20BY--SA%204.0-lightgrey.svg",
+  "attribution": "Derived from HYG Database v4.1 by David Nash / Astronomy Nexus, licensed CC BY-SA 4.0. Filtered and converted for Galaxy Space Explorer.",
+  "redistribution": "Credit David Nash / Astronomy Nexus; retain source, license link and change notice. Redistribute this adapted data under CC BY-SA 4.0 with no additional legal/technical restrictions. No endorsement is implied.",
+  "changes": [
+    "Selected finite non-Solar records under the documented distance/magnitude limits; excluded missing or invalid B-V/absolute-magnitude/RA/Dec values without imputation.",
+    "Converted published ra(hours), dec(degrees), dist(pc) using float64 into [d*cos(dec)*cos(ra), d*sin(dec), d*cos(dec)*sin(ra)] * 206264.80624709636 AU.",
+    "Kept catalog absolute magnitudes and B-V; added HYG-prefixed stable IDs, fallback names and twelve common Chinese display aliases.",
+    "Retained documented Gl 166 B/C identical catalog coordinates without fabricated binary separation; reported redundant-coordinate discrepancy for HYG 119616."
+  ],
+  "epoch": "J2000.0 (epoch and equinox)",
+  "frame": "J2000 EQJ Y-up",
+  "units": "AU",
+  "recordCount": 9078,
+  "selection": "(0 < dist <= 50 pc AND mag <= 12) OR (50 < dist <= 100 pc AND mag <= 6.5)",
+  "exactPositionDuplicateGroups": [
+    {
+      "ids": [
+        "hyg-118281",
+        "hyg-118282"
+      ],
+      "system": "Gl 166 / 40 Eridani (Keid) B and C",
+      "sourceComponents": [
+        "2",
+        "3"
+      ],
+      "sourcePrimaryId": "19799",
+      "reason": "Distinct catalog multiple-system components share published RA/Dec/distance. Kept intentionally without fabricated separations or binary orbits."
+    }
+  ],
+  "redundantCoordinateDisagreements": [
+    {
+      "sourceId": "119616",
+      "raDifferenceArcsec": 0.0006332702887622698,
+      "decDifferenceArcsec": 562.8928542598637,
+      "used": "documented ra hours and dec degrees; no invented correction"
+    }
+  ],
+  "limitations": [
+    "A selected nearby-star sample, not a complete census of nearby stars, the Milky Way, or the universe.",
+    "HYG compiles historical distance/parallax estimates with heterogeneous quality. Finite distances do not imply precise or certainly measured positions; per-star uncertainty is not available in this derived schema.",
+    "Fixed epoch and equinox J2000.0. No proper-motion, radial-velocity, stellar-orbit or perspective evolution is applied. Solar-system time changes do not update these star positions.",
+    "Positions are Solar-neighborhood, approximately heliocentric catalog coordinates. No extra barycentric correction is invented; the catalog does not support Solar-system ephemeris-level stellar astrometry.",
+    "Magnitude and B-V describe catalog photometry, not resolved photos or measured stellar surface detail; no stellar radii, surface maps or planets are invented.",
+    "Binary components may share an estimated distance or exactly the same position at catalog precision. They are not resolved orbital solutions; Alpha Centauri A/B orbital dynamics are not modeled.",
+    "RA/Dec decimal source fields are parsed as float64; output precision is computational, not a claim of extra observational accuracy. Radian/Cartesian source fields are not mixed in; one redundant declination conflict is recorded."
+  ],
+  "reproduce": "python3 scripts/spacecatalog/generate.py --download; python3 scripts/spacecatalog/generate.py --check"
+}

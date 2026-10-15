@@ -1,0 +1,189 @@
+{
+  "schemaVersion": 1,
+  "validationScope": "global-map asset data only; NOT application/browser/native-GPU/public-release acceptance",
+  "records": [
+    {
+      "id": "earth",
+      "kind": "global-map",
+      "title": "地球 · MODIS 2004年8月无云自然色合成",
+      "sourceUrl": "https://science.nasa.gov/earth/earth-observatory/blue-marble-next-generation/",
+      "imageSourceUrl": "https://gibs.earthdata.nasa.gov/wms/epsg4326/best/wms.cgi?SERVICE=WMS&VERSION=1.1.1&REQUEST=GetMap&LAYERS=BlueMarble_NextGeneration&STYLES=&SRS=EPSG%3A4326&BBOX=-180%2C-90%2C180%2C90&WIDTH=5400&HEIGHT=2700&FORMAT=image%2Fjpeg&TRANSPARENT=FALSE",
+      "credit": "NASA Earth Observatory / Reto Stöckli (NASA/GSFC); MODIS; NASA GIBS",
+      "license": "NASA imagery usage guidelines：可作注明来源、不暗示机构背书的教育/信息性展示；已核对此产品未标注第三方版权例外。NASA标识不包含在授权内。",
+      "licenseUrl": "https://www.nasa.gov/nasa-brand-center/images-and-media/",
+      "capturedAt": "2004年8月（MODIS月度无云合成；非单次拍摄，非实时）",
+      "processing": "NASA Blue Marble Next Generation：MODIS可见光RGB自然色月度合成，云污染筛除、表面反射率和亮度/色调处理。采用GIBS静态BlueMarble_NextGeneration图层（明确为2004年8月），不采用ShadedRelief或Bathymetry图层。NASA WMS以EPSG:4326输出5400×2700 JPEG；本地仅Lanczos下采样及JPEG编码，无锐化、补绘或人工放大。",
+      "coverage": "全球经度−180°至180°、纬度−90°至90°的2:1经纬度图；陆地/沿海基于MODIS观测。深海不是此产品的逐像元实测颜色，源产品用统一深蓝色；南北极和云多区域存在源数据/合成限制。",
+      "limitations": "观测合成图，不是一次真实全地球照片或当前天气。NASA说明深海为统一颜色、近岸过渡可能不自然，热带仍可能缺少当月无云采样，短期积雪可能与云混淆，开阔水面有噪声。无实时云层；无实测三维地形或海深。",
+      "instrument": "MODIS (Terra / NASA Earth Observatory Blue Marble Next Generation)",
+      "wavelengths": "Visible-light RGB natural-color product; not thermal infrared or radar. Numeric per-band passbands are not asserted from the service metadata.",
+      "mapping": {
+        "projection": "equirectangular / simple cylindrical",
+        "longitudeConvention": "east-positive",
+        "leftLongitudeDegrees": -180,
+        "centerLongitudeDegrees": 0,
+        "rightLongitudeDegrees": 180,
+        "topLatitudeDegrees": 90,
+        "bottomLatitudeDegrees": -90,
+        "imageOrigin": "top-left",
+        "pixelCenterLongitude": "-180 + 360 * (x + 0.5) / width",
+        "pixelCenterLatitude": "90 - 180 * (y + 0.5) / height",
+        "localTransforms": "None: no longitude shift, vertical flip, mirror or crop.",
+        "integrationNote": "Uploader/GL UV convention must preserve north-up/east-right and prime meridian; this worker does not certify runtime UVs or prime-meridian rotation."
+      },
+      "sourceEvidence": [
+        "sources/earth-bmng.html",
+        "sources/earth-bmng-paper.pdf",
+        "sources/earth-bmng-layer.txt",
+        "sources/earth-bmng-layer.request.json",
+        "sources/earth-gibs-capabilities.xml",
+        "sources/earth-gibs-wmts-capabilities.xml",
+        "sources/nasa-use.html"
+      ],
+      "fixedMonthEvidence": "https://raw.githubusercontent.com/nasa-gibs/worldview/f8f2a3ae6c7fcc35b8472516dd2f834a393a54d8/config/default/common/config/metadata/layers/reference/blue_marble/BlueMarble_NextGeneration.md",
+      "nativeDatasetResolution": "NASA BMNG documentation states 500 m global source composites. NASA GIBS WMTS capabilities independently bind this exact layer to TileMatrixSet 500m; highest matrix 7 is 160×80 tiles of 512×512 = 81920×40960 global pixels. The acquired official WMS rendering is 5400×2700, far below the advertised source grid, not the full native raster and not a raw Level-1 satellite measurement.",
+      "retrievedAt": "2026-10-14T15:56:20.875371+00:00",
+      "sourceOriginal": {
+        "path": "sources/earth-gibs-original-5400.jpg",
+        "sha256": "3cf80a763ca8ff80e8db8b4f286a7b5b2b6eeebb0ca9318b2f9c74be35e8ec36",
+        "width": 5400,
+        "height": 2700,
+        "bytes": 1124441,
+        "format": "JPEG",
+        "mode": "RGB",
+        "url": "https://gibs.earthdata.nasa.gov/wms/epsg4326/best/wms.cgi?SERVICE=WMS&VERSION=1.1.1&REQUEST=GetMap&LAYERS=BlueMarble_NextGeneration&STYLES=&SRS=EPSG%3A4326&BBOX=-180%2C-90%2C180%2C90&WIDTH=5400&HEIGHT=2700&FORMAT=image%2Fjpeg&TRANSPARENT=FALSE"
+      },
+      "tiers": {
+        "2": "./observations/maps/earth-2k.jpg",
+        "4": "./observations/maps/earth-4k.jpg"
+      },
+      "files": [
+        {
+          "path": "observations/maps/earth-2k.jpg",
+          "sha256": "0a2abd78bf3e17ce773093fb50dd10101565ad2c17235cc56323edf6e6d38061",
+          "width": 2048,
+          "height": 1024,
+          "bytes": 392262,
+          "derivedFrom": "sha256:3cf80a763ca8ff80e8db8b4f286a7b5b2b6eeebb0ca9318b2f9c74be35e8ec36",
+          "processing": "Pillow Lanczos downsample (or no resize at native 4K), JPEG quality=92, subsampling=0, optimize=True, progressive=False; no sharpening/fill/upscale/crop/flip."
+        },
+        {
+          "path": "observations/maps/earth-4k.jpg",
+          "sha256": "5d96fdd73c710b3efad131d2ff0ccf86a22be80274a4ba1ad6f7ecf8cbea73cb",
+          "width": 4096,
+          "height": 2048,
+          "bytes": 1386248,
+          "derivedFrom": "sha256:3cf80a763ca8ff80e8db8b4f286a7b5b2b6eeebb0ca9318b2f9c74be35e8ec36",
+          "processing": "Pillow Lanczos downsample (or no resize at native 4K), JPEG quality=92, subsampling=0, optimize=True, progressive=False; no sharpening/fill/upscale/crop/flip."
+        }
+      ]
+    },
+    {
+      "id": "moon",
+      "kind": "global-map",
+      "title": "月球 · LRO观测合成（2019版，含少量缺口修补）",
+      "sourceUrl": "https://svs.gsfc.nasa.gov/4720/",
+      "imageSourceUrl": "https://svs.gsfc.nasa.gov/vis/a000000/a004700/a004720/lroc_color_poles_4k.tif",
+      "credit": "NASA's Scientific Visualization Studio / Ernie Wright; NASA/GSFC; LROC/Arizona State University; LRO/LOLA",
+      "license": "NASA SVS public domain unless otherwise noted；已核对此图未见单独版权限制，按页面署名；不暗示NASA或合作机构背书。",
+      "licenseUrl": "https://svs.gsfc.nasa.gov/help/",
+      "capturedAt": "LROC WAC：2010-01-21至2013-05-01；2019年地图产品。极区LOLA源数据的逐像元观测日期未在该产品页列明。",
+      "processing": "2019 NASA CGI Moon Kit观测派生色彩图：约124,300幅LROC WAC影像的Hapke光度归一化镶嵌，643/566/415 nm分别映射RGB；NASA调整曝光、白平衡、伽马和动态范围。±70°外使用低分辨率LOLA激光反射率实测图；源产品还有少量高纬数据缺口inpainting。下载的是2019版8-bit RGB TIFF，不是2025版。本站只做Lanczos下采样/JPEG编码，不新增补绘或地貌。",
+      "coverage": "全球2:1等距经纬度图，中央经线0°、北向上、东向右。WAC光学色彩覆盖70°N至70°S；极区70°至90°由LOLA单色激光反射率补充（约6%球面面积、约22%图像行），并有源产品少量高纬缺口修补。",
+      "limitations": "NASA明确称为美观展示优化、非科学定量产品。并非100%无修补的原始实拍：极区不是可见光彩色观测，少量原始缺口已被NASA修补，缺少逐像元修补掩膜。不是完整原始反射率测量、实时照明或实测三维地形；颜色不能充当地形高度。",
+      "instrument": "Lunar Reconnaissance Orbiter: LROC Wide Angle Camera + LOLA polar laser albedo",
+      "wavelengths": "LROC WAC red 643 nm / green 566 nm / blue 415 nm; polar regions use monochromatic LOLA laser albedo, not RGB optical color.",
+      "mapping": {
+        "projection": "equirectangular / simple cylindrical",
+        "longitudeConvention": "east-positive",
+        "leftLongitudeDegrees": -180,
+        "centerLongitudeDegrees": 0,
+        "rightLongitudeDegrees": 180,
+        "topLatitudeDegrees": 90,
+        "bottomLatitudeDegrees": -90,
+        "imageOrigin": "top-left",
+        "pixelCenterLongitude": "-180 + 360 * (x + 0.5) / width",
+        "pixelCenterLatitude": "90 - 180 * (y + 0.5) / height",
+        "localTransforms": "None: no longitude shift, vertical flip, mirror or crop.",
+        "integrationNote": "Uploader/GL UV convention must preserve north-up/east-right and prime meridian; this worker does not certify runtime UVs or prime-meridian rotation."
+      },
+      "sourceEvidence": [
+        "sources/moon-kit.html",
+        "sources/moon-readme.txt",
+        "sources/moon-image.request.json",
+        "sources/svs-use.html",
+        "sources/nasa-use.html"
+      ],
+      "sourceProcessingDate": "2019; the same live page separately describes a December 2025 version, which was not used.",
+      "retrievedAt": "2026-10-14T15:52:29.782861+00:00",
+      "sourceOriginal": {
+        "path": "sources/moon-lroc-color-poles-2019-original-4k.tif",
+        "sha256": "918649a7f8ed2f1329b2cd95bb0d25483befdcb60ae1a66db681a637cc21344f",
+        "width": 4096,
+        "height": 2048,
+        "bytes": 13095388,
+        "format": "TIFF",
+        "mode": "RGB",
+        "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004700/a004720/lroc_color_poles_4k.tif"
+      },
+      "tiers": {
+        "2": "./observations/maps/moon-2k.jpg",
+        "4": "./observations/maps/moon-4k.jpg"
+      },
+      "files": [
+        {
+          "path": "observations/maps/moon-2k.jpg",
+          "sha256": "44e6ea377cbd128a2bae82f8af34de075e61e44952ceecf4056891a41d891f1b",
+          "width": 2048,
+          "height": 1024,
+          "bytes": 581080,
+          "derivedFrom": "sha256:918649a7f8ed2f1329b2cd95bb0d25483befdcb60ae1a66db681a637cc21344f",
+          "processing": "Pillow Lanczos downsample (or no resize at native 4K), JPEG quality=92, subsampling=0, optimize=True, progressive=False; no sharpening/fill/upscale/crop/flip."
+        },
+        {
+          "path": "observations/maps/moon-4k.jpg",
+          "sha256": "6cde85c814e4aeea8f2b7b1492088a01c5ee2201823eb44897fcd3c7d9d33b28",
+          "width": 4096,
+          "height": 2048,
+          "bytes": 2407725,
+          "derivedFrom": "sha256:918649a7f8ed2f1329b2cd95bb0d25483befdcb60ae1a66db681a637cc21344f",
+          "processing": "Pillow Lanczos downsample (or no resize at native 4K), JPEG quality=92, subsampling=0, optimize=True, progressive=False; no sharpening/fill/upscale/crop/flip."
+        }
+      ]
+    }
+  ],
+  "unavailable": [
+    {
+      "id": "mercury",
+      "reason": "已核验MESSENGER PDS16全球单色形貌预览2304×1152并保留于私有证据，但未投入活跃贴图：官方完整单色图至少193MB（超本轮单项/总预算），预览没有真实4K；使命专属许可明确限非商业教育/公共信息用途，不能当作无条件公共领域。源图含拍摄阴影与极区黑色缺测；未补绘。可在确认该许可适用且接受仅2K后单独纳入。"
+    },
+    {
+      "id": "mars",
+      "reason": "本轮未得到已核验来源、权限、完整经纬覆盖且下载体积合适的全球图。旧USGS Viking MDIM21链接返回正文404，未采用疑似同名图或大体积GIS数据；保留无已核验全球贴图状态。"
+    },
+    {
+      "id": "sun",
+      "reason": "本轮无已核验可作恒定球面纹理的全日面/全经度观测图；单幅日面照片不是全球等距经纬图。"
+    },
+    {
+      "id": "venus",
+      "reason": "本轮无已核验全球贴图；云层光学图与雷达地表图不能互称，单幅观测照片不包裹到球面。"
+    },
+    {
+      "id": "jupiter",
+      "reason": "本轮未取得经纬映射、时刻和观测覆盖均已核验的全球云带镶嵌；不回退旧未核验素材。"
+    },
+    {
+      "id": "saturn",
+      "reason": "本轮未取得已核验全球云层图或观测环径向剖面；不以旧纹理或解析环外观冒充观测。"
+    },
+    {
+      "id": "uranus",
+      "reason": "本轮无已核验全球观测贴图；圆盘观测照片不是全经度图。"
+    },
+    {
+      "id": "neptune",
+      "reason": "本轮无已核验全球观测贴图；圆盘观测照片不是全经度图。"
+    }
+  ]
+}

@@ -7,8 +7,6 @@ import { LabelRenderer } from '../render/label-renderer';
 import { ConstellationRenderer } from '../render/constellation-renderer';
 import { PlanetRenderer, PLANET_ANGULAR_SIZE, PLANET_POINT_SIZE } from '../render/planet-renderer';
 import { AtmosphereRenderer } from '../render/atmosphere-renderer';
-import { MilkyWayRenderer } from '../render/milkyway-renderer';
-import { OrbitRenderer } from '../render/orbit-renderer';
 import { HipsRenderer } from '../hips';
 import { SolarSystemView } from '../render/solar-system-view';
 import { getAllPlanets } from '../astro/planets';
@@ -24,7 +22,6 @@ export class Engine {
   private constellationRenderer!: ConstellationRenderer;
   private planetRenderer!: PlanetRenderer;
   private atmosphereRenderer!: AtmosphereRenderer;
-  private milkyWayRenderer!: MilkyWayRenderer;
   private hipsRenderer!: HipsRenderer;
   private showGrid = false;
   private showConstellations = false;
@@ -33,13 +30,13 @@ export class Engine {
   private selectedMag: number | null = null;
   private selectedAngSize: number | null = null;
   private selectedName: string | null = null;
-  private orbitRenderer!: OrbitRenderer;
-  private showOrbits = false;
   private solarSystemView!: SolarSystemView;
-  private showPlanets = true;
-  private showLabels = true;
   private hud: HTMLElement;
+  private debugOverlay: HTMLElement | null = null;
   private lastPlanetUpdate = 0;
+  private frameCount = 0;
+  private lastFpsUpdate = performance.now();
+  private fps = 0;
 
   constructor(private canvas: HTMLCanvasElement) {
     const gl = canvas.getContext('webgl2', { antialias: true, alpha: false });
@@ -49,9 +46,21 @@ export class Engine {
     this.input = new Input(canvas, this.camera);
     this.time = new TimeSystem();
     this.hud = document.getElementById('hud')!;
+    this.setupDebugOverlay();
 
     this.setupToolbar();
     this.setupInfoPanel();
+  }
+
+  private setupDebugOverlay() {
+    const params = new URLSearchParams(window.location.search);
+    const enabled = params.has('debug') || localStorage.getItem('galaxyDebug') === '1';
+    if (!enabled) return;
+
+    this.debugOverlay = document.createElement('div');
+    this.debugOverlay.id = 'debug-overlay';
+    this.debugOverlay.style.cssText = 'position:absolute;right:12px;bottom:12px;color:#9cf;background:rgba(5,8,18,0.72);border:1px solid rgba(100,140,255,0.25);border-radius:6px;padding:8px 10px;font:11px monospace;line-height:1.5;pointer-events:none;white-space:pre;';
+    document.body.appendChild(this.debugOverlay);
   }
 
   private setupToolbar() {
@@ -162,9 +171,6 @@ export class Engine {
     this.atmosphereRenderer = new AtmosphereRenderer(gl);
     this.atmosphereRenderer.init();
 
-    this.milkyWayRenderer = new MilkyWayRenderer(gl);
-    this.milkyWayRenderer.init();
-
     this.hipsRenderer = new HipsRenderer(gl, {
       url: 'https://alasky.cds.unistra.fr/MellingerRGB',
       maxOrder: 3,
@@ -176,9 +182,6 @@ export class Engine {
 
     this.planetRenderer = new PlanetRenderer(gl);
     this.planetRenderer.init();
-
-    this.orbitRenderer = new OrbitRenderer(gl);
-    this.orbitRenderer.init();
 
     this.solarSystemView = new SolarSystemView();
 
@@ -298,6 +301,20 @@ export class Engine {
     this.gl.viewport(0, 0, this.canvas.width, this.canvas.height);
   }
 
+  private updateDebugOverlay(fov: number) {
+    if (!this.debugOverlay) return;
+    this.frameCount++;
+    const now = performance.now();
+    const elapsed = now - this.lastFpsUpdate;
+    if (elapsed >= 500) {
+      this.fps = Math.round(this.frameCount * 1000 / elapsed);
+      this.frameCount = 0;
+      this.lastFpsUpdate = now;
+    }
+    const gl = this.gl;
+    this.debugOverlay.textContent = `FPS: ${this.fps}\nFOV: ${(fov * 180 / Math.PI).toFixed(1)}°\nCanvas: ${this.canvas.width}×${this.canvas.height}\nStars: ${this.starRenderer.getStarCount().toLocaleString()}\nHiPS tiles: ${this.hipsRenderer.getTileCount()}/${this.hipsRenderer.getMaxCacheTiles()}\nGPU: ${gl.getParameter(gl.RENDERER)}`;
+  }
+
   private loop = () => {
     this.time.update();
     this.camera.update();
@@ -341,6 +358,7 @@ export class Engine {
     this.labelRenderer.render(view, proj, this.canvas.clientWidth, this.canvas.clientHeight);
 
     // HUD
+    this.updateDebugOverlay(fov);
     const fovDeg = (fov * 180 / Math.PI).toFixed(1);
     const azDeg = ((this.camera.azimuth * 180 / Math.PI) % 360 + 360) % 360;
     const altDeg = this.camera.altitude * 180 / Math.PI;

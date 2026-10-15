@@ -1,0 +1,17 @@
+{
+  "source": "U.S. Naval Observatory Astronomical Applications Department",
+  "url": "https://aa.usno.navy.mil/api/moon/phases/date?date=2024-04-01&nump=5",
+  "retrievedAt": "2026-10-13T11:49:16.826Z",
+  "note": "JSON data copied from a successful HTTP 200 USNO response. Times are UT; minute resolution. Not generated with Astronomy Engine.",
+  "response": {
+    "apiversion": "4.0.1", "day": 1, "month": 4, "numphases": 5,
+    "phasedata": [
+      {"day": 2, "month": 4, "phase": "Last Quarter", "time": "03:15", "year": 2024},
+      {"day": 8, "month": 4, "phase": "New Moon", "time": "18:21", "year": 2024},
+      {"day": 15, "month": 4, "phase": "First Quarter", "time": "19:13", "year": 2024},
+      {"day": 23, "month": 4, "phase": "Full Moon", "time": "23:49", "year": 2024},
+      {"day": 1, "month": 5, "phase": "Last Quarter", "time": "11:27", "year": 2024}
+    ],
+    "year": 2024
+  }
+}

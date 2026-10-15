@@ -1,0 +1,683 @@
+{
+  "schemaVersion": 2,
+  "policy": "observation-first",
+  "records": [
+    {
+      "id": "earth",
+      "kind": "global-map",
+      "title": "地球 · MODIS 2004年8月无云自然色合成",
+      "sourceUrl": "https://science.nasa.gov/earth/earth-observatory/blue-marble-next-generation/",
+      "imageSourceUrl": "https://gibs.earthdata.nasa.gov/wms/epsg4326/best/wms.cgi?SERVICE=WMS&VERSION=1.1.1&REQUEST=GetMap&LAYERS=BlueMarble_NextGeneration&STYLES=&SRS=EPSG%3A4326&BBOX=-180%2C-90%2C180%2C90&WIDTH=5400&HEIGHT=2700&FORMAT=image%2Fjpeg&TRANSPARENT=FALSE",
+      "credit": "NASA Earth Observatory / Reto Stöckli (NASA/GSFC); MODIS; NASA GIBS",
+      "license": "NASA imagery usage guidelines：可作注明来源、不暗示机构背书的教育/信息性展示；已核对此产品未标注第三方版权例外。NASA标识不包含在授权内。",
+      "licenseUrl": "https://www.nasa.gov/nasa-brand-center/images-and-media/",
+      "capturedAt": "2004年8月（MODIS月度无云合成；非单次拍摄，非实时）",
+      "processing": "NASA Blue Marble Next Generation：MODIS可见光RGB自然色月度合成，云污染筛除、表面反射率和亮度/色调处理。采用GIBS静态BlueMarble_NextGeneration图层（明确为2004年8月），不采用ShadedRelief或Bathymetry图层。NASA WMS以EPSG:4326输出5400×2700 JPEG；本地仅Lanczos下采样及JPEG编码，无锐化、补绘或人工放大。",
+      "coverage": "全球经度−180°至180°、纬度−90°至90°的2:1经纬度图；陆地/沿海基于MODIS观测。深海不是此产品的逐像元实测颜色，源产品用统一深蓝色；南北极和云多区域存在源数据/合成限制。",
+      "limitations": "观测合成图，不是一次真实全地球照片或当前天气。NASA说明深海为统一颜色、近岸过渡可能不自然，热带仍可能缺少当月无云采样，短期积雪可能与云混淆，开阔水面有噪声。无实时云层；无实测三维地形或海深。",
+      "tiers": {
+        "2": "./observations/maps/earth-2k.jpg",
+        "4": "./observations/maps/earth-4k.jpg"
+      }
+    },
+    {
+      "id": "earth",
+      "kind": "observation-photo",
+      "title": "地球 · Apollo 17 蓝色弹珠照片",
+      "sourceUrl": "https://images.nasa.gov/details/as17-148-22727",
+      "imageSourceUrl": "https://images-assets.nasa.gov/image/as17-148-22727/as17-148-22727~orig.jpg",
+      "credit": "NASA / Apollo 17 crew",
+      "license": "NASA Images and Media Usage Guidelines：署名的教育/信息性网页使用；不得暗示 NASA 背书",
+      "licenseUrl": "https://www.nasa.gov/nasa-brand-center/images-and-media/",
+      "capturedAt": "1972-12-07（原页面未注明 UTC 时刻）",
+      "processing": "Apollo 17 机组赴月途中拍摄的可见光彩色照片之数字化版本；原页面未注明该单张相机型号、滤镜或完整数字化处理链。 本地仅等比例 Lanczos 缩小至长边不超过 1600 px（不放大），RGB JPEG quality=90，未做锐化、增色、补绘或生成。",
+      "coverage": "非洲、阿拉伯半岛、南极及云系所在的可见半球。",
+      "limitations": "历史观测，非实时；仅二维观测卡，不是可包裹球体的全球表面贴图。云系属于 1972 年拍摄时刻，不能代表当前天气；照片背面没有观测覆盖。",
+      "path": "./observations/photos/earth-earth-as17-148-22727.jpg"
+    },
+    {
+      "id": "jupiter",
+      "kind": "observation-photo",
+      "title": "木星 · Cassini 可见光云层观测拼接",
+      "sourceUrl": "https://science.nasa.gov/photojournal/cassini-jupiter-portrait/",
+      "imageSourceUrl": "https://assets.science.nasa.gov/content/dam/science/psd/photojournal/pia/pia04/pia04866/PIA04866.jpg",
+      "credit": "NASA/JPL/Space Science Institute",
+      "license": "NASA Images and Media Usage Guidelines：署名的教育/信息性网页使用；不得暗示 NASA 背书",
+      "licenseUrl": "https://www.nasa.gov/nasa-brand-center/images-and-media/",
+      "capturedAt": "2000-12-29（原页面未注明各帧 UTC 时刻）",
+      "processing": "Cassini ISS 窄角相机观测：9 个画幅位置各以红、绿、蓝拍摄，共 27 张组成近自然色二维拼接。 本地仅等比例 Lanczos 缩小至长边不超过 1600 px（不放大），RGB JPEG quality=90，未做锐化、增色、补绘或生成。",
+      "coverage": "相机可见的木星云层与大红斑；不是覆盖全部经度的表面图。",
+      "limitations": "历史观测，非实时；仅二维观测卡，不是可包裹球体的全球表面贴图。所有可见细节都是云，不是陆地；不是单张瞬时曝光，源页“最详细”是当年叙述而非当前排名。",
+      "path": "./observations/photos/jupiter-PIA04866.jpg"
+    },
+    {
+      "id": "mars",
+      "kind": "observation-photo",
+      "title": "火星 · Viking 1 水手峡谷晨云观测",
+      "sourceUrl": "https://science.nasa.gov/photojournal/martian-morning-clouds-seen-by-viking-orbiter-1-in-1976/",
+      "imageSourceUrl": "https://assets.science.nasa.gov/content/dam/science/psd/photojournal/pia/pia17/pia17940/PIA17940.jpg",
+      "credit": "NASA/JPL",
+      "license": "NASA Images and Media Usage Guidelines：署名的教育/信息性网页使用；不得暗示 NASA 背书",
+      "licenseUrl": "https://www.nasa.gov/nasa-brand-center/images-and-media/",
+      "capturedAt": "1976-08-17（原页面未注明 UTC 时刻；当地清晨）",
+      "processing": "Viking Orbiter 1 轨道影像，灰度版本；原页面未注明相机子型号、滤镜/波长或完整处理链，本记录不猜测。 本地仅等比例 Lanczos 缩小至长边不超过 1600 px（不放大），RGB JPEG quality=90，未做锐化、增色、补绘或生成。",
+      "coverage": "赤道附近水手峡谷区域，约 1000 km 宽；北向右上。",
+      "limitations": "历史观测，非实时；仅二维观测卡，不是可包裹球体的全球表面贴图。这是局部区域和水冰晨云，不是整颗火星圆盘或全球地图；没有用投影填补的合成球冒充相机实拍。",
+      "path": "./observations/photos/mars-PIA17940.jpg"
+    },
+    {
+      "id": "mercury",
+      "kind": "observation-photo",
+      "title": "水星 · MESSENGER 飞掠灰度观测",
+      "sourceUrl": "https://science.nasa.gov/photojournal/mercury-as-never-seen-before/",
+      "imageSourceUrl": "https://assets.science.nasa.gov/content/dam/science/psd/photojournal/pia/pia11/pia11245/PIA11245.jpg",
+      "credit": "NASA/Johns Hopkins University Applied Physics Laboratory/Carnegie Institution of Washington",
+      "license": "MESSENGER 任务专属政策：仅限非商业教育及公共信息用途；须完整署名 NASA/Johns Hopkins University Applied Physics Laboratory/Carnegie Institution of Washington；不得暗示任何机构为商品或服务背书。另须遵守 NASA 一般影像使用规则。",
+      "licenseUrl": "https://messenger.jhuapl.edu/Explore/Usage-Statement.html",
+      "capturedAt": "2008-10-06（原页面未注明该帧 UTC 时刻）",
+      "processing": "MESSENGER 的 MDIS 广角相机 WAC，6 号滤镜、430 nm 单波段灰度影像；源帧任务经过时间 MET 131775256。 本地仅等比例 Lanczos 缩小至长边不超过 1600 px（不放大），RGB JPEG quality=90，未做锐化、增色、补绘或生成。",
+      "coverage": "第二次飞掠离开水星时的可见日照半球，包含柯伊伯坑与辐射纹。",
+      "limitations": "历史观测，非实时；仅二维观测卡，不是可包裹球体的全球表面贴图。灰度不能代表自然表面颜色；缺少夜面和背面。源页顶部把 WAC 展开为 Narrow Angle Camera 的标签有误，正文明确为 Wide Angle Camera，本记录采用正文。",
+      "path": "./observations/photos/mercury-PIA11245.jpg"
+    },
+    {
+      "id": "moon",
+      "kind": "global-map",
+      "title": "月球 · LRO观测合成（2019版，含少量缺口修补）",
+      "sourceUrl": "https://svs.gsfc.nasa.gov/4720/",
+      "imageSourceUrl": "https://svs.gsfc.nasa.gov/vis/a000000/a004700/a004720/lroc_color_poles_4k.tif",
+      "credit": "NASA's Scientific Visualization Studio / Ernie Wright; NASA/GSFC; LROC/Arizona State University; LRO/LOLA",
+      "license": "NASA SVS public domain unless otherwise noted；已核对此图未见单独版权限制，按页面署名；不暗示NASA或合作机构背书。",
+      "licenseUrl": "https://svs.gsfc.nasa.gov/help/",
+      "capturedAt": "LROC WAC：2010-01-21至2013-05-01；2019年地图产品。极区LOLA源数据的逐像元观测日期未在该产品页列明。",
+      "processing": "2019 NASA CGI Moon Kit观测派生色彩图：约124,300幅LROC WAC影像的Hapke光度归一化镶嵌，643/566/415 nm分别映射RGB；NASA调整曝光、白平衡、伽马和动态范围。±70°外使用低分辨率LOLA激光反射率实测图；源产品还有少量高纬数据缺口inpainting。下载的是2019版8-bit RGB TIFF，不是2025版。本站只做Lanczos下采样/JPEG编码，不新增补绘或地貌。",
+      "coverage": "全球2:1等距经纬度图，中央经线0°、北向上、东向右。WAC光学色彩覆盖70°N至70°S；极区70°至90°由LOLA单色激光反射率补充（约6%球面面积、约22%图像行），并有源产品少量高纬缺口修补。",
+      "limitations": "NASA明确称为美观展示优化、非科学定量产品。并非100%无修补的原始实拍：极区不是可见光彩色观测，少量原始缺口已被NASA修补，缺少逐像元修补掩膜。不是完整原始反射率测量、实时照明或实测三维地形；颜色不能充当地形高度。",
+      "tiers": {
+        "2": "./observations/maps/moon-2k.jpg",
+        "4": "./observations/maps/moon-4k.jpg"
+      }
+    },
+    {
+      "id": "moon",
+      "kind": "observation-photo",
+      "title": "月球 · Galileo 多波段观测合成",
+      "sourceUrl": "https://science.nasa.gov/photojournal/earths-moon/",
+      "imageSourceUrl": "https://assets.science.nasa.gov/content/dam/science/psd/photojournal/pia/pia00/pia00405/PIA00405.jpg",
+      "credit": "NASA/JPL/USGS",
+      "license": "NASA Images and Media Usage Guidelines：署名的教育/信息性网页使用；不得暗示 NASA 背书",
+      "licenseUrl": "https://www.nasa.gov/nasa-brand-center/images-and-media/",
+      "capturedAt": "1992-12-07（原页面未注明 UTC 时刻）",
+      "processing": "Galileo 飞掠影像合成，使用紫光、756 nm、968 nm 滤镜；包含人眼不可见的近红外，颜色增强而非自然可见光。 本地仅等比例 Lanczos 缩小至长边不超过 1600 px（不放大），RGB JPEG quality=90，未做锐化、增色、补绘或生成。",
+      "coverage": "以月海和第谷坑为特征的可见月面，不包含全部经度。",
+      "limitations": "历史观测，非实时；仅二维观测卡，不是可包裹球体的全球表面贴图。多张/多波段影像合成，不是单次未处理曝光；不能把近红外色彩解释为肉眼所见颜色。",
+      "path": "./observations/photos/moon-PIA00405.jpg"
+    },
+    {
+      "id": "neptune",
+      "kind": "observation-photo",
+      "title": "海王星 · Voyager 2 云层近景观测",
+      "sourceUrl": "https://science.nasa.gov/photojournal/neptune-true-color-of-clouds/",
+      "imageSourceUrl": "https://assets.science.nasa.gov/content/dam/science/psd/photojournal/pia/pia00/pia00063/PIA00063.jpg",
+      "credit": "NASA/JPL",
+      "license": "NASA Images and Media Usage Guidelines：署名的教育/信息性网页使用；不得暗示 NASA 背书",
+      "licenseUrl": "https://www.nasa.gov/nasa-brand-center/images-and-media/",
+      "capturedAt": "原页面未注明",
+      "processing": "Voyager 2 广角相机观测，原页称已做 true color balance；还额外压低白云亮度，以同时显现亮云与暗区结构。 本地仅等比例 Lanczos 缩小至长边不超过 1600 px（不放大），RGB JPEG quality=90，未做锐化、增色、补绘或生成。",
+      "coverage": "海王星大气云系的局部近景，飞船距行星约 590000 km；不是完整圆盘。",
+      "limitations": "历史观测，非实时；仅二维观测卡，不是可包裹球体的全球表面贴图。原页没有给出拍摄日期、滤镜或精确波长，不能把 1996 年收录日期当拍摄日期。顶部 WAC 标签错误展开为 Narrow Angle Camera，正文明确 wide-angle；本记录采用正文。",
+      "path": "./observations/photos/neptune-PIA00063.jpg"
+    },
+    {
+      "id": "saturn",
+      "kind": "observation-photo",
+      "title": "土星 · Cassini 逆光系统全景",
+      "sourceUrl": "https://science.nasa.gov/photojournal/the-day-the-earth-smiled/",
+      "imageSourceUrl": "https://assets.science.nasa.gov/content/dam/science/psd/photojournal/pia/pia17/pia17172/PIA17172.jpg",
+      "credit": "NASA/JPL-Caltech/SSI",
+      "license": "NASA Images and Media Usage Guidelines：署名的教育/信息性网页使用；不得暗示 NASA 背书",
+      "licenseUrl": "https://www.nasa.gov/nasa-brand-center/images-and-media/",
+      "capturedAt": "2013-07-19（跨越约四小时；各帧 UTC 时刻原页面未注明）",
+      "processing": "Cassini ISS 广角相机红/绿/蓝滤镜的 141 张观测拼接成自然色全景；源处理对暗环、卫星、行星与背景星分别提亮，非统一曝光。 本地仅等比例 Lanczos 缩小至长边不超过 1600 px（不放大），RGB JPEG quality=90，未做锐化、增色、补绘或生成。",
+      "coverage": "背光土星、主环与外环、部分卫星；远处地球等仅是点。",
+      "limitations": "历史观测，非实时；仅二维观测卡，不是可包裹球体的全球表面贴图。外环提亮约 2–8 倍；地球/金星/火星及部分卫星约 8.5 倍、Tethys 4 倍、背景星 6–16 倍。跨时段拼接，各天体不代表同一瞬间的严格位置；不是环材质或不透明度实测贴图。",
+      "path": "./observations/photos/saturn-PIA17172.jpg"
+    },
+    {
+      "id": "sun",
+      "kind": "observation-photo",
+      "title": "太阳 · SDO/AIA 171 Å 极紫外观测（金星凌日）",
+      "sourceUrl": "https://images.nasa.gov/details/GSFC_20171208_Archive_e001734",
+      "imageSourceUrl": "https://images-assets.nasa.gov/image/GSFC_20171208_Archive_e001734/GSFC_20171208_Archive_e001734~orig.jpg",
+      "credit": "NASA/SDO, AIA",
+      "license": "NASA Images and Media Usage Guidelines：署名的教育/信息性网页使用；不得暗示 NASA 背书",
+      "licenseUrl": "https://www.nasa.gov/nasa-brand-center/images-and-media/",
+      "capturedAt": "2012-06-05（原页面未注明 UTC 时刻）",
+      "processing": "SDO 大气成像组件 AIA 的 171 Å 极紫外观测，金色为波段赋色，非人眼可见光颜色；黑色小圆点是凌日的金星。 本地仅等比例 Lanczos 缩小至长边不超过 1600 px（不放大），RGB JPEG quality=90，未做锐化、增色、补绘或生成。",
+      "coverage": "面向 SDO 的太阳日面及日冕，带真实金星凌日；非太阳全表面。",
+      "limitations": "历史观测，非实时；仅二维观测卡，不是可包裹球体的全球表面贴图。观测展示高温大气/日冕结构，不能当作可见光光球颗粒或恒星地貌。",
+      "path": "./observations/photos/sun-sun-GSFC_20171208_Archive_e001734.jpg"
+    },
+    {
+      "id": "uranus",
+      "kind": "observation-photo",
+      "title": "天王星 · Voyager 2 近自然色观测",
+      "sourceUrl": "https://science.nasa.gov/photojournal/uranus-in-true-and-false-color/",
+      "imageSourceUrl": "https://assets.science.nasa.gov/content/dam/science/psd/photojournal/pia/pia00/pia00032/PIA00032.jpg",
+      "credit": "NASA/JPL",
+      "license": "NASA Images and Media Usage Guidelines：署名的教育/信息性网页使用；不得暗示 NASA 背书",
+      "licenseUrl": "https://www.nasa.gov/nasa-brand-center/images-and-media/",
+      "capturedAt": "1986-01-17（原页面未注明各帧 UTC 时刻）",
+      "processing": "Voyager 2 窄角相机蓝、绿、橙滤镜合成；取 NASA 并排图左侧的近自然色图，排除右侧强假色增强图及其边缘处理伪影。 本地仅裁取指定子图后等比例 Lanczos 缩小至长边不超过 1600 px（不放大），RGB JPEG quality=90，未做锐化、增色、补绘或生成。",
+      "coverage": "从飞船方向看到的天王星大气；当时北半球处于暗区，不在观测覆盖内。",
+      "limitations": "历史观测，非实时；仅二维观测卡，不是可包裹球体的全球表面贴图。主要可见近乎平滑的大气，未添加条纹或地貌；不是完整表面信息。",
+      "path": "./observations/photos/uranus-PIA00032.jpg"
+    },
+    {
+      "id": "venus",
+      "kind": "observation-photo",
+      "title": "金星 · Mariner 10 云层假色观测",
+      "sourceUrl": "https://science.nasa.gov/photojournal/venus-from-mariner-10/",
+      "imageSourceUrl": "https://assets.science.nasa.gov/content/dam/science/psd/photojournal/pia/pia23/pia23791/PIA23791.jpg",
+      "credit": "NASA/JPL-Caltech；archived-data processing: Kevin M. Gill (JPL)",
+      "license": "NASA Images and Media Usage Guidelines：署名的教育/信息性网页使用；不得暗示 NASA 背书",
+      "licenseUrl": "https://www.nasa.gov/nasa-brand-center/images-and-media/",
+      "capturedAt": "1974-02-07 至 1974-02-08（原页面未注明各帧 UTC 时刻）",
+      "processing": "Mariner 10 成像相机橙光与紫外滤镜分别用于红/蓝通道，绿通道由两者合成；现代软件重处理的假色云层图。本地取 NASA 并排 JPEG 的左幅，未增加对比或虚构地貌。 本地仅裁取指定子图后等比例 Lanczos 缩小至长边不超过 1600 px（不放大），RGB JPEG quality=90，未做锐化、增色、补绘或生成。",
+      "coverage": "约 60 km 高度的全球浓密云层之可见半球；不是雷达地表。",
+      "limitations": "历史观测，非实时；仅二维观测卡，不是可包裹球体的全球表面贴图。云层遮蔽地面，颜色不等于人眼所见；动态云纹不能作为固定的地理地貌。",
+      "path": "./observations/photos/venus-PIA23791.jpg"
+    },
+    {
+      "id": "sun",
+      "kind": "observation-photo",
+      "imageId": "nasa-GSFC_20171208_Archive_e001729-hmi",
+      "title": "太阳 · SDO/HMI 光球与金星凌日局部观测",
+      "path": "./observations/gallery/inner/sun-hmi-20120606.jpg",
+      "sourceUrl": "https://images.nasa.gov/details/GSFC_20171208_Archive_e001729",
+      "imageSourceUrl": "https://images-assets.nasa.gov/image/GSFC_20171208_Archive_e001729/GSFC_20171208_Archive_e001729~orig.jpg",
+      "credit": "NASA/SDO, HMI；Courtesy of NASA/SDO and the AIA, EVE, and HMI science teams.",
+      "license": "SDO Copyright Permissions：未另行标注版权的 SDO 影像鼓励用于非商业公共教育/信息展示，无需另行书面授权，保留任务要求的完整署名。此图未标注例外。另遵守 NASA 一般影像规则（https://www.nasa.gov/nasa-brand-center/images-and-media/），不暗示机构背书；不是任意第三方材料或 NASA 标识的授权。",
+      "licenseUrl": "https://sdo.gsfc.nasa.gov/gallery/copyright/",
+      "capturedAt": "2012-06-06（NASA 档案说明中的拍摄日；原页面未注明 UTC 时刻）",
+      "processing": "SDO/HMI 的光球亮度观测展示图：HMI 在可见光 Fe I 6173 Å 谱线附近采样并生成连续谱光球图；本图为暖黄/橙色显示赋色，不是自然可见光 RGB 照片或 AIA 极紫外日冕图。图片级完整标定/显示处理链原页面未注明。本地仅转为 RGB、等比例 Lanczos 下采样（长边最多 1600 px，原图较小不放大）及 JPEG quality=90、4:4:4 编码；无锐化、增色、补绘或生成。",
+      "coverage": "太阳光球局部及右上方日缘；金星为日缘上的黑色圆形剪影，可见太阳黑子。原发布画面就是局部近景，不包含完整太阳圆盘。",
+      "limitations": "历史观测，非实时；仅二维观测卡，不是可包裹球体的全球地图或实测三维地形。不能把黄色解释为太阳自然表面色，也不能把全部细小颗粒都宣称为已分辨的真实对流细胞；SDO browse 图不用于定量科学分析或科学出版。此 HMI 图与已有 AIA 171 Å 图是不同仪器/波段的独立观测，虽同属 2012 年凌日事件。"
+    },
+    {
+      "id": "earth",
+      "kind": "observation-photo",
+      "imageId": "nasa-GSFC_20171208_Archive_e000678-epic",
+      "title": "地球 · DSCOVR/EPIC 美洲日照半球",
+      "path": "./observations/gallery/inner/earth-epic-20150706.jpg",
+      "sourceUrl": "https://images.nasa.gov/details/GSFC_20171208_Archive_e000678",
+      "imageSourceUrl": "https://images-assets.nasa.gov/image/GSFC_20171208_Archive_e000678/GSFC_20171208_Archive_e000678~orig.jpg",
+      "credit": "NASA；Earth Polychromatic Imaging Camera (EPIC) / DSCOVR",
+      "license": "NASA Images and Media Usage Guidelines：用于署名的教育/信息性网页展示，不暗示 NASA 或合作机构背书；已核对此图的官方说明未标注第三方版权例外。NASA 一般许可不涵盖另行标注的第三方材料、机构标识或商品推广。",
+      "licenseUrl": "https://www.nasa.gov/nasa-brand-center/images-and-media/",
+      "capturedAt": "2015-07-06（原页面未注明各通道 UTC 时刻；非 2017 年档案收录日期）",
+      "processing": "DSCOVR 上的 EPIC 相机从约一百万英里外拍摄，以红、绿、蓝窄带的三幅观测合成彩色影像。原说明指出大气分子散射令此早期产品偏蓝，该版本尚未消除这一影响。本地仅转为 RGB、等比例 Lanczos 下采样（长边最多 1600 px，原图较小不放大）及 JPEG quality=90、4:4:4 编码；无锐化、增色、补绘或生成。",
+      "coverage": "面向 DSCOVR 的日照半球，北美、中美及加勒比浅海和云系可见；与 Apollo 17 非洲视角不同。",
+      "limitations": "历史观测，非实时；仅二维观测卡，不是可包裹球体的全球地图或实测三维地形。三通道合成而非一次 RGB 快照；背面没有覆盖，云系与色彩仅代表该历史产品，不是实时天气或全部经度的表面图。"
+    },
+    {
+      "id": "moon",
+      "kind": "observation-photo",
+      "imageId": "nasa-LROC-M162350671LE-tycho",
+      "title": "月球 · LRO 第谷坑中央峰斜视近景",
+      "path": "./observations/gallery/inner/moon-lroc-tycho-20110610.jpg",
+      "sourceUrl": "https://www.nasa.gov/image-article/tycho-craters-peak/",
+      "imageSourceUrl": "https://www.nasa.gov/wp-content/uploads/2023/03/565736main_M162350671LE_full.jpg",
+      "credit": "NASA Goddard/Arizona State University",
+      "license": "NASA Images and Media Usage Guidelines：用于署名的教育/信息性网页展示，不暗示 NASA 或合作机构背书；已核对此图的官方说明未标注第三方版权例外。NASA 一般许可不涵盖另行标注的第三方材料、机构标识或商品推广。",
+      "licenseUrl": "https://www.nasa.gov/nasa-brand-center/images-and-media/",
+      "capturedAt": "2011-06-10（原页面未注明 UTC 时刻；2011-06-30 为发布日）",
+      "processing": "LRO Camera 窄角相机 NAC 在西向 65° 斜视条件下拍摄的日出时分灰度观测，发布文件名 M162350671LE。原页面未给出滤镜/波长或完整处理链；不是计算机生成地形。本地仅转为 RGB、等比例 Lanczos 下采样（长边最多 1600 px，原图较小不放大）及 JPEG quality=90、4:4:4 编码；无锐化、增色、补绘或生成。",
+      "coverage": "第谷坑中央峰群，画面横向约 15 km；坑位于约 43.37°S、348.68°E。中央峰高于坑底约 2 km，照片可见大幅真实阴影。",
+      "limitations": "历史观测，非实时；仅二维观测卡，不是可包裹球体的全球地图或实测三维地形。只有局部斜视地形和遮蔽区，不是整座 82 km 撞击坑或全球月面；灰度不是自然彩色。"
+    },
+    {
+      "id": "mercury",
+      "kind": "observation-photo",
+      "imageId": "nasa-PIA14080",
+      "title": "水星 · MESSENGER 德彪西坑辐射纹近景",
+      "path": "./observations/gallery/inner/mercury-PIA14080-debussy.jpg",
+      "sourceUrl": "https://science.nasa.gov/photojournal/exploring-the-rays-of-debussy/",
+      "imageSourceUrl": "https://assets.science.nasa.gov/content/dam/science/psd/photojournal/pia/pia14/pia14080/PIA14080.jpg",
+      "credit": "NASA/Johns Hopkins University Applied Physics Laboratory/Carnegie Institution of Washington",
+      "license": "MESSENGER 任务专属政策：仅限非商业教育及公共信息用途；须完整署名 NASA/Johns Hopkins University Applied Physics Laboratory/Carnegie Institution of Washington；不得暗示 NASA、JHU/APL 或 Carnegie 为任何商品或服务背书。另须遵守 NASA 一般影像规则（https://www.nasa.gov/nasa-brand-center/images-and-media/）。不是不受限制的公有领域授权；此图未标注额外版权例外。",
+      "licenseUrl": "https://messenger.jhuapl.edu/Explore/Usage-Statement.html",
+      "capturedAt": "2011-03-29（MDIS 图像 ID 65082；任务经过时间 MET 209885555；原页面未注明 UTC 时刻）",
+      "processing": "MESSENGER Mercury Dual Imaging System 的 Narrow Angle Camera（MDIS/NAC）灰度轨道相机影像，源分辨率约 300 m/px；原页面未注明滤镜或完整标定处理链。本地仅转为 RGB、等比例 Lanczos 下采样（长边最多 1600 px，原图较小不放大）及 JPEG quality=90、4:4:4 编码；无锐化、增色、补绘或生成。",
+      "coverage": "画面中心约 36.4°S、16.1°E；上部为约 80 km 直径的德彪西坑，向下延展为撞击喷出物及次生坑形成的明亮辐射纹。这只是其大尺度射纹系统的一部分。",
+      "limitations": "历史观测，非实时；仅二维观测卡，不是可包裹球体的全球地图或实测三维地形。局部坑与喷出物影像，不是整颗水星圆盘；灰度不能解释为自然表面色。用途受任务非商业教育/公共信息限定。"
+    },
+    {
+      "id": "venus",
+      "kind": "observation-photo",
+      "imageId": "nasa-PIA00470",
+      "title": "金星 · Magellan 巴克坑雷达地表观测",
+      "path": "./observations/gallery/inner/venus-PIA00470-buck-radar.jpg",
+      "sourceUrl": "https://science.nasa.gov/photojournal/venus-complex-crater-buck-in-navka-region/",
+      "imageSourceUrl": "https://assets.science.nasa.gov/content/dam/science/psd/photojournal/pia/pia00/pia00470/PIA00470.jpg",
+      "credit": "NASA/JPL",
+      "license": "NASA Images and Media Usage Guidelines：用于署名的教育/信息性网页展示，不暗示 NASA 或合作机构背书；已核对此图的官方说明未标注第三方版权例外。NASA 一般许可不涵盖另行标注的第三方材料、机构标识或商品推广。",
+      "licenseUrl": "https://www.nasa.gov/nasa-brand-center/images-and-media/",
+      "capturedAt": "1990-09-26 至 1990-09-27（Magellan 轨道 459、460；原页面未注明各帧 UTC 时刻）",
+      "processing": "Magellan 雷达系统对 Navka 区巴克撞击坑的二维雷达观测，灰度表现雷达回波明暗，不是可见光照片、自然色或 CGI 景观。保留原图的雷达散斑、边缘黑区；原页面未注明完整雷达处理链。本地仅转为 RGB、等比例 Lanczos 下采样（长边最多 1600 px，原图较小不放大）及 JPEG quality=90、4:4:4 编码；无锐化、增色、补绘或生成。",
+      "coverage": "约 5.75°S、349.6°E 的巴克坑（直径约 22 km）及邻近地表，可见台阶坑壁、较大的中央峰、雷达暗坑底和周围喷出物。",
+      "limitations": "历史观测，非实时；仅二维观测卡，不是可包裹球体的全球地图或实测三维地形。这是云层下地面的局部雷达观测，不是金星云层、Venera 地面相机照片或全星球圆盘。回波取决于粗糙度、几何和介电性质，明暗不能直接当作可见光颜色或高程。"
+    },
+    {
+      "id": "mars",
+      "kind": "observation-photo",
+      "imageId": "nasa-PIA02981-left",
+      "title": "火星 · Mariner 7 接近时的整盘灰度观测",
+      "path": "./observations/gallery/inner/mars-PIA02981-mariner7.jpg",
+      "sourceUrl": "https://science.nasa.gov/photojournal/mars-full-disk-approach-view-from-mariner-7/",
+      "imageSourceUrl": "https://assets.science.nasa.gov/content/dam/science/psd/photojournal/pia/pia02/pia02981/PIA02981.jpg",
+      "credit": "NASA/JPL",
+      "license": "NASA Images and Media Usage Guidelines：用于署名的教育/信息性网页展示，不暗示 NASA 或合作机构背书；已核对此图的官方说明未标注第三方版权例外。NASA 一般许可不涵盖另行标注的第三方材料、机构标识或商品推广。",
+      "licenseUrl": "https://www.nasa.gov/nasa-brand-center/images-and-media/",
+      "capturedAt": "原页面未注明该帧拍摄日期/UTC 时刻（只说明 Mariner 7 于 1969 年接近火星；2000-11-04 是图片收录日期）",
+      "processing": "Mariner 7 从约 200000 英里外取得的相机整盘观测。源 JPEG 是左右并排的两幅灰度图；本站仅裁取左幅 [0,0,320,360]，不把未说明的两幅关系猜作立体或同一时刻。原页面未注明相机子型号、波段、完整处理链。本地仅转为 RGB、等比例 Lanczos 下采样（长边最多 1600 px，原图较小不放大）及 JPEG quality=90、4:4:4 编码；无锐化、增色、补绘或生成。",
+      "coverage": "相机可见的火星圆盘，原说明指认 Nix Olympia（后识别为 Olympus Mons）及极冠；不是覆盖全部经度的地图。",
+      "limitations": "历史观测，非实时；仅二维观测卡，不是可包裹球体的全球地图或实测三维地形。原始发布子图仅 320×360 px，明确保留低分辨率而不人工放大；并非自然彩色，不能推断背面或精确观测时刻。"
+    },
+    {
+      "id": "mars",
+      "kind": "observation-photo",
+      "imageId": "nasa-PIA24543",
+      "title": "火星 · Curiosity 与 Mont Mercou 实景拼接",
+      "path": "./observations/gallery/inner/mars-PIA24543-curiosity-mont-mercou.jpg",
+      "sourceUrl": "https://science.nasa.gov/photojournal/curiositys-selfie-at-mont-mercou/",
+      "imageSourceUrl": "https://assets.science.nasa.gov/dynamicimage/assets/science/psd/photojournal/pia/pia24/pia24543/PIA24543.jpg?w=1536&h=1014&fit=clip&crop=faces%2Cfocalpoint",
+      "credit": "NASA/JPL-Caltech/MSSS",
+      "license": "NASA Images and Media Usage Guidelines：用于署名的教育/信息性网页展示，不暗示 NASA 或合作机构背书；已核对此图的官方说明未标注第三方版权例外。NASA 一般许可不涵盖另行标注的第三方材料、机构标识或商品推广。",
+      "licenseUrl": "https://www.nasa.gov/nasa-brand-center/images-and-media/",
+      "capturedAt": "2021-03-26（MAHLI，sol 3070）及 2021-03-16（Mastcam，sol 3060）；原页面未注明各帧 UTC 时刻",
+      "processing": "Curiosity 两台相机的真实观测拼接：机械臂 MAHLI 于 3 月 26 日取得的 60 张，与桅杆 Mastcam 于 3 月 16 日取得的 11 张结合。使用官方页面直接列出的 1536 px JPEG 展示版（实际解码 1536×1013），不是下载完整 20.23 MB 大图后伪称原始数据；完整色彩/天空/接缝处理链原页面未注明，不宣称未经处理或自然色。本地仅转为 RGB、等比例 Lanczos 下采样（长边最多 1600 px，原图较小不放大）及 JPEG quality=90、4:4:4 编码；无锐化、增色、补绘或生成。",
+      "coverage": "Gale 撞击坑内约 6 m 高的 Mont Mercou 露头、Curiosity 火星车及其周围地面；左侧钻孔为 Nontron 采样点。",
+      "limitations": "历史观测，非实时；仅二维观测卡，不是可包裹球体的全球地图或实测三维地形。跨两日、71 张相机画面组合，不是单次曝光或第三台相机为火星车拍照；拼接投影有畸变、天空色差/接缝，不代表整颗火星。NASA/JPL-Caltech/MSSS 为照片来源署名，不是本站或产品的背书。"
+    },
+    {
+      "id": "jupiter",
+      "kind": "observation-photo",
+      "imageId": "nasa-PIA21031-fig2",
+      "title": "木星 · Juno 北极云层近景（增强色）",
+      "path": "./observations/gallery/outer/jupiter-PIA21031-fig2.jpg",
+      "sourceUrl": "https://science.nasa.gov/photojournal/close-up-views-of-jupiters-north-pole/",
+      "imageSourceUrl": "https://assets.science.nasa.gov/dynamicimage/assets/science/psd/photojournal/pia/pia21/pia21031/figures/PIA21031_fig2.jpg",
+      "credit": "NASA/JPL-Caltech/SwRI/MSSS",
+      "license": "NASA Images and Media Usage Guidelines：用于署名、事实性的教育/信息性网页展示，不得暗示 NASA 或合作机构背书；NASA 标识不包含在授权内。已核对 PIA21031 的机构署名与逐图说明，未标注另行受保护的第三方版权；不适用于其它公民科学家自行处理的 Juno 图像。",
+      "licenseUrl": "https://www.nasa.gov/nasa-brand-center/images-and-media/",
+      "capturedAt": "2016-08-27（原页面未注明各帧 UTC 时刻）",
+      "processing": "JunoCam 相机彩色观测，采用原页单独提供的 Version 2 JPEG（976×1280），不是将两幅比较图当作不同观测。任务方增强对比度以显现明暗交界与亮侧云纹；原页未列滤镜及详细色彩处理链。 本地保留源画幅，仅在必要时等比例 Lanczos 下采样至长边不超过 1600 px，转 RGB JPEG quality=90、4:4:4；不放大、不锐化、不增色、不补绘或生成。",
+      "coverage": "距木星极区云顶约 78000 km 的北极区域斜视近景；可见风暴、云带和明暗交界，仅部分大气，不是全圆盘或全球地图。",
+      "limitations": "历史观测、非实时；增强色不能等同肉眼颜色。原页指出部分细微色差可能来自 JunoCam 光学散射；黑色画幅与截断边缘没有新增观测覆盖。照片中的纹理是云，不是固体地表。仅作二维观测卡，不用于球面贴图。"
+    },
+    {
+      "id": "jupiter",
+      "kind": "observation-photo",
+      "imageId": "nasa-PIA00296",
+      "title": "木星 · Galileo 大红斑斜视多波段拼接",
+      "path": "./observations/gallery/outer/jupiter-PIA00296.jpg",
+      "sourceUrl": "https://science.nasa.gov/photojournal/jupiters-great-red-spot/",
+      "imageSourceUrl": "https://assets.science.nasa.gov/content/dam/science/psd/photojournal/pia/pia00/pia00296/PIA00296.jpg",
+      "credit": "NASA/JPL",
+      "license": "NASA Images and Media Usage Guidelines：用于署名、事实性的教育/信息性网页展示，不得暗示 NASA 背书；NASA 标识不包含在授权内。已核对 PIA00296 逐图说明，未标注第三方版权例外。",
+      "licenseUrl": "https://www.nasa.gov/nasa-brand-center/images-and-media/",
+      "capturedAt": "1996-06-26（原页面未注明各帧 UTC 时刻）",
+      "processing": "Galileo 固态成像相机 SSI 在两个相机位置分别使用紫光与近红外滤镜，合成为两幅位置影像的镶嵌。含人眼不可见的近红外，属于多波段赋色观测；原页未列精确波长或 RGB 通道赋值，不称自然真彩色。 本地保留源画幅，仅在必要时等比例 Lanczos 下采样至长边不超过 1600 px，转 RGB JPEG quality=90、4:4:4；不放大、不锐化、不增色、不补绘或生成。",
+      "coverage": "木星边缘附近大红斑与邻近云层的局部斜视拼接；源画幅有明显阶梯状覆盖边缘和黑色未覆盖区域，全部保留。",
+      "limitations": "历史观测、非实时；非单次曝光、非全球地图。透视使大红斑在图中显得南北向较长；黑色拼接外区域没有数据，未补齐。近红外赋色不等同肉眼颜色；大红斑尺寸和外观属于当年而非当前。仅作二维观测卡，不用于球面贴图。"
+    },
+    {
+      "id": "saturn",
+      "kind": "observation-photo",
+      "imageId": "nasa-PIA11667",
+      "title": "土星 · Cassini 分点时节日照系统拼接",
+      "path": "./observations/gallery/outer/saturn-PIA11667.jpg",
+      "sourceUrl": "https://science.nasa.gov/photojournal/the-rite-of-spring/",
+      "imageSourceUrl": "https://assets.science.nasa.gov/content/dam/science/psd/photojournal/pia/pia11/pia11667/PIA11667.jpg",
+      "credit": "NASA/JPL/Space Science Institute",
+      "license": "Cassini 成像团队 CICLOPS 版权说明：Cassini 影像、拼接和相关图注属于 public domain；艺术家作品及另注版权的项目除外。本项是已核对的 Cassini 相机观测拼接，无该类例外。完整署名 NASA/JPL/Space Science Institute，并遵守 NASA 不暗示背书与标识使用限制。",
+      "licenseUrl": "https://ciclops.org/webcredits.php.html",
+      "capturedAt": "2009-08-12（约八小时内拍摄；开始于精确分点后约 1.25 天，各帧 UTC 时刻原页未列）",
+      "processing": "Cassini ISS 广角相机红、绿、蓝滤镜共 75 次曝光组成近自然色系统拼接。原制作统一重投影到同一观察几何、处理拼接接缝并去除镜头眩光；不是一张瞬时照片，也不是计算机生成球体。 本地保留源画幅，仅在必要时等比例 Lanczos 下采样至长边不超过 1600 px，转 RGB JPEG quality=90、4:4:4；不放大、不锐化、不增色、不补绘或生成。",
+      "coverage": "从环平面以北约 20° 观察日照土星、整套主要可见环及 Janus、Epimetheus、Pandora、Atlas 等系统背景点；不将图中卫星新增为导航目标。",
+      "limitations": "历史观测、非实时。为显现暗环，左侧环相对行星提亮约 20 倍、右侧约 60 倍，卫星提亮约 30–60 倍；其它亮点为背景星。非统一曝光或未处理真彩实拍，跨八小时拼接不代表各天体同一瞬间位置。照片不是全球云图、环材质或不透明度图；仅作二维观测卡。"
+    },
+    {
+      "id": "saturn",
+      "kind": "observation-photo",
+      "imageId": "nasa-PIA08824",
+      "title": "土星 · Cassini A 环螺旋密度波近景",
+      "path": "./observations/gallery/outer/saturn-PIA08824.jpg",
+      "sourceUrl": "https://science.nasa.gov/photojournal/spiral-density-waves/",
+      "imageSourceUrl": "https://assets.science.nasa.gov/content/dam/science/psd/photojournal/pia/pia08/pia08824/PIA08824.jpg",
+      "credit": "NASA/JPL/Space Science Institute",
+      "license": "Cassini 成像团队 CICLOPS 版权说明：Cassini 影像、拼接和相关图注属于 public domain；艺术家作品及另注版权的项目除外。本项是已核对的 Cassini 相机观测，无该类例外。完整署名 NASA/JPL/Space Science Institute，并遵守 NASA 不暗示背书与标识使用限制。",
+      "licenseUrl": "https://ciclops.org/webcredits.php.html",
+      "capturedAt": "2006-11-08（原页面未注明 UTC 时刻）",
+      "processing": "Cassini ISS 广角相机可见光灰度观测；本地保留其灰度外观，以 RGB JPEG 容器保存。原页未列滤镜、精确波长或完整校准处理链，不猜测。 本地保留源画幅，仅在必要时等比例 Lanczos 下采样至长边不超过 1600 px，转 RGB JPEG quality=90、4:4:4；不放大、不锐化、不增色、不补绘或生成。",
+      "coverage": "土星 A 环局部螺旋密度波；从环平面以南约 42° 观察受光环面，图像下方朝向土星。没有土星本体的完整圆盘。",
+      "limitations": "历史观测、非实时，灰度不表示自然颜色。环间颗粒状纹理可能与自引力团块有关，这是源页的科学解释而非已逐一分辨的石块。原图比例单位换算表述不一致，本卡不据此给出精确像元尺度。不是可直接贴到三维环上的径向材质或不透明度图；仅作二维局部观测卡。"
+    },
+    {
+      "id": "uranus",
+      "kind": "observation-photo",
+      "imageId": "nasa-webb-STScI-01GWQDPJTF1MY8ZGN4WBMWMACJ",
+      "title": "天王星 · Webb 近红外极冠与环（假色）",
+      "path": "./observations/gallery/outer/uranus-webb-20230206.jpg",
+      "sourceUrl": "https://science.nasa.gov/asset/webb/uranus-nircam-image/",
+      "imageSourceUrl": "https://assets.science.nasa.gov/content/dam/science/missions/webb/science/2023/04/STScI-01GWQDPJTF1MY8ZGN4WBMWMACJ.png",
+      "credit": "NASA, ESA, CSA, STScI; Image Processing: Joseph DePasquale (STScI)",
+      "license": "NASA Images and Media Usage Guidelines：用于署名、事实性的教育/信息性网页展示，不得暗示 NASA、ESA、CSA、STScI 或处理者背书。此 NASA 官方 Webb 发布页未标注单独第三方版权限制；完整保留 NASA, ESA, CSA, STScI 及 Joseph DePasquale 的逐图署名。不把该政策泛化为所有 Webb 或 ESA 图像的许可，也不包含机构标识授权。",
+      "licenseUrl": "https://www.nasa.gov/nasa-brand-center/images-and-media/",
+      "capturedAt": "2023-02-06（原页面未注明各帧 UTC 时刻；不是 2023-04-06 发布日）",
+      "processing": "JWST NIRCam、观测项目 2739：F140M（1.4 μm）与 F300M（3.0 μm）独立灰度曝光合成，分别赋青蓝色和橙色；是代表色/假色近红外照片，不是肉眼自然色。使用原页未标注文字的 Full Res For Display 1268×1268 PNG，不选其放大至 2000×2000 的版本。 本地保留源画幅，仅在必要时等比例 Lanczos 下采样至长边不超过 1600 px，转 RGB JPEG quality=90、4:4:4；不放大、不锐化、不增色、不补绘或生成。",
+      "coverage": "可见天王星大气圆盘、朝向太阳的北极冠、亮云与环系统；源发布说明此时南极在不可见暗侧。",
+      "limitations": "历史观测、非实时；红外敏感性显现的亮暗及假色不等于可见光颜色或地表。部分紧邻的亮环在此观测分辨率下融合，不能把彩边、散射光或衍射结构当作新环/地貌。仅观察可见方向，非全球地图；仅作二维观测卡，不用于球面贴图。"
+    },
+    {
+      "id": "neptune",
+      "kind": "observation-photo",
+      "imageId": "nasa-webb-STScI-01GCVNDSA55PFHD0JP3JSEKAZ1",
+      "title": "海王星 · Webb 近红外云层与环（假色）",
+      "path": "./observations/gallery/outer/neptune-webb-20220712.jpg",
+      "sourceUrl": "https://science.nasa.gov/asset/webb/neptune-close-up-nircam/",
+      "imageSourceUrl": "https://assets.science.nasa.gov/content/dam/science/missions/webb/science/2022/09/STScI-01GCVNDSA55PFHD0JP3JSEKAZ1.png",
+      "credit": "Image: NASA, ESA, CSA, STScI; Image Processing: Joseph DePasquale (STScI), Naomi Rowe-Gurney (NASA-GSFC)",
+      "license": "NASA Images and Media Usage Guidelines：用于署名、事实性的教育/信息性网页展示，不得暗示 NASA、ESA、CSA、STScI 或处理者背书。此 NASA 官方 Webb 发布页未标注单独第三方版权限制；完整保留 NASA, ESA, CSA, STScI、Joseph DePasquale 及 Naomi Rowe-Gurney 的逐图署名。不把该政策泛化为所有 Webb 或 ESA 图像的许可，也不包含机构标识授权。",
+      "licenseUrl": "https://www.nasa.gov/nasa-brand-center/images-and-media/",
+      "capturedAt": "2022-07-12（原页面未注明各帧 UTC 时刻；不是 2022-09-21 发布日）",
+      "processing": "JWST NIRCam、观测项目 2739 的多滤镜灰度曝光合成：按该具体近景页，F140M 赋蓝色、F210M 赋绿色、F300M 赋橙色、F460M 赋红色；是近红外代表色/假色。采用未标注文字的 Full Res For Display 1680×1120 PNG；不使用其宽场兄弟图片或宽场图例的滤镜拼写。 本地保留源画幅，仅在必要时等比例 Lanczos 下采样至长边不超过 1600 px，转 RGB JPEG quality=90、4:4:4；不放大、不锐化、不增色、不补绘或生成。",
+      "coverage": "海王星可见大气圆盘、高层甲烷冰云与暗环，以及环附近六个微小卫星亮点的系统背景；亮度远高且有强衍射尖峰的 Triton 位于宽场图中，不在本近景主体内。",
+      "limitations": "历史观测、非实时；甲烷吸收使海王星本体在这些红外波段较暗，高云与环较亮，因此不是肉眼的蓝色行星外观。源数据分辨率、衍射和散射光限制真实细节，彩色晕与亮点不等于新地貌或额外恒星；本卡不新增卫星目录。北极与背面未完整覆盖，非全球地图或环材质；仅作二维观测卡。"
+    }
+  ],
+  "preparedAt": "2026-10-15T01:25:42.295841+00:00",
+  "policyNotice": "真实观测图库；照片/多波段合成/全球地图分开标注。非实时、不生成未知表面。每张图遵守各来源/任务专属许可与署名要求。",
+  "files": {
+    "observations/maps/earth-2k.jpg": {
+      "path": "observations/maps/earth-2k.jpg",
+      "sha256": "0a2abd78bf3e17ce773093fb50dd10101565ad2c17235cc56323edf6e6d38061",
+      "width": 2048,
+      "height": 1024,
+      "bytes": 392262,
+      "derivedFrom": "sha256:3cf80a763ca8ff80e8db8b4f286a7b5b2b6eeebb0ca9318b2f9c74be35e8ec36",
+      "processing": "Pillow Lanczos downsample (or no resize at native 4K), JPEG quality=92, subsampling=0, optimize=True, progressive=False; no sharpening/fill/upscale/crop/flip."
+    },
+    "observations/maps/earth-4k.jpg": {
+      "path": "observations/maps/earth-4k.jpg",
+      "sha256": "5d96fdd73c710b3efad131d2ff0ccf86a22be80274a4ba1ad6f7ecf8cbea73cb",
+      "width": 4096,
+      "height": 2048,
+      "bytes": 1386248,
+      "derivedFrom": "sha256:3cf80a763ca8ff80e8db8b4f286a7b5b2b6eeebb0ca9318b2f9c74be35e8ec36",
+      "processing": "Pillow Lanczos downsample (or no resize at native 4K), JPEG quality=92, subsampling=0, optimize=True, progressive=False; no sharpening/fill/upscale/crop/flip."
+    },
+    "observations/maps/moon-2k.jpg": {
+      "path": "observations/maps/moon-2k.jpg",
+      "sha256": "44e6ea377cbd128a2bae82f8af34de075e61e44952ceecf4056891a41d891f1b",
+      "width": 2048,
+      "height": 1024,
+      "bytes": 581080,
+      "derivedFrom": "sha256:918649a7f8ed2f1329b2cd95bb0d25483befdcb60ae1a66db681a637cc21344f",
+      "processing": "Pillow Lanczos downsample (or no resize at native 4K), JPEG quality=92, subsampling=0, optimize=True, progressive=False; no sharpening/fill/upscale/crop/flip."
+    },
+    "observations/maps/moon-4k.jpg": {
+      "path": "observations/maps/moon-4k.jpg",
+      "sha256": "6cde85c814e4aeea8f2b7b1492088a01c5ee2201823eb44897fcd3c7d9d33b28",
+      "width": 4096,
+      "height": 2048,
+      "bytes": 2407725,
+      "derivedFrom": "sha256:918649a7f8ed2f1329b2cd95bb0d25483befdcb60ae1a66db681a637cc21344f",
+      "processing": "Pillow Lanczos downsample (or no resize at native 4K), JPEG quality=92, subsampling=0, optimize=True, progressive=False; no sharpening/fill/upscale/crop/flip."
+    },
+    "observations/photos/sun-sun-GSFC_20171208_Archive_e001734.jpg": {
+      "path": "observations/photos/sun-sun-GSFC_20171208_Archive_e001734.jpg",
+      "sha256": "5203822c083bce7a74c56c34e3ed50670f4ada3cc6210339776e22db257a6b1a",
+      "width": 1600,
+      "height": 1600,
+      "bytes": 565457,
+      "derivedFrom": "8d16c0db3ebba6446c89d6255c5bd9dec1a35734e6aef530972eb91d95a1badb"
+    },
+    "observations/photos/earth-earth-as17-148-22727.jpg": {
+      "path": "observations/photos/earth-earth-as17-148-22727.jpg",
+      "sha256": "1c7ad9c13be669cc751b1ec31c8728813061163093842610f16b990f31088c5b",
+      "width": 1600,
+      "height": 1600,
+      "bytes": 462985,
+      "derivedFrom": "cb4c3d2da98ee72130ebfd2ea472fc84ede6726002c2a8c9cabd86e4deea9f0f"
+    },
+    "observations/photos/moon-PIA00405.jpg": {
+      "path": "observations/photos/moon-PIA00405.jpg",
+      "sha256": "7fecfb9fa5c8142b813bea2a9f66ea62d8528a5a69a07ff7f44f611aef8e8cd1",
+      "width": 1600,
+      "height": 1600,
+      "bytes": 529967,
+      "derivedFrom": "e13ec17cfd0b6e952ebe1cb15a941d6195da0d691122ffe4bb9579d162bcadf4"
+    },
+    "observations/photos/mercury-PIA11245.jpg": {
+      "path": "observations/photos/mercury-PIA11245.jpg",
+      "sha256": "81eae0751182762f54ec9ecd701937398c59ee8fb491f6e2356a524ab8d2a86b",
+      "width": 1024,
+      "height": 1024,
+      "bytes": 137623,
+      "derivedFrom": "f398affa04926567ed85837c6c17d4e9b2f70e0e213c4343208892f074a891b3"
+    },
+    "observations/photos/venus-PIA23791.jpg": {
+      "path": "observations/photos/venus-PIA23791.jpg",
+      "sha256": "1fddd45771dcf24e7acfd06836916190d8d7f7fab481366c04a7e9ebf507d936",
+      "width": 1096,
+      "height": 1096,
+      "bytes": 47169,
+      "derivedFrom": "853268f7922ea572a0966df4a378e6b54221102d6740bdc78f4011708ee71007"
+    },
+    "observations/photos/mars-PIA17940.jpg": {
+      "path": "observations/photos/mars-PIA17940.jpg",
+      "sha256": "0e8f31f241c66dd9a4723326d472deaa10137c4086348b50c5639c6321767123",
+      "width": 669,
+      "height": 650,
+      "bytes": 57776,
+      "derivedFrom": "72aada75bc67decc19722a080b2b7a96a218740c9c06e4ac815662124c4bb406"
+    },
+    "observations/photos/jupiter-PIA04866.jpg": {
+      "path": "observations/photos/jupiter-PIA04866.jpg",
+      "sha256": "982e6d31799fe4be0439b748af72a4e60e68a2d1327f3839f0ec091c48994444",
+      "width": 1280,
+      "height": 1600,
+      "bytes": 190370,
+      "derivedFrom": "bcd8549b7bbcc0041309d0a35673a2329ee78dcecc4f06bfc86488434132f3cd"
+    },
+    "observations/photos/saturn-PIA17172.jpg": {
+      "path": "observations/photos/saturn-PIA17172.jpg",
+      "sha256": "2e811dac536a5f7ec26f7989e6b949e569b5e82a878e1a5c22e45c529a85557b",
+      "width": 1600,
+      "height": 622,
+      "bytes": 76537,
+      "derivedFrom": "028f7cea0875a6aad90456d1a8a25b52d31f4f9013d5bb0920a7f8c68d431455"
+    },
+    "observations/photos/uranus-PIA00032.jpg": {
+      "path": "observations/photos/uranus-PIA00032.jpg",
+      "sha256": "1e6b86e19e59d27ebcbf7ccdfcc28e2291bef2ff8c0faa215b93dc7fa4d0b366",
+      "width": 1000,
+      "height": 1000,
+      "bytes": 30710,
+      "derivedFrom": "bbe6badecb4fef5d8e5e672574baeec7463872d7342af52bd0a001e9456d574d"
+    },
+    "observations/photos/neptune-PIA00063.jpg": {
+      "path": "observations/photos/neptune-PIA00063.jpg",
+      "sha256": "288afa8bcec40334f18cdb63971dc8121ef61d1fc58e28ac39faa630faacd43c",
+      "width": 844,
+      "height": 732,
+      "bytes": 72805,
+      "derivedFrom": "c32236216f28209cf9b13885486d634c25fce43707d33c6c8a123cfa6326e35c"
+    },
+    "observations/gallery/inner/sun-hmi-20120606.jpg": {
+      "path": "observations/gallery/inner/sun-hmi-20120606.jpg",
+      "sha256": "1f007d8789eab7cf7e39ad9deda20728b16cfe0677511a7583d152ed8585e6ac",
+      "width": 1600,
+      "height": 900,
+      "bytes": 347501,
+      "derivedFrom": "ac89de334d02da3d6108a20f031347f3f9360d0164cc66443edde69bf3423bab"
+    },
+    "observations/gallery/inner/earth-epic-20150706.jpg": {
+      "path": "observations/gallery/inner/earth-epic-20150706.jpg",
+      "sha256": "bb04adb0a6f7f5e0124060a60211e988c8f3612285a11923ee4c120b3a3e9610",
+      "width": 1600,
+      "height": 1600,
+      "bytes": 457886,
+      "derivedFrom": "cd6a5198c2a10dcca8e704a67e1f8dae065631d644637ac605567eacf954a102"
+    },
+    "observations/gallery/inner/moon-lroc-tycho-20110610.jpg": {
+      "path": "observations/gallery/inner/moon-lroc-tycho-20110610.jpg",
+      "sha256": "62eba7cc7ac0002d27a1600af2f58f126fd577c583373e80ad12f399716cc3a0",
+      "width": 1041,
+      "height": 478,
+      "bytes": 178749,
+      "derivedFrom": "8123a1801ec4f66303240ac0bdc9b102d2039a8c25ba538de2cc1483743f2069"
+    },
+    "observations/gallery/inner/mercury-PIA14080-debussy.jpg": {
+      "path": "observations/gallery/inner/mercury-PIA14080-debussy.jpg",
+      "sha256": "d4dcecb05a640b82763f624c778641808cfbb6d5d999c19fd6895402c911b11c",
+      "width": 1024,
+      "height": 1020,
+      "bytes": 241256,
+      "derivedFrom": "5e4407f66248a3b8d24d43dd12fa397e9dc5c81ac207e8bc05bd9d076cd39eb9"
+    },
+    "observations/gallery/inner/venus-PIA00470-buck-radar.jpg": {
+      "path": "observations/gallery/inner/venus-PIA00470-buck-radar.jpg",
+      "sha256": "35d8bc4a2ba0f344301ec8e6b00b34d060079e142a97a64b2b6a43150a57beea",
+      "width": 1024,
+      "height": 1024,
+      "bytes": 517900,
+      "derivedFrom": "b49fb28c8c001a6a31f674af10793bddbcfc053b3e91a3290767da1de9d86d94"
+    },
+    "observations/gallery/inner/mars-PIA02981-mariner7.jpg": {
+      "path": "observations/gallery/inner/mars-PIA02981-mariner7.jpg",
+      "sha256": "b985686688708dc4805ac953ad846f93a8c8b58f5e27569e53ed93c44a867aba",
+      "width": 320,
+      "height": 360,
+      "bytes": 24162,
+      "derivedFrom": "327a45bd8a99300b6e2942090e598ef683d6f5c06da2bcd682b9dc6af9b66390"
+    },
+    "observations/gallery/inner/mars-PIA24543-curiosity-mont-mercou.jpg": {
+      "path": "observations/gallery/inner/mars-PIA24543-curiosity-mont-mercou.jpg",
+      "sha256": "cb65ed78aa8e8e1ba29e5c3e3babb6866cb65e1557e17a158fce0b7cd51b9f34",
+      "width": 1536,
+      "height": 1013,
+      "bytes": 396340,
+      "derivedFrom": "9ed6dc372cf2648e4e89859b9b2b14d02ac377f1c889227dd35a576c5886fdc0"
+    },
+    "observations/gallery/outer/jupiter-PIA21031-fig2.jpg": {
+      "path": "observations/gallery/outer/jupiter-PIA21031-fig2.jpg",
+      "sha256": "7575d33d479d314406a897ae740c5eb16169f3fc10fb0ce2d32558611994737e",
+      "width": 976,
+      "height": 1280,
+      "bytes": 92247,
+      "derivedFrom": "sha256:b4b6d863058d4d2d9c0038db92e7c49e4f97c2d4ff73d3ee617e8a96431d03b9 https://assets.science.nasa.gov/dynamicimage/assets/science/psd/photojournal/pia/pia21/pia21031/figures/PIA21031_fig2.jpg"
+    },
+    "observations/gallery/outer/jupiter-PIA00296.jpg": {
+      "path": "observations/gallery/outer/jupiter-PIA00296.jpg",
+      "sha256": "1b2d605a04fc10b379ed423d7401773aa0f1956465ab88e43de88a20780b2ba4",
+      "width": 800,
+      "height": 1600,
+      "bytes": 88762,
+      "derivedFrom": "sha256:b671faced25c28ef74d64609c5659e2227d9120d19e6f4d4800bbcbe0ff24089 https://assets.science.nasa.gov/content/dam/science/psd/photojournal/pia/pia00/pia00296/PIA00296.jpg"
+    },
+    "observations/gallery/outer/saturn-PIA11667.jpg": {
+      "path": "observations/gallery/outer/saturn-PIA11667.jpg",
+      "sha256": "52917413ca77c353973c6de04022883736f0ff3ce6a8efdb4a03595108fcd834",
+      "width": 1600,
+      "height": 852,
+      "bytes": 83597,
+      "derivedFrom": "sha256:07b73c5007c58f75b8da87fc2b87780df1dd23677ac00bc0b10229311ffa7168 https://assets.science.nasa.gov/content/dam/science/psd/photojournal/pia/pia11/pia11667/PIA11667.jpg"
+    },
+    "observations/gallery/outer/saturn-PIA08824.jpg": {
+      "path": "observations/gallery/outer/saturn-PIA08824.jpg",
+      "sha256": "6598d20772373d6b8490db417b1fd9e35d289cd4e8757a0de3ca01adc6055613",
+      "width": 1019,
+      "height": 657,
+      "bytes": 126739,
+      "derivedFrom": "sha256:454b324cb080ac62d45691348d48a6ac043c51e164d8af410554e088ff1a4866 https://assets.science.nasa.gov/content/dam/science/psd/photojournal/pia/pia08/pia08824/PIA08824.jpg"
+    },
+    "observations/gallery/outer/uranus-webb-20230206.jpg": {
+      "path": "observations/gallery/outer/uranus-webb-20230206.jpg",
+      "sha256": "387319a0a5a9d0be4fc83aac63e5aafb72df39b8ff1f4d82a9790aedb9f78bf6",
+      "width": 1268,
+      "height": 1268,
+      "bytes": 183842,
+      "derivedFrom": "sha256:a579f161b7a07aed2b20fd951fcc0d87633ba478adff8aa984e7a6c1b0c88390 https://assets.science.nasa.gov/content/dam/science/missions/webb/science/2023/04/STScI-01GWQDPJTF1MY8ZGN4WBMWMACJ.png"
+    },
+    "observations/gallery/outer/neptune-webb-20220712.jpg": {
+      "path": "observations/gallery/outer/neptune-webb-20220712.jpg",
+      "sha256": "3777e3a172b8a42319ea394482a6d453ce56e5b090d2deec15f72f7ada14a595",
+      "width": 1600,
+      "height": 1067,
+      "bytes": 180397,
+      "derivedFrom": "sha256:86925809a0131569dc60ab7398ea350a6cf534643e3beb4a07f9f78683e58b34 https://assets.science.nasa.gov/content/dam/science/missions/webb/science/2022/09/STScI-01GCVNDSA55PFHD0JP3JSEKAZ1.png"
+    }
+  },
+  "unavailable": [
+    {
+      "id": "mercury",
+      "reason": "已核验MESSENGER PDS16全球单色形貌预览2304×1152并保留于私有证据，但未投入活跃贴图：官方完整单色图至少193MB（超本轮单项/总预算），预览没有真实4K；使命专属许可明确限非商业教育/公共信息用途，不能当作无条件公共领域。源图含拍摄阴影与极区黑色缺测；未补绘。可在确认该许可适用且接受仅2K后单独纳入。"
+    },
+    {
+      "id": "mars",
+      "reason": "本轮未得到已核验来源、权限、完整经纬覆盖且下载体积合适的全球图。旧USGS Viking MDIM21链接返回正文404，未采用疑似同名图或大体积GIS数据；保留无已核验全球贴图状态。"
+    },
+    {
+      "id": "sun",
+      "reason": "本轮无已核验可作恒定球面纹理的全日面/全经度观测图；单幅日面照片不是全球等距经纬图。"
+    },
+    {
+      "id": "venus",
+      "reason": "本轮无已核验全球贴图；云层光学图与雷达地表图不能互称，单幅观测照片不包裹到球面。"
+    },
+    {
+      "id": "jupiter",
+      "reason": "本轮未取得经纬映射、时刻和观测覆盖均已核验的全球云带镶嵌；不回退旧未核验素材。"
+    },
+    {
+      "id": "saturn",
+      "reason": "本轮未取得已核验全球云层图或观测环径向剖面；不以旧纹理或解析环外观冒充观测。"
+    },
+    {
+      "id": "uranus",
+      "reason": "本轮无已核验全球观测贴图；圆盘观测照片不是全经度图。"
+    },
+    {
+      "id": "neptune",
+      "reason": "本轮无已核验全球观测贴图；圆盘观测照片不是全经度图。"
+    },
+    {
+      "id": "hyg-6672",
+      "reason": "noresolvedsurfaceimageryverified",
+      "details": "Ruchbah 未核验可授权分辨表面影像，也未核验与此目录 ID 严格对应且可自托管的天空照片；没有用通用星野、星系图或生成大球代替。"
+    }
+  ],
+  "sourceManifests": {
+    "evidence/observation-maps/ASSETS.json": "d85fe2e5206c7e998efe395d47bf5cdf64a2e7acf15dcc68792d3f9b8e899909",
+    "evidence/observation-photos/ASSETS.json": "c78b6aaeaff18a51c9ed1da733263f6c399a9c856f4cdf003ebb48405debb188",
+    "evidence/gallery-inner/ASSETS.json": "264faf0c42cbada0c2e8a286634bff2f9c5af597486af83d2b505764d211a906",
+    "evidence/gallery-outer/ASSETS.json": "81b57acb1a8aa7e9d2e062fb87bae1ac4e4e6552fab9a56fdd9baeade594aa92"
+  },
+  "priorCreditsPath": "./data/observation-credits.json",
+  "newGalleryImageCount": 13,
+  "photoCountsByTarget": {
+    "sun": 2,
+    "earth": 2,
+    "moon": 2,
+    "mercury": 2,
+    "venus": 2,
+    "mars": 3,
+    "jupiter": 3,
+    "saturn": 3,
+    "uranus": 2,
+    "neptune": 2
+  }
+}

@@ -1,0 +1,129 @@
+{
+  "schemaVersion": 1,
+  "title": "Stellar close-up parameter model / 恒星近景参数来源",
+  "attribution": "HYG v4.1: David Nash / Astronomy Nexus. New metadata subset and transformations: Galaxy project.",
+  "sourceLicense": "CC-BY-SA-4.0",
+  "derivedDataLicense": "CC-BY-SA-4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "sourceLicenseNotice": "Shield: [![CC BY-SA 4.0][cc-by-sa-shield]][cc-by-sa]\n\nThis work is licensed under a\n[Creative Commons Attribution-ShareAlike 4.0 International License][cc-by-sa].\n\n[![CC BY-SA 4.0][cc-by-sa-image]][cc-by-sa]\n\n[cc-by-sa]: http://creativecommons.org/licenses/by-sa/4.0/\n[cc-by-sa-image]: https://licensebuttons.net/l/by-sa/4.0/88x31.png\n[cc-by-sa-shield]: https://img.shields.io/badge/License-CC%20BY--SA%204.0-lightgrey.svg",
+  "source": {
+    "name": "HYG Database",
+    "version": "4.1",
+    "commit": "c7f7f883fe678cc7680169a50ccd7dcc49b060ce",
+    "url": "https://raw.githubusercontent.com/astronexus/HYG-Database/c7f7f883fe678cc7680169a50ccd7dcc49b060ce/hyg/CURRENT/hygdata_v41.csv",
+    "readmeUrl": "https://github.com/astronexus/HYG-Database/blob/c7f7f883fe678cc7680169a50ccd7dcc49b060ce/hyg/README.md",
+    "sha256": "d9f69fd86bbf90a4e4d52b4c5c53eacfa6dfc0bfdef85bfd94f095e0bebe4ebd",
+    "originalHipparcosImported": false
+  },
+  "derivative": {
+    "path": "src/space/stellar-metadata.json",
+    "sha256": "eca9def7f55f36378de7d253cd6aeca253491b3aff62cae47ce09370569696eb",
+    "bytes": 294235,
+    "rows": 9078,
+    "fields": [
+      "hygId",
+      "hipNumberOrNull",
+      "rawSpectralType",
+      "bv",
+      "absoluteVisualMagnitude"
+    ],
+    "embeddedInApp": true,
+    "runtimeExtraFetch": false,
+    "unchangedCatalogSha256": "d7ff593765bcbe4a5f30befac1b1d08d520e256212d117c18f156f8177021e47",
+    "modifications": "Select existing IDs only; copy hip and spect verbatim, retain numeric ci/absmag for identity checks; add separately sourced four literature anchors."
+  },
+  "generator": "python3 scripts/stellar/generate.py --check",
+  "sourceReadDate": "2026-10-14",
+  "references": {
+    "hyg": "https://github.com/astronexus/HYG-Database/blob/c7f7f883fe678cc7680169a50ccd7dcc49b060ce/hyg/README.md",
+    "scheat": "http://stars.astro.illinois.edu/sow/scheat.html",
+    "sirius": "https://arxiv.org/html/astro-ph/0306604v1",
+    "proxima": "https://arxiv.org/html/1704.08449",
+    "vega": "https://arxiv.org/html/1211.6055",
+    "ballesteros": "https://arxiv.org/html/1201.1809v2",
+    "solarVisual": "https://arxiv.org/html/1804.07788",
+    "solarNominal": "https://arxiv.org/abs/1510.07674"
+  },
+  "literatureAnchors": [
+    {
+      "id": 113521,
+      "name": "Scheat",
+      "radiusSolar": 95,
+      "temperatureK": 3700,
+      "estimatedRadius": false,
+      "radiusSource": "参考：Jim Kaler/UIUC 综述，约95 R☉；变星的代表尺度，非本项目实测",
+      "temperatureSource": "参考：Jim Kaler/UIUC 综述，约3700 K；非实时温度",
+      "classification": "M型巨星/亮巨星（目录分类参考；变星，静态示意）",
+      "reference": "http://stars.astro.illinois.edu/sow/scheat.html"
+    },
+    {
+      "id": 32263,
+      "name": "Sirius",
+      "radiusSolar": 1.711,
+      "temperatureK": 9900,
+      "estimatedRadius": false,
+      "radiusSource": "参考：Kervella 等（2003）干涉角径+视差，1.711±0.013 R☉，天狼星A",
+      "temperatureSource": "参考：Kervella 等（2003）§2.4 采用9900±200 K；非本项目实测",
+      "classification": "天狼星A（文献参考；单球示意，未生成伴星轨道）",
+      "reference": "https://arxiv.org/html/astro-ph/0306604v1"
+    },
+    {
+      "id": 70666,
+      "name": "Proxima Centauri",
+      "radiusSolar": 0.146,
+      "temperatureK": 2980,
+      "estimatedRadius": false,
+      "radiusSource": "参考：Ribas 等（2017）综合观测约束，0.146±0.007 R☉",
+      "temperatureSource": "参考：Ribas 等（2017），2980±80 K；不模拟耀斑温度变化",
+      "classification": "M型红矮星（文献参考；活动星，静态示意）",
+      "reference": "https://arxiv.org/html/1704.08449"
+    },
+    {
+      "id": 90979,
+      "name": "Vega",
+      "radiusSolar": 2.619204047397956,
+      "temperatureK": 9360,
+      "estimatedRadius": true,
+      "radiusSource": "估算：Monnier 等（2012）表2模型3，赤道2.726/极2.418 R☉的椭球等体积球；未还原扁率",
+      "temperatureSource": "参考：Monnier 等（2012）表2模型3，表面平均9360±90 K；未模拟8910–10070 K纬度差",
+      "classification": "A型快速自转星（文献参考；等体积球估算，非真实扁球）",
+      "reference": "https://arxiv.org/html/1211.6055"
+    }
+  ],
+  "solarCalibration": {
+    "radiusKm": 695700,
+    "temperatureK": 5772,
+    "absoluteVisualMagnitude": 4.81,
+    "wavelengthNm": 550
+  },
+  "model": {
+    "temperature": "T=4600*(1/(0.92*(B-V)+1.7)+1/(0.92*(B-V)+0.62)); Ballesteros 2012 eq.14",
+    "radius": "R/Rsun=sqrt(10**(0.4*(4.81-Mv))*B_lambda(550nm,5772K)/B_lambda(550nm,T))",
+    "bolometricLuminosity": "L/Lsun=(R/Rsun)**2*(T/5772K)**4",
+    "color": "Planck B_lambda samples at 650/550/450nm, divide by channel maximum, apply power 1/2.2; display tint only",
+    "ordinaryBvRange": [
+      -0.4,
+      2.0
+    ],
+    "retainedFallbackBvRange": [
+      2.0,
+      2.8
+    ],
+    "arbitraryRadiusClamp": false
+  },
+  "limitations": [
+    "恒星表面：模型示意，非实拍。照片纹理、自转轴/周期、耀斑、斑点、双星轨道和系外行星均未据此生成。",
+    "Reference does not mean a new/direct measurement: literature values may themselves be observation-constrained models, approximations and epoch-dependent estimates.",
+    "Only the unchanged 9078-star finite-distance HYG v4.1 subset is modeled; no new catalog rows or distance replacements.",
+    "HIP numbers are exact cross-identifiers copied from the already retained HYG source. This is not an import or relicensing of original ESA Hipparcos files.",
+    "General temperatures are B-V blackbody-color estimates, not independently measured effective temperatures. No extinction/metallicity/gravity correction.",
+    "Radius is a 550 nm monochromatic visual surface-brightness approximation calibrated to the Sun, not full Johnson-V synthetic photometry or a stellar atmosphere fit.",
+    "Cool molecular spectra, hot stars, white dwarfs, variables, reddening and unresolved multiple systems can give substantially biased estimates; no per-star uncertainty is inferred.",
+    "Ten retained B-V>2 records use the disclosed B-V=2 boundary temperature only for a low-confidence illustrative fallback; it is not a physical measurement.",
+    "All luminosities are estimated from the displayed radius and temperature using Stefan-Boltzmann solar ratios, never from HYG lum assumed bolometric.",
+    "HYG raw spectral strings are preserved including uncertainty/composite suffixes; these are not corrected or replaced by the model color.",
+    "Vega is an explicitly estimated equal-volume sphere from published polar/equatorial radii; gravity darkening and oblateness are not rendered.",
+    "Distinct HYG components at the same catalog position keep their exact coordinates; no invented binary separation.",
+    "Color is a normalized three-wavelength blackbody display tint with simple gamma compression, not colorimetric RGB or radiometrically calibrated brightness."
+  ]
+}

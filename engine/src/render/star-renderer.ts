@@ -52,6 +52,8 @@ export class StarRenderer {
     this.locs['u_magLimit'] = gl.getUniformLocation(this.program, 'u_magLimit')!;
   }
 
+  getStarCount(): number { return this.starCount; }
+
   render(view: Float32Array, proj: Float32Array, fov: number, viewport: [number, number]) {
     const gl = this.gl;
 

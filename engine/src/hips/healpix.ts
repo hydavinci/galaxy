@@ -55,7 +55,7 @@ export function ang2pixNested(nside: number, theta: number, phi: number): number
     const ifm = Math.floor(jm / nside);
 
     if (ifp === ifm) {
-      faceNum = ifp + 4;
+      faceNum = (ifp & 3) + 4;
     } else if (ifp < ifm) {
       faceNum = ifp;
     } else {
@@ -70,8 +70,8 @@ export function ang2pixNested(nside: number, theta: number, phi: number): number
     const ntt = Math.min(3, Math.floor(tt));
 
     const tmp = nside * Math.sqrt(3 * (1 - absZ));
-    const jp = Math.floor(tp * tmp);
-    const jm = Math.floor((1 - tp) * tmp);
+    const jp = Math.min(nside - 1, Math.floor(tp * tmp));
+    const jm = Math.min(nside - 1, Math.floor((1 - tp) * tmp));
 
     if (jp + jm >= nside) {
       // At boundary, clamp
@@ -98,47 +98,7 @@ export function ang2pixNested(nside: number, theta: number, phi: number): number
  * Convert NESTED pixel index to (theta, phi) — pixel center.
  */
 export function pix2angNested(nside: number, pix: number): [number, number] {
-  const nside2 = nside * nside;
-  const npix = 12 * nside2;
-  const nl4 = 4 * nside;
-
-  const { ix, iy, face } = nest2xyf(nside, pix);
-  const jr = (jrll[face] * nside) - ix - iy - 1;
-
-  let theta: number, phi: number;
-
-  if (jr < nside) {
-    // North polar cap
-    const nr = jr;
-    const tmp = nr * nr * (1.0 / (3.0 * nside2));
-    theta = Math.acos(1 - tmp);
-    const kp = Math.max(1, Math.floor((ix - iy + 1) / 2));
-    phi = (kp - 0.5) * HALFPI / nr;
-  } else if (jr > 3 * nside) {
-    // South polar cap
-    const nr = nl4 - jr;
-    const tmp = nr * nr * (1.0 / (3.0 * nside2));
-    theta = Math.acos(-1 + tmp);
-    const kp = Math.max(1, Math.floor((ix - iy + 1) / 2));
-    phi = (kp - 0.5) * HALFPI / nr;
-  } else {
-    // Equatorial region
-    const nr = nside;
-    const fctr = (jr - nside) % 2 === 0 ? 1 : 0.5;
-    const kp = Math.floor((ix - iy + 1) / 2) + (jr - nside) * nside / 2;
-    // Simpler: just use the formula
-    const z = (2 * nside - jr) * (2.0 / (3.0 * nside));
-    theta = Math.acos(z);
-    phi = ((ix - iy + 0.5 + ((jr - nside) & 1) * 0.5) * PI) / (2 * nside);
-    if (phi < 0) phi += TWOPI;
-  }
-
-  // Adjust phi for face
-  phi += (jpll[face] * HALFPI) / 2;
-  if (phi >= TWOPI) phi -= TWOPI;
-  if (phi < 0) phi += TWOPI;
-
-  return [theta, phi];
+  return vec2ang(...pix2vecNested(nside, pix));
 }
 
 /**
@@ -146,53 +106,9 @@ export function pix2angNested(nside: number, pix: number): [number, number] {
  * Returns [NE, NW, SW, SE] corners.
  */
 export function pixCorners(nside: number, pix: number): Array<[number, number]> {
-  const { ix, iy, face } = nest2xyf(nside, pix);
-  const nside2 = nside * nside;
-  const nl4 = 4 * nside;
+  return [[1, 1], [0, 1], [0, 0], [1, 0]].map(([u, v]) =>
+    vec2ang(...pix2vecNested(nside, pix, u, v)));
 
-  // Get the 4 corners by offsetting half a pixel
-  const corners: Array<[number, number]> = [];
-  const offsets = [
-    [0.5, 0],   // N
-    [0, 0.5],   // W
-    [-0.5, 0],  // S
-    [0, -0.5],  // E
-  ];
-
-  for (const [dx, dy] of offsets) {
-    const fx = ix + dx + 0.5;
-    const fy = iy + dy + 0.5;
-    
-    const jr = (jrll[face] * nside) - Math.floor(fx) - Math.floor(fy) - 1;
-    
-    let theta: number, phi: number;
-    
-    if (jr < nside) {
-      const nr = Math.max(1, jr);
-      const z = 1 - jr * jr / (3.0 * nside2);
-      theta = Math.acos(Math.max(-1, Math.min(1, z)));
-      const kp = (fx - fy + 1) / 2;
-      phi = (kp - 0.5) * HALFPI / nr + jpll[face] * HALFPI / 2;
-    } else if (jr > 3 * nside) {
-      const nr = Math.max(1, nl4 - jr);
-      const z = -1 + nr * nr / (3.0 * nside2);
-      theta = Math.acos(Math.max(-1, Math.min(1, z)));
-      const kp = (fx - fy + 1) / 2;
-      phi = (kp - 0.5) * HALFPI / nr + jpll[face] * HALFPI / 2;
-    } else {
-      const z = (2 * nside - jr) * 2.0 / (3.0 * nside);
-      theta = Math.acos(Math.max(-1, Math.min(1, z)));
-      const shift = ((jr - nside) & 1) === 0 ? 0 : 0.5;
-      const kp = (fx - fy + shift) / 2;
-      phi = kp * PI / (2 * nside) + jpll[face] * HALFPI / 2;
-    }
-    
-    if (phi < 0) phi += TWOPI;
-    if (phi >= TWOPI) phi -= TWOPI;
-    corners.push([theta, phi]);
-  }
-
-  return corners;
 }
 
 /**
@@ -249,7 +165,7 @@ function xyf2nest(nside: number, ix: number, iy: number, face: number): number {
 /**
  * Convert nested pixel index to (ix, iy, face).
  */
-function nest2xyf(nside: number, pix: number): { ix: number; iy: number; face: number } {
+export function nest2xyf(nside: number, pix: number): { ix: number; iy: number; face: number } {
   const nside2 = nside * nside;
   const face = Math.floor(pix / nside2);
   const remainder = pix % nside2;
@@ -282,4 +198,55 @@ function compress(v: number): number {
   v = (v | (v >> 4)) & 0x00ff00ff;
   v = (v | (v >> 8)) & 0x0000ffff;
   return v;
+}
+
+// Stellarium's HEALPix planar mapping, shared by meshes AND visibility.
+const FACES: [number, number][] = [
+  [1, 0], [3, 0], [5, 0], [7, 0],
+  [0, -1], [2, -1], [4, -1], [6, -1],
+  [1, -2], [3, -2], [5, -2], [7, -2],
+];
+
+/** Continuous NESTED tile geometry. u follows ix, v follows iy; result is Y-up. */
+export function pix2vecNested(nside: number, pix: number, u = 0.5, v = 0.5): [number, number, number] {
+  const { ix, iy, face } = nest2xyf(nside, pix);
+  const x = (FACES[face][0] + (ix - iy + u - v) / nside) * Math.PI / 4;
+  const y = (FACES[face][1] + (ix + iy + u + v) / nside) * Math.PI / 4;
+  return healpixXy2Vec(x, y);
+}
+
+export function healpixXy2Vec(x: number, y: number): [number, number, number] {
+  let z: number, phi: number;
+  if (Math.abs(y) > Math.PI / 4) {
+    const sigma = Math.max(0, 2 - Math.abs(y * 4) / Math.PI);
+    z = Math.sign(y) * (1 - sigma * sigma / 3);
+    const xc = -Math.PI + (2 * Math.floor((x + Math.PI) * 2 / Math.PI) + 1) * Math.PI / 4;
+    phi = sigma > 1e-14 ? xc + (x - xc) / sigma : x;
+  } else {
+    phi = x;
+    z = y * 8 / (Math.PI * 3);
+  }
+  const r = Math.sqrt(Math.max(0, (1 - z) * (1 + z)));
+  return [r * Math.cos(phi), z, r * Math.sin(phi)];
+}
+
+/** IAU Galactic -> J2000, with BOTH input and output axes permuted to engine Y-up.
+ * Input: [cos(b) cos(l), sin(b), cos(b) sin(l)].
+ * Output: [cos(dec) cos(RA), sin(dec), cos(dec) sin(RA)].
+ */
+export function galacticToEquatorial([x, y, z]: readonly number[]): [number, number, number] {
+  return [
+    -0.0548755604162154 * x - 0.8676661490190047 * y + 0.4941094278755837 * z,
+    -0.4838350155487132 * x + 0.4559837761750669 * y + 0.7469822444972189 * z,
+    -0.8734370902348850 * x - 0.1980763734312015 * y - 0.4448296299600112 * z,
+  ];
+}
+
+/** HiPS images swap planar u/v. Descendant Morton bits must be swapped too. */
+export function ancestorTextureTransform(order: number, pix: number, ancestorOrder: number): [number, number, number] {
+  const delta = order - ancestorOrder;
+  if (delta < 0) throw new RangeError('Texture ancestor is finer than geometry');
+  const scale = 2 ** -delta;
+  const remainder = pix % (4 ** delta);
+  return [compress(remainder >> 1) * scale, compress(remainder) * scale, scale];
 }

@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "description": "Bounded historical negative controls; source paths are relative to each named historical release. Runtime uses only this checkout, not a release directory.",
+  "artifacts": [
+    {
+      "fixture": "full-rotation-app.ts",
+      "historical_release": "full-rotation-20261014T113611Z",
+      "source_relative_path": "engine/src/space/app.ts",
+      "sha256": "a4b460fc8cd9ee65a8d1b11d092de6bbaf8fa0365cd2a6961bf04d11998a1deb",
+      "bytes": 23060,
+      "copy": "verbatim; no source edits",
+      "purpose": "Genuine old app that builds only solar-system body labels and omits catalog-star labels."
+    },
+    {
+      "fixture": "stellar-closeup-shaders.ts",
+      "historical_release": "stellar-closeup-20261014T145943Z",
+      "source_relative_path": "engine/src/space/stellar-shaders.ts",
+      "sha256": "b6e75bdf9579a89fc59d0b6086a6248faba898d4a20d2c4e93da0d0928c1ad36",
+      "bytes": 3444,
+      "copy": "verbatim; no source edits",
+      "purpose": "Genuine old procedural stellar surface rejected by the observation-first absence contract."
+    }
+  ]
+}

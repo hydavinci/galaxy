@@ -1,0 +1,145 @@
+{
+  "schemaVersion": 1,
+  "description": "Minimal offline scientific test inputs; scientific numbers unchanged. See README.md for provenance and separate rights.",
+  "files": {
+    "star-catalog/SOURCE-LICENSE.txt": {
+      "sha256": "f404190403d31e0ce7223f4cb7af954485ad88077358330754dc5c892a856627",
+      "bytes": 422,
+      "sourceSnapshotSha256": "f404190403d31e0ce7223f4cb7af954485ad88077358330754dc5c892a856627",
+      "sourceSnapshotBytes": 422,
+      "change": "Unchanged bytes"
+    },
+    "star-catalog/hyg-README.md": {
+      "sha256": "81f765951e60131e49ccc91376815791e130ad1db46047eb1384d3ba6bcb5af4",
+      "bytes": 6416,
+      "sourceSnapshotSha256": "81f765951e60131e49ccc91376815791e130ad1db46047eb1384d3ba6bcb5af4",
+      "sourceSnapshotBytes": 6416,
+      "change": "Unchanged bytes"
+    },
+    "star-catalog/repository-README.md": {
+      "sha256": "80982fcefb899a3d55fab15e84483ce78fb1e2499906a95fc59c4e517844606e",
+      "bytes": 245,
+      "sourceSnapshotSha256": "80982fcefb899a3d55fab15e84483ce78fb1e2499906a95fc59c4e517844606e",
+      "sourceSnapshotBytes": 245,
+      "change": "Unchanged bytes"
+    },
+    "star-catalog/hygdata_v41.csv.gz": {
+      "sha256": "96ee3e7cd28b13f2e4cefb256a09c360abb3df70f86e3c2a264e25ae61f128d5",
+      "bytes": 13537197,
+      "sourceSnapshotSha256": "d9f69fd86bbf90a4e4d52b4c5c53eacfa6dfc0bfdef85bfd94f095e0bebe4ebd",
+      "sourceSnapshotBytes": 33932548,
+      "change": "Deterministic gzip (mtime=0, no original filename), lossless; hash decompressed original for source identity",
+      "decompressedSha256": "d9f69fd86bbf90a4e4d52b4c5c53eacfa6dfc0bfdef85bfd94f095e0bebe4ebd",
+      "decompressedBytes": 33932548
+    },
+    "star-catalog/source-tree-entry.json": {
+      "sha256": "e3cf8adffdea8ccd0f4cc5349f51d3ca7b9deb01e6d47ca4f884183cb7122e5f",
+      "bytes": 270,
+      "sourceSnapshotSha256": "d809da492ed149ada77c4bde51a35280321732361bd4ab09f7fb7bd4150bc8fa",
+      "sourceSnapshotBytes": 10922,
+      "change": "Retain only original commit, original tree truncation flag, and the required CSV blob entry; omit unrelated API tree data"
+    },
+    "astronomy/horizons-sun.txt": {
+      "sha256": "4636317c6fc846ddad3dd283b4a0dffe46ceb002e6ad1f4b91ecd3e0575335a1",
+      "bytes": 2868,
+      "sourceSnapshotSha256": "775bc0b9d8beddcf1d2656a061ecf16eb8559d3e095711b3d752d8b5f50cb2a9",
+      "sourceSnapshotBytes": 8543,
+      "change": "Exact source prefix from API VERSION through $$EOE; remove capture wrapper/IDs and nonessential explanatory/contact footer",
+      "scientificBlockSha256": "bc77cdb0ccccba4261cf4f48b8873b63891d54ea79e023a39adf5f57b7a83d3e"
+    },
+    "astronomy/horizons-moon.txt": {
+      "sha256": "5097403ed24a241e24ac5220e881767d212f2022850a6b5ecb062ca4b9384a08",
+      "bytes": 2870,
+      "sourceSnapshotSha256": "fcaccba15e60ed2c6721b85f3d0493338d90445bba469eab433fa9b704411f20",
+      "sourceSnapshotBytes": 8588,
+      "change": "Exact source prefix from API VERSION through $$EOE; remove capture wrapper/IDs and nonessential explanatory/contact footer",
+      "scientificBlockSha256": "65e7574f35d2120cd9b740b724405e08fdf90c45cf953b2ae98cf86ca54be8be"
+    },
+    "astronomy/horizons-venus.txt": {
+      "sha256": "049edfd0b4fee48d489e89060518e139975788ab9a07072e36c87e0412365212",
+      "bytes": 2868,
+      "sourceSnapshotSha256": "1c85f79ae2d5f01b3a6788cca797faa9e36ef3055a45aa16dc375d0762d2615b",
+      "sourceSnapshotBytes": 8764,
+      "change": "Exact source prefix from API VERSION through $$EOE; remove capture wrapper/IDs and nonessential explanatory/contact footer",
+      "scientificBlockSha256": "9f6759c3d99c11ecfba619fb33387c90a4451895834aec4a9eb843875776905c"
+    },
+    "astronomy/horizons-sunrise.txt": {
+      "sha256": "cfe4e60f7db63f7f3652cdeba516bb17864447f854aeace5c6df8a35fa7f4d98",
+      "bytes": 3023,
+      "sourceSnapshotSha256": "25076368d7f04985f4f8e49b77c32e00d248777064dfaece79b1c6a7ef886b27",
+      "sourceSnapshotBytes": 9446,
+      "change": "Exact source prefix from API VERSION through $$EOE; remove capture wrapper/IDs and nonessential explanatory/contact footer",
+      "scientificBlockSha256": "c52ddb663b8f40281f448fcf3182b9e7374d27f5402345e8611fc20d91d6f7f1"
+    },
+    "space-world/earth-helio.txt": {
+      "sha256": "a8a549498c793fbd2243f935ffd516074e7471d7d8d87f3a95004f4ed690e154",
+      "bytes": 2410,
+      "sourceSnapshotSha256": "0f3991da0fc04e1dd89840dd64cd1e1359d9c673fe71b6af2dee1752218be771",
+      "sourceSnapshotBytes": 6157,
+      "change": "Exact source prefix from API VERSION through $$EOE plus the exact required correction-state legend line; remove capture wrapper/IDs and other explanatory/contact footer",
+      "scientificBlockSha256": "0eff0079d942ee13950bcbd163b675c3dce215d7bfe3a659de32b249b2c10a84",
+      "scientificLegendSha256": "57f28af06def7bcd90f4151e9c1731593887c6371cfd2d37143c05b186fbf89f"
+    },
+    "space-world/moon-geo.txt": {
+      "sha256": "19f4d8e057b2291c0ecea707e35a80fa7fe967736044fefdce47082811698e59",
+      "bytes": 2410,
+      "sourceSnapshotSha256": "592a34d52eccbb7afde2dbf1a1d0f8138af142096a9af89a3240dfbfe1ba3d82",
+      "sourceSnapshotBytes": 6157,
+      "change": "Exact source prefix from API VERSION through $$EOE plus the exact required correction-state legend line; remove capture wrapper/IDs and other explanatory/contact footer",
+      "scientificBlockSha256": "4c95e06c88b414ca0cca1418e8b078868b1e3ab3ff8441b45953e719cfaff06c",
+      "scientificLegendSha256": "57f28af06def7bcd90f4151e9c1731593887c6371cfd2d37143c05b186fbf89f"
+    },
+    "space-world/neptune-helio.txt": {
+      "sha256": "18732601918ab9f1208d2344527376ed447c6fefb827735f4b62f51a75e16ab5",
+      "bytes": 2426,
+      "sourceSnapshotSha256": "e9acc84f6da8370756d1dea1d6c05b312b6251f1ec4cf517a835d857285f352e",
+      "sourceSnapshotBytes": 6173,
+      "change": "Exact source prefix from API VERSION through $$EOE plus the exact required correction-state legend line; remove capture wrapper/IDs and other explanatory/contact footer",
+      "scientificBlockSha256": "72c8b0f2750075878dc5693f02a98c706e3454e799ca232fe3aeb5d6105a8361",
+      "scientificLegendSha256": "57f28af06def7bcd90f4151e9c1731593887c6371cfd2d37143c05b186fbf89f"
+    },
+    "astronomy/horizons-fixture.json": {
+      "sha256": "0ade0ceeda89a9d0d2152327f23e7083219bdecabb6aa0b74eb5b90f57bf9eea",
+      "bytes": 8396,
+      "sourceSnapshotSha256": "f621aa58c0e40b434117a99a793ddeb33764ab8df53e4a24aa89c6b2bcca333e",
+      "sourceSnapshotBytes": 7284,
+      "change": "Update file hashes for disclosed curation; all scientific sample values, query URLs, and source identifiers unchanged"
+    },
+    "space-world/sources.json": {
+      "sha256": "11f23aabd84b57a86eb071067e213df5586e5e07f4c65c45885187556ed63516",
+      "bytes": 3415,
+      "sourceSnapshotSha256": "cf1adc5f43c948b295cfc786d935d2349248351670ac0901f8c5b49b42085a90",
+      "sourceSnapshotBytes": 1744,
+      "change": "Update file hashes for disclosed curation; all scientific sample values, query URLs, and source identifiers unchanged"
+    },
+    "astronomy/usno-phases.json": {
+      "sha256": "3bd47aa040740d4f8c6ec60e496debd1cea04dbe88f735127b552e9e8c2f9a30",
+      "bytes": 900,
+      "sourceSnapshotSha256": "3bd47aa040740d4f8c6ec60e496debd1cea04dbe88f735127b552e9e8c2f9a30",
+      "sourceSnapshotBytes": 900,
+      "change": "Unchanged bytes"
+    },
+    "stellar-model/protected-before.json": {
+      "sha256": "58d8d7794a80f436052cda7f9be4b1a76bd5ee3def4558a822ec0ca9512e7cfe",
+      "bytes": 5249,
+      "sourceSnapshotSha256": "58d8d7794a80f436052cda7f9be4b1a76bd5ee3def4558a822ec0ca9512e7cfe",
+      "sourceSnapshotBytes": 5249,
+      "change": "Unchanged bytes"
+    },
+    "stellar-model/generation.json": {
+      "sha256": "2f20a6f4c2f1250aa1366ef1f659ddd4d0060c58d2406855ef221fca8c94227b",
+      "bytes": 1649,
+      "sourceSnapshotSha256": "2f20a6f4c2f1250aa1366ef1f659ddd4d0060c58d2406855ef221fca8c94227b",
+      "sourceSnapshotBytes": 1649,
+      "change": "Unchanged bytes"
+    },
+    "stellar-model/spacecatalog-generator-original.py": {
+      "sha256": "e36cdcb27c9b2f4ffa613c952c2fc13c2596925e9b741990295906c65c960724",
+      "bytes": 19968,
+      "sourceSnapshotSha256": "e36cdcb27c9b2f4ffa613c952c2fc13c2596925e9b741990295906c65c960724",
+      "sourceSnapshotBytes": 19968,
+      "change": "Exact historical generator retained solely for the original preservation assertion; not the portable executable entry point",
+      "origin": "Historical engine/scripts/spacecatalog/generate.py from the stellar-model preservation baseline"
+    }
+  }
+}

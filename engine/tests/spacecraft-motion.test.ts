@@ -1,0 +1,27 @@
+import test from 'node:test';import assert from 'node:assert/strict';import {readFileSync} from 'node:fs';
+import {Navigation,COLLISION_RADIUS_RATIO} from '../src/space/navigation';
+import {computeSpace} from '../src/space/world';import {validateTrajectoryData,sampleTrajectory} from '../src/space/trajectories';import {trajectoryViewFrame,trajectoryViewDistance} from '../src/space/trajectory-view';
+import {distance,subtract,cameraBasis} from '../src/space/math';import {projectSpace} from '../src/space/render-math';
+import {AU_KM,type Vec3} from '../src/space/types';import type {SpacecraftTarget} from '../src/space/spacecraft-target';
+const data=validateTrajectoryData(JSON.parse(readFileSync(new URL('../public/data/spacecraft-trajectories.json',import.meta.url),'utf8')));
+const near=(a:number,b:number,eps=1e-9)=>assert.ok(Math.abs(a-b)<eps,`${a} != ${b}`);
+for(const id of ['juno','hubble','cassini','lro','webb','voyager-1'])test(`real ${id} moves along source path in center-anchored observation, not screen-locked follow`,()=>{
+ const r=data.records.find(r=>r.missionId===id)!;assert.equal(r.kind,'ephemeris');if(r.kind!=='ephemeris')return;
+ const T=r.defaultMs,world=computeSpace(new Date(T)),state=sampleTrajectory(r,T,world)!,frame=trajectoryViewFrame(r),n=new Navigation(world);
+ const target=(state:ReturnType<typeof sampleTrajectory>):SpacecraftTarget=>({id:'craft:'+id,missionId:id,kind:'spacecraft',positionAU:state!.positionAU,name:state!.name,nameEn:state!.name,centerBodyId:r.centerBodyId,viewDistanceAU:state!.viewDistanceAU});
+ n.setSpacecraft([target(state)]);assert.ok(n.observeSpacecraft('craft:'+id,frame.offsetAU,trajectoryViewDistance(frame,60,1000,700),frame.direction));for(let i=0;i<50&&n.isFlying;i++)n.update(.1);assert.equal(n.isFlying,false);assert.equal(n.spacecraftViewMode,'observe');
+ const p0=projectSpace(state.positionAU,n.camera,1000,700),c0=n.camera,host0=world.bodies.find(b=>b.id===r.centerBodyId)!,relative0=subtract(c0.positionAU,host0.positionAU),knot=r.samples[Math.floor(r.samples.length*.65)];
+ const step=Math.min(id==='juno'?5*86400000:id==='hubble'||id==='lro'?10*60000:86400000,r.endMs-T),epoch=T+step,next=computeSpace(new Date(epoch)),state1=sampleTrajectory(r,epoch,next)!;n.setSnapshot(next,[target(state1)]);
+ const p1=projectSpace(state1.positionAU,n.camera,1000,700),host1=next.bodies.find(b=>b.id===r.centerBodyId)!;
+ assert.ok(distance(relative0,subtract(n.camera.positionAU,host1.positionAU))<1e-12);assert.ok(Math.hypot(p1.x-p0.x,p1.y-p0.y)>.1,'source motion must be visible relative to stable orbit');
+ for(const key of ['right','up','forward'] as const)assert.ok(distance(cameraBasis(c0)[key],cameraBasis(n.camera)[key])<1e-10);assert.equal(n.camera.fovDeg,c0.fovDeg);assert.equal(n.view.selectedId,'craft:'+id);
+ const sourceVertex0=[...frame.offsetAU] as Vec3,point0=projectSpace(sourceVertex0.map((x,i)=>x+host0.positionAU[i]) as Vec3,c0,1000,700),point1=projectSpace(sourceVertex0.map((x,i)=>x+host1.positionAU[i]) as Vec3,n.camera,1000,700);near(point0.x,point1.x,1e-5);near(point0.y,point1.y,1e-5);
+ n.selectTarget('craft:'+id);for(let i=0;i<50&&n.isFlying;i++)n.update(.1);assert.equal(n.spacecraftViewMode,'follow');const follow0=projectSpace(state1.positionAU,n.camera,1000,700);const last=computeSpace(new Date(epoch+1000)),state2=sampleTrajectory(r,epoch+1000,last)!;if(state2){n.setSnapshot(last,[target(state2)]);const follow1=projectSpace(state2.positionAU,n.camera,1000,700);near(follow0.x,follow1.x,1e-4);near(follow0.y,follow1.y,1e-4);}
+ n.setMode('free');const fixed=n.camera;n.setSnapshot(next,[target(state1)]);assert.deepEqual(n.camera,fixed);n.setSnapshot(next,[]);assert.equal(n.spacecraftViewMode,null);assert.equal(n.view.selectedId,null);n.dispose();
+});
+test('source-window camera bounds contain every knot at portrait/landscape FOV without altering input data',()=>{
+ for(const r of data.records){if(r.kind!=='ephemeris')continue;const before=JSON.stringify(r),f=trajectoryViewFrame(r);for(const [w,h]of [[1000,700],[390,844]]){const d=trajectoryViewDistance(f,60,w,h),half=Math.atan(Math.tan(Math.PI/6)*Math.min(1,w/h));assert.ok(d*Math.sin(half)>=f.radiusAU*1.19);for(const p of r.samples)assert.ok(Math.hypot(p[1]-f.offsetAU[0],p[2]-f.offsetAU[1],p[3]-f.offsetAU[2])<=f.radiusAU*(1+1e-12));}assert.equal(JSON.stringify(r),before);}
+});
+test('observation preserves independent physical host collision guards, input validation and mouse pan/return behavior',()=>{
+ const r=data.records.find(r=>r.missionId==='juno')!;if(r.kind!=='ephemeris')throw Error();const world=computeSpace(new Date(r.defaultMs)),s=sampleTrajectory(r,r.defaultMs,world)!,n=new Navigation(world),target:SpacecraftTarget={id:'craft:juno',missionId:'juno',kind:'spacecraft',name:s.name,nameEn:s.name,positionAU:s.positionAU,centerBodyId:'jupiter',viewDistanceAU:s.viewDistanceAU};n.setSpacecraft([target]);const before=n.view;assert.throws(()=>n.observeSpacecraft(target.id,[NaN,0,0],1,[0,1,0]));assert.deepEqual(n.view,before);const f=trajectoryViewFrame(r);n.observeSpacecraft(target.id,f.offsetAU,trajectoryViewDistance(f,60,1000,700),f.direction);for(let i=0;i<50;i++)n.update(.1);n.pan(30,20,1000,700);assert.equal(n.view.mode,'free');n.orbit(40,-30,1000,700);assert.equal(n.view.mode,'orbit');assert.equal(n.spacecraftViewMode,'observe');for(const b of world.bodies)assert.ok(distance(n.camera.positionAU,b.positionAU)>=b.radiusKm/AU_KM*COLLISION_RADIUS_RATIO*(1-1e-8));n.resetEarth();assert.equal(n.spacecraftViewMode,null);
+});

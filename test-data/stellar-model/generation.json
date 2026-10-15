@@ -1,0 +1,78 @@
+{
+  "sourceSha256": "d9f69fd86bbf90a4e4d52b4c5c53eacfa6dfc0bfdef85bfd94f095e0bebe4ebd",
+  "catalogSha256": "d7ff593765bcbe4a5f30befac1b1d08d520e256212d117c18f156f8177021e47",
+  "outputRows": 9078,
+  "hipCrossIds": 8840,
+  "rawSpectra": 8656,
+  "missingSpectra": 422,
+  "outOfOrdinaryBvRange": [
+    {
+      "id": "hyg-17930",
+      "hip": 17972,
+      "bv": 2.3,
+      "spectralType": "M3"
+    },
+    {
+      "id": "hyg-60507",
+      "hip": 60695,
+      "bv": 2.8,
+      "spectralType": "K:"
+    },
+    {
+      "id": "hyg-72061",
+      "hip": 72287,
+      "bv": 2.4,
+      "spectralType": "M:"
+    },
+    {
+      "id": "hyg-74958",
+      "hip": 75187,
+      "bv": 2.1,
+      "spectralType": "M9"
+    },
+    {
+      "id": "hyg-74964",
+      "hip": 75193,
+      "bv": 2.2,
+      "spectralType": ""
+    },
+    {
+      "id": "hyg-75266",
+      "hip": 75495,
+      "bv": 2.4,
+      "spectralType": ""
+    },
+    {
+      "id": "hyg-81848",
+      "hip": 82099,
+      "bv": 2.4,
+      "spectralType": "M:"
+    },
+    {
+      "id": "hyg-86275",
+      "hip": 86542,
+      "bv": 2.8,
+      "spectralType": "K5"
+    },
+    {
+      "id": "hyg-94296",
+      "hip": 94590,
+      "bv": 2.1,
+      "spectralType": "M0"
+    },
+    {
+      "id": "hyg-116859",
+      "hip": 117226,
+      "bv": 2.108,
+      "spectralType": ""
+    }
+  ],
+  "literatureAnchorCount": 4,
+  "metadataBytes": 294235,
+  "metadataSha256": "eca9def7f55f36378de7d253cd6aeca253491b3aff62cae47ce09370569696eb",
+  "hygLumVisualRelationMaxRelativeError": 8.124624442107375e-07,
+  "hygLumUsed": false,
+  "additionalCatalogRows": 0,
+  "originalHipparcosImported": false,
+  "runtimeExtraFetch": false
+}

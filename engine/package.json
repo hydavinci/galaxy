@@ -1,14 +1,22 @@
 {
-  "name": "galaxy-engine",
+  "name": "galaxy-observer",
   "version": "1.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vite build"
+    "build": "node scripts/check-build-output.mjs && tsc && vite build",
+    "test": "node --import tsx --test --test-concurrency=2 --test-timeout=90000 tests/*.test.ts",
+    "typecheck": "tsc --noEmit"
   },
   "devDependencies": {
+    "@rollup/pluginutils": "^5.4.0",
+    "happy-dom": "21.0.1",
+    "tsx": "4.20.6",
     "typescript": "^5.4.0",
-    "vite": "^5.4.0",
+    "vite": "7.3.7",
     "vite-plugin-glsl": "^1.3.0"
+  },
+  "dependencies": {
+    "astronomy-engine": "2.1.19"
   }
 }

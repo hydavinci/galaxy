@@ -1,0 +1,166 @@
+{
+  "site": {
+    "name": "苏州",
+    "latitude": 31.2989,
+    "longitude": 120.5853,
+    "elevation": 10,
+    "timezone": "Asia/Shanghai"
+  },
+  "coordinateConvention": "Topocentric apparent AIRLESS azimuth north=0 east=90; no atmospheric refraction. JPL includes gravitational light deflection/EOP not in this preview.",
+  "sources": [
+    {
+      "file": "horizons-moon.txt",
+      "sha256": "5097403ed24a241e24ac5220e881767d212f2022850a6b5ecb062ca4b9384a08",
+      "retrievedAt": "2026-10-13T11:49:16.383Z",
+      "url": "https://ssd.jpl.nasa.gov/api/horizons.api?format=text&COMMAND=%27301%27&OBJ_DATA=%27NO%27&MAKE_EPHEM=%27YES%27&EPHEM_TYPE=%27OBSERVER%27&CENTER=%27coord%40399%27&COORD_TYPE=%27GEODETIC%27&SITE_COORD=%27120.5853%2C31.2989%2C0.010%27&START_TIME=%272026-10-13+11%3A00%27&STOP_TIME=%272026-10-13+12%3A00%27&STEP_SIZE=%2760m%27&QUANTITIES=%274%2C9%2C10%2C13%2C20%2C24%27&REF_SYSTEM=%27ICRF%27&TIME_DIGITS=%27SECONDS%27&ANG_FORMAT=%27DEG%27&APPARENT=%27AIRLESS%27&EXTRA_PREC=%27YES%27&CSV_FORMAT=%27YES%27&CAL_FORMAT=%27CAL%27",
+      "ephemeris": "DE441",
+      "source": "NASA/JPL Horizons API 1.2",
+      "note": "Curated exact factual header and scientific table only; no tool capture wrapper or explanatory/contact footer. Original snapshot hash retained for provenance, not asserted as the curated file hash.",
+      "sourceSnapshotSha256": "fcaccba15e60ed2c6721b85f3d0493338d90445bba469eab433fa9b704411f20",
+      "scientificBlockSha256": "65e7574f35d2120cd9b740b724405e08fdf90c45cf953b2ae98cf86ca54be8be"
+    },
+    {
+      "file": "horizons-sun.txt",
+      "sha256": "4636317c6fc846ddad3dd283b4a0dffe46ceb002e6ad1f4b91ecd3e0575335a1",
+      "retrievedAt": "2026-10-13T11:46:48.990Z",
+      "url": "https://ssd.jpl.nasa.gov/api/horizons.api?format=text&COMMAND=%2710%27&OBJ_DATA=%27NO%27&MAKE_EPHEM=%27YES%27&EPHEM_TYPE=%27OBSERVER%27&CENTER=%27coord%40399%27&COORD_TYPE=%27GEODETIC%27&SITE_COORD=%27120.5853%2C31.2989%2C0.010%27&START_TIME=%272026-10-13+11%3A00%27&STOP_TIME=%272026-10-13+12%3A00%27&STEP_SIZE=%2760m%27&QUANTITIES=%274%2C9%2C10%2C13%2C20%2C24%27&REF_SYSTEM=%27ICRF%27&TIME_DIGITS=%27SECONDS%27&ANG_FORMAT=%27DEG%27&APPARENT=%27AIRLESS%27&EXTRA_PREC=%27YES%27&CSV_FORMAT=%27YES%27",
+      "ephemeris": "DE441",
+      "source": "NASA/JPL Horizons API 1.2",
+      "note": "Curated exact factual header and scientific table only; no tool capture wrapper or explanatory/contact footer. Original snapshot hash retained for provenance, not asserted as the curated file hash.",
+      "sourceSnapshotSha256": "775bc0b9d8beddcf1d2656a061ecf16eb8559d3e095711b3d752d8b5f50cb2a9",
+      "scientificBlockSha256": "bc77cdb0ccccba4261cf4f48b8873b63891d54ea79e023a39adf5f57b7a83d3e"
+    },
+    {
+      "file": "horizons-venus.txt",
+      "sha256": "049edfd0b4fee48d489e89060518e139975788ab9a07072e36c87e0412365212",
+      "retrievedAt": "2026-10-13T11:46:48.914Z",
+      "url": "https://ssd.jpl.nasa.gov/api/horizons.api?format=text&COMMAND=%27299%27&OBJ_DATA=%27NO%27&MAKE_EPHEM=%27YES%27&EPHEM_TYPE=%27OBSERVER%27&CENTER=%27coord%40399%27&COORD_TYPE=%27GEODETIC%27&SITE_COORD=%27120.5853%2C31.2989%2C0.010%27&START_TIME=%272025-03-20+11%3A00%27&STOP_TIME=%272025-03-20+12%3A00%27&STEP_SIZE=%2760m%27&QUANTITIES=%274%2C9%2C10%2C13%2C20%2C24%27&REF_SYSTEM=%27ICRF%27&TIME_DIGITS=%27SECONDS%27&ANG_FORMAT=%27DEG%27&APPARENT=%27AIRLESS%27&EXTRA_PREC=%27YES%27&CSV_FORMAT=%27YES%27",
+      "ephemeris": "DE441",
+      "source": "NASA/JPL Horizons API 1.2",
+      "note": "Curated exact factual header and scientific table only; no tool capture wrapper or explanatory/contact footer. Original snapshot hash retained for provenance, not asserted as the curated file hash.",
+      "sourceSnapshotSha256": "1c85f79ae2d5f01b3a6788cca797faa9e36ef3055a45aa16dc375d0762d2615b",
+      "scientificBlockSha256": "9f6759c3d99c11ecfba619fb33387c90a4451895834aec4a9eb843875776905c"
+    },
+    {
+      "file": "horizons-sunrise.txt",
+      "sha256": "cfe4e60f7db63f7f3652cdeba516bb17864447f854aeace5c6df8a35fa7f4d98",
+      "retrievedAt": "2026-10-13T11:50:28.768Z",
+      "url": "https://ssd.jpl.nasa.gov/api/horizons.api?format=text&COMMAND=%2710%27&OBJ_DATA=%27NO%27&MAKE_EPHEM=%27YES%27&EPHEM_TYPE=%27OBSERVER%27&CENTER=%27coord%40399%27&COORD_TYPE=%27GEODETIC%27&SITE_COORD=%27120.5853%2C31.2989%2C0.010%27&START_TIME=%272026-10-13+21%3A50%27&STOP_TIME=%272026-10-13+22%3A10%27&STEP_SIZE=%2710m%27&QUANTITIES=%274%2C9%2C10%2C13%2C20%2C24%27&REF_SYSTEM=%27ICRF%27&TIME_DIGITS=%27SECONDS%27&ANG_FORMAT=%27DEG%27&APPARENT=%27AIRLESS%27&EXTRA_PREC=%27YES%27&CSV_FORMAT=%27YES%27",
+      "ephemeris": "DE441",
+      "source": "NASA/JPL Horizons API 1.2",
+      "note": "Curated exact factual header and scientific table only; no tool capture wrapper or explanatory/contact footer. Original snapshot hash retained for provenance, not asserted as the curated file hash.",
+      "sourceSnapshotSha256": "25076368d7f04985f4f8e49b77c32e00d248777064dfaece79b1c6a7ef886b27",
+      "scientificBlockSha256": "c52ddb663b8f40281f448fcf3182b9e7374d27f5402345e8611fc20d91d6f7f1"
+    }
+  ],
+  "samples": [
+    {
+      "body": "moon",
+      "date": "2026-10-13T11:00:00Z",
+      "sourceFile": "horizons-moon.txt",
+      "azimuthDeg": 244.267929806,
+      "altitudeDeg": -3.821838844,
+      "magnitude": -6.935,
+      "illuminatedFraction": 0.0789696,
+      "angularDiameterArcsec": 1798.729,
+      "distanceAU": 0.00266357605031,
+      "sunTargetObserverDeg": 147.3631
+    },
+    {
+      "body": "moon",
+      "date": "2026-10-13T12:00:00Z",
+      "sourceFile": "horizons-moon.txt",
+      "azimuthDeg": 250.990095609,
+      "altitudeDeg": -15.319354609,
+      "magnitude": -6.96,
+      "illuminatedFraction": 0.0809628,
+      "angularDiameterArcsec": 1792.418,
+      "distanceAU": 0.00267295416532,
+      "sunTargetObserverDeg": 146.9421
+    },
+    {
+      "body": "sun",
+      "date": "2026-10-13T11:00:00Z",
+      "sourceFile": "horizons-sun.txt",
+      "azimuthDeg": 273.102535892,
+      "altitudeDeg": -20.305569248,
+      "magnitude": -26.747,
+      "illuminatedFraction": 1.0,
+      "angularDiameterArcsec": 1922.65,
+      "distanceAU": 0.9978220128956,
+      "sunTargetObserverDeg": 0.0
+    },
+    {
+      "body": "sun",
+      "date": "2026-10-13T12:00:00Z",
+      "sourceFile": "horizons-sun.txt",
+      "azimuthDeg": 281.748688328,
+      "altitudeDeg": -33.016465032,
+      "magnitude": -26.747,
+      "illuminatedFraction": 1.0,
+      "angularDiameterArcsec": 1922.657,
+      "distanceAU": 0.99781846283767,
+      "sunTargetObserverDeg": 0.0
+    },
+    {
+      "body": "venus",
+      "date": "2025-03-20T11:00:00Z",
+      "sourceFile": "horizons-venus.txt",
+      "azimuthDeg": 285.130304897,
+      "altitudeDeg": -6.217723456,
+      "magnitude": -4.204,
+      "illuminatedFraction": 0.013215900000000001,
+      "angularDiameterArcsec": 59.32074,
+      "distanceAU": 0.28132460883565,
+      "sunTargetObserverDeg": 166.7998
+    },
+    {
+      "body": "venus",
+      "date": "2025-03-20T12:00:00Z",
+      "sourceFile": "horizons-venus.txt",
+      "azimuthDeg": 293.919118057,
+      "altitudeDeg": -18.352288535,
+      "magnitude": -4.205,
+      "illuminatedFraction": 0.0131311,
+      "angularDiameterArcsec": 59.32455,
+      "distanceAU": 0.28130652018188,
+      "sunTargetObserverDeg": 166.8424
+    },
+    {
+      "body": "sun",
+      "date": "2026-10-13T21:50:00Z",
+      "sourceFile": "horizons-sunrise.txt",
+      "azimuthDeg": 97.673072851,
+      "altitudeDeg": -2.854636426,
+      "magnitude": -26.747,
+      "illuminatedFraction": 1.0,
+      "angularDiameterArcsec": 1922.925,
+      "distanceAU": 0.99767935998236,
+      "sunTargetObserverDeg": 0.0
+    },
+    {
+      "body": "sun",
+      "date": "2026-10-13T22:00:00Z",
+      "sourceFile": "horizons-sunrise.txt",
+      "azimuthDeg": 98.964707549,
+      "altitudeDeg": -0.741988084,
+      "magnitude": -26.747,
+      "illuminatedFraction": 1.0,
+      "angularDiameterArcsec": 1922.932,
+      "distanceAU": 0.99767578702068,
+      "sunTargetObserverDeg": 0.0
+    },
+    {
+      "body": "sun",
+      "date": "2026-10-13T22:10:00Z",
+      "sourceFile": "horizons-sunrise.txt",
+      "azimuthDeg": 100.267976183,
+      "altitudeDeg": 1.363111275,
+      "magnitude": -26.747,
+      "illuminatedFraction": 1.0,
+      "angularDiameterArcsec": 1922.939,
+      "distanceAU": 0.99767221890551,
+      "sunTargetObserverDeg": 0.0
+    }
+  ]
+}

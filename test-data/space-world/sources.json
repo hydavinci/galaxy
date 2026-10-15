@@ -1,0 +1,35 @@
+[
+  {
+    "file": "earth-helio.txt",
+    "url": "https://ssd.jpl.nasa.gov/api/horizons.api?format=text&COMMAND=%27399%27&CENTER=%27500%4010%27&MAKE_EPHEM=%27YES%27&EPHEM_TYPE=%27VECTORS%27&START_TIME=%272026-10-14+00%3A00%3A00%27&STOP_TIME=%272026-10-16+00%3A00%3A00%27&STEP_SIZE=%271+d%27&TIME_TYPE=%27UT%27&OUT_UNITS=%27AU-D%27&REF_PLANE=%27FRAME%27&REF_SYSTEM=%27ICRF%27&VEC_CORR=%27NONE%27&VEC_TABLE=%272%27&CSV_FORMAT=%27YES%27&OBJ_DATA=%27NO%27",
+    "sha256": "a8a549498c793fbd2243f935ffd516074e7471d7d8d87f3a95004f4ed690e154",
+    "center": "500@10",
+    "body": "399",
+    "sourceSnapshotSha256": "0f3991da0fc04e1dd89840dd64cd1e1359d9c673fe71b6af2dee1752218be771",
+    "scientificBlockSha256": "0eff0079d942ee13950bcbd163b675c3dce215d7bfe3a659de32b249b2c10a84",
+    "note": "Curated exact factual header and scientific table, plus the required original correction-state legend; no tool capture wrapper or other explanatory/contact footer. Original snapshot hash retained for provenance, not asserted as the curated file hash.",
+    "scientificLegendSha256": "57f28af06def7bcd90f4151e9c1731593887c6371cfd2d37143c05b186fbf89f"
+  },
+  {
+    "file": "moon-geo.txt",
+    "url": "https://ssd.jpl.nasa.gov/api/horizons.api?format=text&COMMAND=%27301%27&CENTER=%27500%40399%27&MAKE_EPHEM=%27YES%27&EPHEM_TYPE=%27VECTORS%27&START_TIME=%272026-10-14+00%3A00%3A00%27&STOP_TIME=%272026-10-16+00%3A00%3A00%27&STEP_SIZE=%271+d%27&TIME_TYPE=%27UT%27&OUT_UNITS=%27AU-D%27&REF_PLANE=%27FRAME%27&REF_SYSTEM=%27ICRF%27&VEC_CORR=%27NONE%27&VEC_TABLE=%272%27&CSV_FORMAT=%27YES%27&OBJ_DATA=%27NO%27",
+    "sha256": "19f4d8e057b2291c0ecea707e35a80fa7fe967736044fefdce47082811698e59",
+    "center": "500@399",
+    "body": "301",
+    "sourceSnapshotSha256": "592a34d52eccbb7afde2dbf1a1d0f8138af142096a9af89a3240dfbfe1ba3d82",
+    "scientificBlockSha256": "4c95e06c88b414ca0cca1418e8b078868b1e3ab3ff8441b45953e719cfaff06c",
+    "note": "Curated exact factual header and scientific table, plus the required original correction-state legend; no tool capture wrapper or other explanatory/contact footer. Original snapshot hash retained for provenance, not asserted as the curated file hash.",
+    "scientificLegendSha256": "57f28af06def7bcd90f4151e9c1731593887c6371cfd2d37143c05b186fbf89f"
+  },
+  {
+    "file": "neptune-helio.txt",
+    "url": "https://ssd.jpl.nasa.gov/api/horizons.api?format=text&COMMAND=%27899%27&CENTER=%27500%4010%27&MAKE_EPHEM=%27YES%27&EPHEM_TYPE=%27VECTORS%27&START_TIME=%272026-10-14+00%3A00%3A00%27&STOP_TIME=%272026-10-16+00%3A00%3A00%27&STEP_SIZE=%271+d%27&TIME_TYPE=%27UT%27&OUT_UNITS=%27AU-D%27&REF_PLANE=%27FRAME%27&REF_SYSTEM=%27ICRF%27&VEC_CORR=%27NONE%27&VEC_TABLE=%272%27&CSV_FORMAT=%27YES%27&OBJ_DATA=%27NO%27",
+    "sha256": "18732601918ab9f1208d2344527376ed447c6fefb827735f4b62f51a75e16ab5",
+    "center": "500@10",
+    "body": "899",
+    "sourceSnapshotSha256": "e9acc84f6da8370756d1dea1d6c05b312b6251f1ec4cf517a835d857285f352e",
+    "scientificBlockSha256": "72c8b0f2750075878dc5693f02a98c706e3454e799ca232fe3aeb5d6105a8361",
+    "note": "Curated exact factual header and scientific table, plus the required original correction-state legend; no tool capture wrapper or other explanatory/contact footer. Original snapshot hash retained for provenance, not asserted as the curated file hash.",
+    "scientificLegendSha256": "57f28af06def7bcd90f4151e9c1731593887c6371cfd2d37143c05b186fbf89f"
+  }
+]

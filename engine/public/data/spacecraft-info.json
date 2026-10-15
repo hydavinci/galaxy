@@ -1,0 +1,674 @@
+{
+  "schemaVersion": 1,
+  "verifiedOn": "2026-10-15",
+  "notice": "任务资料摘要，不提供实时位置、轨道或遥测；时间轴是已发生的历史事件。",
+  "records": [
+    {
+      "id": "voyager-1",
+      "name": "旅行者1号",
+      "nameEn": "Voyager 1",
+      "agency": "NASA / JPL",
+      "category": "probe",
+      "launchDate": "1977-09-05",
+      "missionType": "行星飞掠与星际介质探测器",
+      "targetNames": [
+        "木星",
+        "土星",
+        "日球层边界与星际介质"
+      ],
+      "relatedBodyIds": [
+        "jupiter",
+        "saturn"
+      ],
+      "summary": "先后近距离探测木星和土星，再将观测延伸到日球层边界之外，是研究巨行星系统与星际介质的重要先驱。",
+      "instruments": [
+        "成像科学系统（ISS）",
+        "磁强计（MAG）",
+        "等离子体波实验（PWS）",
+        "宇宙射线仪（CRS）"
+      ],
+      "achievements": [
+        "揭示木星暗环，并获得土星环系与卫星的近距离观测。",
+        "2012年穿越日球层顶，成为首个进入星际介质的人造探测器。"
+      ],
+      "milestones": [
+        {
+          "date": "1977-09-05",
+          "label": "发射"
+        },
+        {
+          "date": "1979-03-05",
+          "label": "近距离飞掠木星（UT）"
+        },
+        {
+          "date": "1980-11-12",
+          "label": "近距离飞掠土星（UT）"
+        },
+        {
+          "date": "2012-08-25",
+          "label": "穿越日球层顶，进入星际介质"
+        }
+      ],
+      "sources": [
+        {
+          "label": "Voyager 1: The Farthest Spacecraft — NASA Science",
+          "url": "https://science.nasa.gov/mission/voyager/voyager-1/"
+        }
+      ],
+      "limitations": "仪器列为历史搭载设备，不代表现时仍启用；本条不提供当前距离、位置或运行状态。"
+    },
+    {
+      "id": "voyager-2",
+      "name": "旅行者2号",
+      "nameEn": "Voyager 2",
+      "agency": "NASA / JPL",
+      "category": "probe",
+      "launchDate": "1977-08-20",
+      "missionType": "四大巨行星飞掠探测器",
+      "targetNames": [
+        "木星",
+        "土星",
+        "天王星",
+        "海王星",
+        "星际介质"
+      ],
+      "relatedBodyIds": [
+        "jupiter",
+        "saturn",
+        "uranus",
+        "neptune"
+      ],
+      "summary": "通过连续飞掠近距离考察四颗巨行星及其卫星、环和磁场，留下天王星与海王星系统的珍贵探测资料。",
+      "instruments": [
+        "成像科学系统（ISS）",
+        "磁强计（MAG）",
+        "等离子体光谱仪（PLS）",
+        "等离子体波实验（PWS）"
+      ],
+      "achievements": [
+        "完成木星、土星、天王星和海王星四颗巨行星的近距离探测。",
+        "在天王星发现新的卫星和环，并拍摄海王星大黑斑及海卫一地貌。"
+      ],
+      "milestones": [
+        {
+          "date": "1977-08-20",
+          "label": "发射"
+        },
+        {
+          "date": "1986-01-24",
+          "label": "飞掠天王星（UT）"
+        },
+        {
+          "date": "1989-08-25",
+          "label": "飞掠海王星（UT）"
+        }
+      ],
+      "sources": [
+        {
+          "label": "Voyager 2: First To Visit All Four Giants — NASA Science",
+          "url": "https://science.nasa.gov/mission/voyager/voyager-2/"
+        }
+      ],
+      "limitations": "这里记录历史飞掠成果，不是现时轨道或通讯状态。仪器清单不表示这些设备今天仍在工作。"
+    },
+    {
+      "id": "cassini",
+      "name": "卡西尼号",
+      "nameEn": "Cassini–Huygens",
+      "agency": "NASA / ESA / ASI",
+      "category": "probe",
+      "launchDate": "1997-10-15",
+      "missionType": "土星轨道探测器（搭载惠更斯着陆探测器）",
+      "targetNames": [
+        "土星",
+        "土星环",
+        "土卫六",
+        "土卫二"
+      ],
+      "relatedBodyIds": [
+        "saturn"
+      ],
+      "summary": "卡西尼轨道器与惠更斯探测器组成联合任务，研究土星、环系和卫星。卡西尼环绕观测，惠更斯则下降到土卫六表面。",
+      "instruments": [
+        "成像科学子系统（ISS）",
+        "复合红外光谱仪（CIRS）",
+        "雷达（RADAR）",
+        "离子与中性质谱仪（INMS）"
+      ],
+      "achievements": [
+        "成为首个环绕土星的探测器，长期追踪环系及大气变化。",
+        "发现土卫二冰喷流，为其全球地下海洋提供关键证据。",
+        "揭示土卫六的甲烷湖海，并通过惠更斯实现土卫六表面探测。"
+      ],
+      "milestones": [
+        {
+          "date": "1997-10-15",
+          "label": "发射"
+        },
+        {
+          "date": "2004-07",
+          "label": "抵达土星系统，开展环绕探测"
+        },
+        {
+          "date": "2005-01",
+          "label": "惠更斯下降并着陆土卫六"
+        },
+        {
+          "date": "2017-09-15",
+          "label": "卡西尼进入土星大气，任务结束"
+        }
+      ],
+      "sources": [
+        {
+          "label": "Cassini-Huygens - NASA Science",
+          "url": "https://science.nasa.gov/mission/cassini/"
+        },
+        {
+          "label": "Cassini: About the Mission - NASA Science",
+          "url": "https://science.nasa.gov/mission/cassini/about-the-mission/"
+        },
+        {
+          "label": "Cassini Orbiter - NASA Science",
+          "url": "https://science.nasa.gov/mission/cassini/spacecraft/cassini-orbiter/"
+        }
+      ],
+      "limitations": "卡西尼轨道器与惠更斯着陆探测器不是同一硬件；所列仪器属于卡西尼。地下海洋与宜居性证据并不等于发现生命。"
+    },
+    {
+      "id": "juno",
+      "name": "朱诺号",
+      "nameEn": "Juno",
+      "agency": "NASA / JPL",
+      "category": "probe",
+      "launchDate": "2011-08-05",
+      "missionType": "木星极轨探测器",
+      "targetNames": [
+        "木星",
+        "木星卫星"
+      ],
+      "relatedBodyIds": [
+        "jupiter"
+      ],
+      "summary": "从木星两极上空反复掠过，以微波、磁场和成像观测研究云层下的大气、内部结构与磁层，并探测部分大型卫星。",
+      "instruments": [
+        "微波辐射计（MWR）",
+        "木星红外极光成像仪（JIRAM）",
+        "磁强计（MAG）",
+        "可见光相机（JunoCam）"
+      ],
+      "achievements": [
+        "揭示木星两极成群分布的巨大气旋。",
+        "测量表明木星条带风向深处延伸；数据支持较弥散的核心结构模型。"
+      ],
+      "milestones": [
+        {
+          "date": "2011-08-05",
+          "label": "发射"
+        },
+        {
+          "date": "2016-07-05",
+          "label": "进入木星轨道（UTC；美国东部时间为7月4日）"
+        },
+        {
+          "date": "2021-06-07",
+          "label": "近距离飞掠木卫三"
+        }
+      ],
+      "sources": [
+        {
+          "label": "Juno - NASA Science",
+          "url": "https://science.nasa.gov/mission/juno/"
+        }
+      ],
+      "limitations": "核心结构属于观测约束下的科学解释，不是内部实拍。本条不根据旧任务计划推断当前是否运行或已经结束。"
+    },
+    {
+      "id": "new-horizons",
+      "name": "新视野号",
+      "nameEn": "New Horizons",
+      "agency": "NASA / Johns Hopkins APL",
+      "category": "probe",
+      "launchDate": "2006-01-19",
+      "missionType": "冥王星与柯伊伯带飞掠探测器",
+      "targetNames": [
+        "冥王星及其卫星",
+        "阿罗科斯（Arrokoth）",
+        "木星"
+      ],
+      "relatedBodyIds": [
+        "jupiter"
+      ],
+      "summary": "借木星引力加速后飞向冥王星系统，再飞掠柯伊伯带天体阿罗科斯，以近距离图像和光谱研究外太阳系小天体。",
+      "instruments": [
+        "远程勘测成像仪（LORRI）",
+        "可见光与红外成像光谱仪（Ralph）",
+        "紫外成像光谱仪（Alice）",
+        "太阳风探测仪（SWAP）"
+      ],
+      "achievements": [
+        "首次近距离探测冥王星及其卫星，展示复杂地貌、氮冰平原与大气霾。",
+        "2019年飞掠阿罗科斯，揭示其不寻常的双叶形状。"
+      ],
+      "milestones": [
+        {
+          "date": "2006-01-19",
+          "label": "发射"
+        },
+        {
+          "date": "2007-02-28",
+          "label": "木星引力辅助飞掠"
+        },
+        {
+          "date": "2015-07-14",
+          "label": "飞掠冥王星"
+        },
+        {
+          "date": "2019-01-01",
+          "label": "飞掠阿罗科斯"
+        }
+      ],
+      "sources": [
+        {
+          "label": "New Horizons",
+          "url": "https://science.nasa.gov/mission/new-horizons/"
+        }
+      ],
+      "limitations": "冥王星和阿罗科斯在此仅是资料中的任务目标，不新增导航目标；飞掠观测不等于持续环绕或着陆。当前运行状态未核验。"
+    },
+    {
+      "id": "parker-solar-probe",
+      "name": "帕克太阳探测器",
+      "nameEn": "Parker Solar Probe",
+      "agency": "NASA / Johns Hopkins APL",
+      "category": "probe",
+      "launchDate": "2018-08-12",
+      "missionType": "太阳近距离探测器",
+      "targetNames": [
+        "太阳日冕",
+        "太阳风"
+      ],
+      "relatedBodyIds": [
+        "sun"
+      ],
+      "summary": "以近太阳飞行直接测量粒子、磁场与太阳风结构，研究日冕加热和太阳风加速等问题。",
+      "instruments": [
+        "电磁场实验（FIELDS）",
+        "太阳综合科学探测（IS☉IS）",
+        "广角成像仪（WISPR）",
+        "太阳风电子、α粒子与质子探测（SWEAP）"
+      ],
+      "achievements": [
+        "2021年首次穿越阿尔芬临界面，在日冕内直接采样粒子和磁场。",
+        "发现近太阳太阳风中普遍存在磁场折返结构，为研究其起源提供观测约束。"
+      ],
+      "milestones": [
+        {
+          "date": "2018-08-12",
+          "label": "发射"
+        },
+        {
+          "date": "2021-04-28",
+          "label": "首次进入日冕的观测事件"
+        },
+        {
+          "date": "2021-12-14",
+          "label": "NASA公布首次进入日冕的研究结果"
+        }
+      ],
+      "sources": [
+        {
+          "label": "Parker Solar Probe - NASA Science",
+          "url": "https://science.nasa.gov/mission/parker-solar-probe/"
+        },
+        {
+          "label": "NASA Enters the Solar Atmosphere for the First Time, Bringing New Discoveries - NASA",
+          "url": "https://www.nasa.gov/solar-system/nasa-enters-the-solar-atmosphere-for-the-first-time-bringing-new-discoveries/"
+        }
+      ],
+      "limitations": "“触摸太阳”指进入稀薄日冕，不是着陆太阳可见表面。事件发生日与结果公布日分开列示，不提供现时近日点距离或速度。"
+    },
+    {
+      "id": "lro",
+      "name": "月球勘测轨道飞行器",
+      "nameEn": "Lunar Reconnaissance Orbiter (LRO)",
+      "agency": "NASA / Goddard",
+      "category": "probe",
+      "launchDate": "2009-06-18",
+      "missionType": "月球轨道测绘探测器",
+      "targetNames": [
+        "月球",
+        "月球两极"
+      ],
+      "relatedBodyIds": [
+        "moon"
+      ],
+      "summary": "在月球轨道测量地形、温度、辐射及近表层物质分布，为月球科学和后续着陆点选择提供基础地图。",
+      "instruments": [
+        "月球勘测相机（LROC）",
+        "月球轨道激光高度计（LOLA）",
+        "月球辐射计（Diviner）",
+        "月球中子探测器（LEND）"
+      ],
+      "achievements": [
+        "绘制高分辨率地形与全球热环境数据，支撑月表研究和着陆选址。",
+        "测量极区冷阱温度与近表层氢分布，为寻找潜在水冰资源提供线索。"
+      ],
+      "milestones": [
+        {
+          "date": "2009-06-18",
+          "label": "发射"
+        },
+        {
+          "date": "2009-06-23",
+          "label": "进入月球轨道（UT）"
+        },
+        {
+          "date": "2011-11",
+          "label": "NASA发布高分辨率月球地形图"
+        }
+      ],
+      "sources": [
+        {
+          "label": "Spacecraft and Instruments - NASA Science",
+          "url": "https://science.nasa.gov/mission/lro/spacecraft-and-instruments/"
+        },
+        {
+          "label": "Lunar Reconnaissance Orbiter - NASA Science",
+          "url": "https://science.nasa.gov/mission/lro/"
+        },
+        {
+          "label": "About - NASA Science",
+          "url": "https://science.nasa.gov/mission/lro/about/"
+        }
+      ],
+      "limitations": "冷阱、氢信号与水冰证据不能简单画等号；所列为代表性仪器。资料不包含月球轨道器实时位置或现时工作状态。"
+    },
+    {
+      "id": "perseverance",
+      "name": "毅力号",
+      "nameEn": "Perseverance (Mars 2020)",
+      "agency": "NASA / JPL",
+      "category": "rover",
+      "launchDate": "2020-07-30",
+      "missionType": "火星采样与地质巡视车",
+      "targetNames": [
+        "火星杰泽罗陨石坑"
+      ],
+      "relatedBodyIds": [
+        "mars"
+      ],
+      "summary": "在杰泽罗陨石坑研究岩石与古环境，寻找可能的古代生命痕迹，并采集封存样品，为未来可能的地球实验室研究做准备。",
+      "instruments": [
+        "变焦立体相机（Mastcam-Z）",
+        "岩石遥感分析仪（SuperCam）",
+        "拉曼与荧光光谱仪（SHERLOC）",
+        "X射线岩石化学仪（PIXL）"
+      ],
+      "achievements": [
+        "获取杰泽罗古湖泊、三角洲及岩石与水相互作用的地质证据，并采集岩芯。",
+        "搭载的MOXIE完成从火星二氧化碳大气制取氧气的技术验证。"
+      ],
+      "milestones": [
+        {
+          "date": "2020-07-30",
+          "label": "发射"
+        },
+        {
+          "date": "2021-02-18",
+          "label": "着陆火星杰泽罗陨石坑"
+        },
+        {
+          "date": "2023-08-07",
+          "label": "MOXIE完成最后一次制氧运行"
+        }
+      ],
+      "sources": [
+        {
+          "label": "Mars 2020: Perseverance Rover - NASA Science",
+          "url": "https://science.nasa.gov/mission/mars-2020-perseverance/"
+        },
+        {
+          "label": "Perseverance Science Instruments - NASA Science",
+          "url": "https://science.nasa.gov/mission/mars-2020-perseverance/science-instruments/"
+        }
+      ],
+      "limitations": "采样不等于样品已经返回地球；潜在生物标志或宜居环境不等于证实生命存在。仪器及成果属于任务历史，非当前活动遥测。"
+    },
+    {
+      "id": "tianwen-1",
+      "name": "天问一号",
+      "nameEn": "Tianwen-1",
+      "agency": "中国国家航天局（CNSA）",
+      "category": "probe",
+      "launchDate": "2020-07-23",
+      "missionType": "火星环绕、着陆与巡视组合任务",
+      "targetNames": [
+        "火星",
+        "乌托邦平原"
+      ],
+      "relatedBodyIds": [
+        "mars"
+      ],
+      "summary": "由环绕器和着陆巡视器组成；后者包含进入舱与祝融号火星车。任务结合全球遥感和局部巡视，研究火星地形、物质组成与环境。",
+      "instruments": [
+        "环绕器高分辨率相机",
+        "环绕器磁强计",
+        "祝融号次表层探测雷达",
+        "祝融号表面成分探测仪"
+      ],
+      "achievements": [
+        "在一次任务中完成火星环绕、着陆与巡视探测。",
+        "祝融号完成既定90个火星日巡视任务，获取地形、浅层结构、成分及气象等数据。"
+      ],
+      "milestones": [
+        {
+          "date": "2020-07-23",
+          "label": "发射（中国官方日期）"
+        },
+        {
+          "date": "2021-02-10",
+          "label": "实施火星捕获，进入环火轨道"
+        },
+        {
+          "date": "2021-05-15",
+          "label": "着陆巡视器落火（北京时间）"
+        },
+        {
+          "date": "2021-08-15",
+          "label": "祝融号累计完成90个火星日巡视"
+        }
+      ],
+      "sources": [
+        {
+          "label": "首次火星探测任务",
+          "url": "https://www.cnsa.gov.cn/n6758824/n6759009/n6760412/c6840460/content.html"
+        },
+        {
+          "label": "“祝融号”火星车完成既定探测任务",
+          "url": "https://www.cnsa.gov.cn/n6758824/n6759009/n6760412/n6760413/c6840376/content.html"
+        }
+      ],
+      "limitations": "中国任务日期沿用中国官方报道的北京时间日历，未统一改写为UTC日；环绕器与祝融号不是同一飞行器。本条不判断二者当前工作或休眠状态。"
+    },
+    {
+      "id": "change-6",
+      "name": "嫦娥六号",
+      "nameEn": "Chang’e 6",
+      "agency": "中国国家航天局（CNSA）",
+      "category": "sample-return",
+      "launchDate": "2024-05-03",
+      "missionType": "月球背面采样返回任务",
+      "targetNames": [
+        "月球背面"
+      ],
+      "relatedBodyIds": [
+        "moon"
+      ],
+      "summary": "从月球背面采集并送回样品，将月面探测与地面实验室研究衔接起来；同时搭载国际合作科学载荷。",
+      "instruments": [
+        "月表负离子分析仪（欧空局）",
+        "氡气探测仪（法国）",
+        "激光角反射器（意大利）"
+      ],
+      "achievements": [
+        "实现人类首次月球背面采样返回。",
+        "带回1935.3克月球样品，并交接至地面应用系统开展科学研究。"
+      ],
+      "milestones": [
+        {
+          "date": "2024-05-03",
+          "label": "发射（中国官方日期）"
+        },
+        {
+          "date": "2024-06-25",
+          "label": "返回器携月背样品着陆地球（北京时间）"
+        },
+        {
+          "date": "2024-06-28",
+          "label": "月球样品交接至地面应用系统"
+        }
+      ],
+      "sources": [
+        {
+          "label": "嫦娥六号带回1935.3克月球样品 交接至地面应用系统",
+          "url": "https://www.cnsa.gov.cn/n6758823/n6758838/c10567320/content.html"
+        },
+        {
+          "label": "嫦娥六号国际载荷研讨会在海南举办",
+          "url": "https://www.cnsa.gov.cn/n6758823/n6758844/n10518102/n10518147/c10522222/content.html"
+        }
+      ],
+      "limitations": "日期沿用中国官方报道日历（北京时间）。这里只列部分国际科学载荷，不是完整采样装置清单；样品返回成果不代表所有后续研究结论已确定。"
+    },
+    {
+      "id": "webb",
+      "name": "詹姆斯·韦布空间望远镜",
+      "nameEn": "James Webb Space Telescope",
+      "agency": "NASA / ESA / CSA",
+      "category": "telescope",
+      "launchDate": "2021-12-25",
+      "missionType": "红外空间望远镜",
+      "targetNames": [
+        "早期星系",
+        "恒星形成区",
+        "系外行星大气"
+      ],
+      "relatedBodyIds": [
+        "earth"
+      ],
+      "summary": "以红外成像和光谱观测研究星系演化、恒星形成及系外行星大气。其观测轨道位于日地L2附近，而非绕地球低轨道。",
+      "instruments": [
+        "近红外相机（NIRCam）",
+        "近红外光谱仪（NIRSpec）",
+        "中红外仪器（MIRI）",
+        "近红外成像仪与无缝光谱仪（NIRISS）"
+      ],
+      "achievements": [
+        "首批科学成果展示遥远星系的红外深场及被尘埃遮蔽的恒星形成区。",
+        "在系外行星WASP-96 b的大气光谱中辨识水的特征，并研究云与霾。"
+      ],
+      "milestones": [
+        {
+          "date": "2021-12-25",
+          "label": "发射"
+        },
+        {
+          "date": "2022-01-24",
+          "label": "抵达日地L2附近的任务轨道"
+        },
+        {
+          "date": "2022-07",
+          "label": "发布首批科学图像和光谱"
+        }
+      ],
+      "sources": [
+        {
+          "label": "James Webb Space Telescope - NASA Science",
+          "url": "https://science.nasa.gov/mission/webb/"
+        },
+        {
+          "label": "Integrated Science Instrument Module (ISIM) - NASA Science",
+          "url": "https://science.nasa.gov/mission/webb/integrated-science-instrument-module-isim/"
+        },
+        {
+          "label": "Webb's First Images - NASA Science",
+          "url": "https://science.nasa.gov/mission/webb/webbs-first-images/"
+        }
+      ],
+      "limitations": "与“地球”的关联指日地L2任务环境，不是地表位置；不提供望远镜现时指向。红外观测与光谱特征不等于可见光原色影像或发现生命。"
+    },
+    {
+      "id": "hubble",
+      "name": "哈勃空间望远镜",
+      "nameEn": "Hubble Space Telescope",
+      "agency": "NASA / ESA",
+      "category": "telescope",
+      "launchDate": "1990-04-24",
+      "missionType": "近地轨道空间望远镜",
+      "targetNames": [
+        "星系",
+        "恒星",
+        "系外行星及太阳系天体"
+      ],
+      "relatedBodyIds": [
+        "earth"
+      ],
+      "summary": "在地球大气层上方进行紫外、可见光和近红外观测；可在轨维修的设计使多代仪器持续拓展其科学能力。",
+      "instruments": [
+        "高级巡天相机（ACS）",
+        "第三代广域相机（WFC3）",
+        "宇宙起源光谱仪（COS）",
+        "空间望远镜成像光谱仪（STIS）"
+      ],
+      "achievements": [
+        "以深场观测追踪星系的形成与演化。",
+        "精确测量宇宙膨胀，并为研究超大质量黑洞提供关键观测证据。"
+      ],
+      "milestones": [
+        {
+          "date": "1990-04-24",
+          "label": "随发现号航天飞机发射"
+        },
+        {
+          "date": "1993-12",
+          "label": "首次维修，安装像差校正设备"
+        },
+        {
+          "date": "2009-05",
+          "label": "第五次且最后一次航天飞机维修"
+        }
+      ],
+      "sources": [
+        {
+          "label": "ESA - Hubble overview",
+          "url": "https://www.esa.int/Science_Exploration/Space_Science/Hubble_overview"
+        },
+        {
+          "label": "Hubble Space Telescope - NASA Science",
+          "url": "https://science.nasa.gov/mission/hubble/"
+        },
+        {
+          "label": "About Hubble - NASA Science",
+          "url": "https://science.nasa.gov/mission/hubble/overview/about-hubble/"
+        },
+        {
+          "label": "Hubble Design - NASA Science",
+          "url": "https://science.nasa.gov/mission/hubble/observatory/design/"
+        },
+        {
+          "label": "Hubble Instruments - NASA Science",
+          "url": "https://science.nasa.gov/mission/hubble/observatory/design/instruments/"
+        },
+        {
+          "label": "Hubble Science Highlights - NASA Science",
+          "url": "https://science.nasa.gov/mission/hubble/science/science-highlights/"
+        },
+        {
+          "label": "Hubble History Timeline: Non-Interactive, Full Text - NASA Science",
+          "url": "https://science.nasa.gov/mission/hubble/overview/hubble-timeline/hubble-history-timeline-full-text/"
+        }
+      ],
+      "limitations": "所列仪器包括后续维修中安装的设备，并非全是1990年的发射配置；本条不判断当前仪器状态，也不显示近地轨道实时位置。"
+    }
+  ]
+}

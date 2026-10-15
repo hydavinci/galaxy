@@ -1,29 +1,24 @@
 #!/usr/bin/env python3
-"""Generate LOD binary star files from HYG catalog."""
+"""Regenerate catalog-based LOD0-4 from the retained, pinned HYG v4.1 gzip.
+
+Offline; Python standard library only. --check compares exact bytes without writes.
+LOD5-7 procedural density supplements and stars.bin are NOT regenerated here.
+HYG-derived catalog data remains CC BY-SA 4.0; see test-data/README.md.
+"""
+import argparse
 import csv
-import struct
+import gzip
+import hashlib
+import io
 import math
-import os
-import sys
+import struct
+from pathlib import Path
 
-# Try to find hyg data
-HYG_PATH = '/tmp/hyg.csv'
-if not os.path.exists(HYG_PATH):
-    print("Downloading HYG catalog...")
-    os.system('curl -sL "https://raw.githubusercontent.com/astronexus/HYG-Database/main/hyg/v3/hyg_v38.csv.gz" -o /tmp/hyg.csv.gz && gunzip -f /tmp/hyg.csv.gz')
-
-if not os.path.exists(HYG_PATH):
-    # Try alternate URL
-    os.system('curl -sL "https://raw.githubusercontent.com/astronexus/HYG-Database/refs/heads/main/hyg/CURRENT/hygdata_v41.csv" -o /tmp/hyg.csv')
-
-if not os.path.exists(HYG_PATH):
-    print("ERROR: Cannot find HYG data")
-    sys.exit(1)
-
-OUT_DIR = '/home/Galaxy/engine/public/data'
-os.makedirs(OUT_DIR, exist_ok=True)
-
-# LOD levels: (mag_min, mag_max, filename)
+ROOT = Path(__file__).resolve().parents[1]
+OUT_DIR = ROOT / 'public' / 'data'
+HYG_GZ = ROOT.parent / 'test-data' / 'star-catalog' / 'hygdata_v41.csv.gz'
+SOURCE_SHA256 = 'd9f69fd86bbf90a4e4d52b4c5c53eacfa6dfc0bfdef85bfd94f095e0bebe4ebd'
+SOURCE_BYTES = 33932548
 LEVELS = [
     (-2, 4, 'stars-lod0.bin'),
     (4, 5.5, 'stars-lod1.bin'),
@@ -32,39 +27,59 @@ LEVELS = [
     (9, 11, 'stars-lod4.bin'),
 ]
 
-# Read CSV
-stars_by_level = [[] for _ in LEVELS]
 
-with open(HYG_PATH, 'r') as f:
-    reader = csv.DictReader(f)
-    for row in reader:
+def parse_float(row: dict[str, str], key: str, default: float) -> float:
+    value = row.get(key)
+    if value in (None, ''):
+        return default
+    return float(value)
+
+
+def make_artifacts() -> dict[str, bytes]:
+    with gzip.open(HYG_GZ, 'rb') as source:
+        data = source.read(SOURCE_BYTES + 1)
+    if len(data) != SOURCE_BYTES or hashlib.sha256(data).hexdigest() != SOURCE_SHA256:
+        raise ValueError('Pinned original HYG source size/hash mismatch')
+    stars_by_level: list[list[tuple[float, float, float, float]]] = [[] for _ in LEVELS]
+    for row in csv.DictReader(io.StringIO(data.decode('utf-8'))):
         try:
-            mag = float(row.get('mag', '99'))
-            ra_h = float(row.get('ra', '0'))
-            dec_d = float(row.get('dec', '0'))
-            bv = float(row.get('ci', '0') or '0')
+            mag = parse_float(row, 'mag', 99)
+            ra_h = parse_float(row, 'ra', 0)
+            dec_d = parse_float(row, 'dec', 0)
+            bv = parse_float(row, 'ci', 0)
         except (ValueError, TypeError):
             continue
-
         if mag > 11:
             continue
-
         ra_rad = ra_h * math.pi / 12.0
         dec_rad = dec_d * math.pi / 180.0
-
         for i, (mmin, mmax, _) in enumerate(LEVELS):
             if mmin <= mag < mmax:
                 stars_by_level[i].append((ra_rad, dec_rad, mag, bv))
                 break
+    # The shipped binary format is little-endian, independent of host byte order.
+    return {name: b''.join(struct.pack('<ffff', *star) for star in stars)
+            for (_, _, name), stars in zip(LEVELS, stars_by_level)}
 
-# Write binary files
-for i, (mmin, mmax, fname) in enumerate(LEVELS):
-    stars = stars_by_level[i]
-    path = os.path.join(OUT_DIR, fname)
-    with open(path, 'wb') as f:
-        for ra, dec, mag, bv in stars:
-            f.write(struct.pack('ffff', ra, dec, mag, bv))
-    print(f"  {fname}: {len(stars)} stars (mag {mmin} to {mmax})")
 
-total = sum(len(s) for s in stars_by_level)
-print(f"\nTotal: {total} stars across {len(LEVELS)} LOD levels")
+def main() -> int:
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('--check', action='store_true', help='Compare existing bytes without writing')
+    args = parser.parse_args()
+    artifacts = make_artifacts()
+    if not args.check:
+        OUT_DIR.mkdir(parents=True, exist_ok=True)
+    for name, data in artifacts.items():
+        path = OUT_DIR / name
+        if args.check:
+            if path.read_bytes() != data:
+                raise ValueError(f'{name} differs from the pinned HYG transformation')
+        else:
+            path.write_bytes(data)
+        print(f'{name}: {len(data) // 16:,} stars; {"checked" if args.check else "generated"}')
+    print('LOD5-7 and stars.bin unchanged; no network used.')
+    return 0
+
+
+if __name__ == '__main__':
+    raise SystemExit(main())

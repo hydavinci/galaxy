@@ -1,0 +1,44 @@
+API VERSION: 1.2
+API SOURCE: NASA/JPL Horizons API
+
+
+
+*******************************************************************************
+Ephemeris / API_USER Tue Oct 13 04:46:48 2026 Pasadena, USA      / Horizons    
+*******************************************************************************
+Target body name: Venus (299)                     {source: DE441}
+Center body name: Earth (399)                     {source: DE441}
+Center-site name: (user defined site below)
+*******************************************************************************
+Start time      : A.D. 2025-Mar-20 11:00:00.0000 UT      
+Stop  time      : A.D. 2025-Mar-20 12:00:00.0000 UT      
+Step-size       : 60 minutes
+*******************************************************************************
+Target pole/equ : IAU_VENUS                       {East-longitude positive}
+Target radii    : 6051.8, 6051.8, 6051.8 km       {Equator_a, b, pole_c}       
+Center geodetic : 120.5853, 31.2989, .010         {E-lon(deg),Lat(deg),Alt(km)}
+Center cylindric: 120.5853, 5454.8575, 3294.26029 {E-lon(deg),Dxy(km),Dz(km)}
+Center pole/equ : ITRF93                          {East-longitude positive}
+Center radii    : 6378.137, 6378.137, 6356.752 km {Equator_a, b, pole_c}       
+Target primary  : Sun
+Vis. interferer : MOON (R_eq= 1737.400) km        {source: DE441}
+Rel. light bend : Sun                             {source: DE441}
+Rel. lght bnd GM: 1.3271E+11 km^3/s^2                                          
+Atmos refraction: NO (AIRLESS)
+RA format       : DEG
+Time format     : CAL 
+Calendar mode   : Mixed Julian/Gregorian
+EOP file        : eop.261012.p270108                                           
+EOP coverage    : DATA-BASED 1962-JAN-20 TO 2026-OCT-12. PREDICTS-> 2027-JAN-07
+Units conversion: 1 au= 149597870.700 km, c= 299792.458 km/s, 1 day= 86400.0 s 
+Table cut-offs 1: Elevation (-90.0deg=NO ),Airmass (>38.000=NO), Daylight (NO )
+Table cut-offs 2: Solar elongation (  0.0,180.0=NO ),Local Hour Angle( 0.0=NO )
+Table cut-offs 3: RA/DEC angular rate (     0.0=NO )                           
+Table format    : Comma Separated Values (spreadsheet)
+************************************************************************************************************************************************
+ Date__(UT)__HR:MN:SS, , ,Azimuth_(a-app), Elevation_(a-app),    APmag,  S-brt,      Illu%,  Ang-diam,             delta,     deldot,     S-T-O,
+************************************************************************************************************************************************
+$$SOE
+ 2025-Mar-20 11:00:00,N, ,  285.130304897,      -6.217723456,   -4.204, -0.297,    1.32159,  59.32074,  0.28132460883565, -0.7460732,  166.7998,
+ 2025-Mar-20 12:00:00, , ,  293.919118057,     -18.352288535,   -4.205, -0.305,    1.31311,  59.32455,  0.28130652018188, -0.7614764,  166.8424,
+$$EOE

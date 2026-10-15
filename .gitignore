@@ -3,3 +3,28 @@ dist/
 .next/
 .DS_Store
 *.log
+
+# Local experimental Next.js wrapper is not deployed by this repo.
+/galaxy/
+
+# Host deployment snapshots, private QA evidence, and operator-only runbook.
+/releases/
+/backups/
+/evidence/
+/DEPLOYMENT.md
+/engine/evidence/
+# A directory-only dist/ pattern does not exclude a live symlink.
+/engine/dist
+
+# Local credentials, environments, caches, and test output.
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+__pycache__/
+*.pyc
+.pytest_cache/
+playwright-report/
+test-results/
+coverage/

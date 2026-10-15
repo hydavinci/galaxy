@@ -1,0 +1,36 @@
+API VERSION: 1.2
+API SOURCE: NASA/JPL Horizons API
+
+
+
+*******************************************************************************
+Ephemeris / API_USER Tue Oct 13 20:46:15 2026 Pasadena, USA      / Horizons
+*******************************************************************************
+Target body name: Neptune (899)                   {source: nep098_merged}
+Center body name: Sun (10)                        {source: nep098_merged}
+Center-site name: BODY CENTER
+*******************************************************************************
+Start time      : A.D. 2026-Oct-14 00:00:00.0000 UT 
+Stop  time      : A.D. 2026-Oct-16 00:00:00.0000 UT 
+Step-size       : 1440 minutes
+*******************************************************************************
+Center geodetic : 0.0, 0.0, 0.0                   {E-lon(deg),Lat(deg),Alt(km)}
+Center cylindric: 0.0, 0.0, 0.0                   {E-lon(deg),Dxy(km),Dz(km)}
+Center radii    : 695700.0, 695700.0, 695700.0 km {Equator_a, b, pole_c}
+Output units    : AU-D
+Calendar mode   : Mixed Julian/Gregorian
+Output type     : GEOMETRIC cartesian states
+Output format   : 2 (position and velocity)
+EOP file        : eop.261013.p270109
+EOP coverage    : DATA-BASED 1962-JAN-20 TO 2026-OCT-13. PREDICTS-> 2027-JAN-08
+Reference frame : ICRF
+*******************************************************************************
+            JDUT ,            Calendar Date (UT ),                      X,                      Y,                      Z,                     VX,                     VY,                     VZ,
+**************************************************************************************************************************************************************************************************
+$$SOE
+2461327.500000000, A.D. 2026-Oct-14 00:00:00.0000,  2.983531615884797E+01,  1.588991116602554E+00, -9.236935281661114E-02, -1.750349413651992E-04,  2.916071156916109E-03,  1.197721057001175E-03,
+2461328.500000000, A.D. 2026-Oct-15 00:00:00.0000,  2.983514092025721E+01,  1.591907041624049E+00, -9.117186802832494E-02, -1.755180464520922E-04,  2.915746840210747E-03,  1.197296032660469E-03,
+2461329.500000000, A.D. 2026-Oct-16 00:00:00.0000,  2.983496501749852E+01,  1.594822615110908E+00, -8.997459740534738E-02, -1.763001829272355E-04,  2.915430215113745E-03,  1.197333899100461E-03,
+$$EOE
+
+ Geometric state vectors have NO corrections or aberrations applied.

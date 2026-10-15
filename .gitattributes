@@ -1,0 +1,13 @@
+# Keep ordinary source line endings portable.
+* text=auto eol=lf
+
+# Asset/provenance fixtures are hash-checked against exact source bytes.
+engine/public/** -text
+test-data/** -text
+engine/tests/fixtures/historical/** -text
+
+# Retained upstream text intentionally contains trailing spaces / CRLF.
+test-data/astronomy/*.txt -whitespace
+test-data/space-world/*.txt -whitespace
+test-data/star-catalog/hyg-README.md -whitespace
+test-data/star-catalog/repository-README.md -whitespace

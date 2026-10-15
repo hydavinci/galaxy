@@ -1,0 +1,41 @@
+<canvas id="sky" aria-label="交互式观星天球。拖动改变朝向，滚轮或双指缩放。" tabindex="0"></canvas>
+<div id="sky-labels" aria-hidden="true"></div><div id="selection-marker" hidden></div>
+<div class="app-chrome">
+<header class="topbar">
+  <a class="brand" href="#" aria-label="Galaxy 观星首页"><span class="brand-orbit">✦</span><span>GALAXY<small>此刻星空</small></span><span class="preview-badge">全空版</span></a>
+  <div class="search-wrap"><span class="search-icon">⌕</span><input id="search" type="search" autocomplete="off" spellcheck="false" placeholder="寻找月亮、行星或恒星" aria-label="搜索天体" aria-controls="search-results" aria-expanded="false"><kbd>/</kbd><div id="search-results" class="glass" role="listbox" hidden></div></div>
+  <div class="header-actions"><button id="settings-open" class="glass icon-button" title="观测设置" aria-label="观测设置">☷</button></div>
+</header>
+<aside id="object-panel" class="glass object-panel" hidden aria-label="所选天体"><button id="object-close" class="close-button" aria-label="关闭天体信息">×</button><div class="eyebrow" id="object-kind">天体</div><h2 id="object-name"></h2><div id="object-english" class="muted"></div><p id="object-visibility" class="visibility"></p><dl id="object-facts"></dl><div class="object-actions"><button id="object-center" class="primary-button">居中</button><button id="object-track" class="secondary-button" aria-pressed="false">跟踪</button><button id="object-zoom" class="secondary-button">放大</button></div><p class="fineprint" id="object-note"></p></aside>
+<div class="right-tools glass" aria-label="视野控制"><button id="zoom-in" aria-label="放大视野" title="放大">＋</button><div class="tool-rule"></div><button id="zoom-out" aria-label="缩小视野" title="缩小">−</button><div class="tool-rule"></div><button id="reset-view" aria-label="朝向南方，重置视野" title="朝南 / 重置">⌖</button></div>
+<footer class="bottom-area">
+ <div class="bottom-meta"><span id="view-readout">全空视图 · 拖动探索</span><span id="fov-readout">视野 70°</span></div>
+ <nav class="toolbar glass" aria-label="观星工具">
+  <button data-toggle="constellations" aria-pressed="false"><span class="nav-icon">⌁</span><span>星座</span></button>
+  <button data-toggle="grid" aria-pressed="false"><span class="nav-icon">⌗</span><span>网格</span></button>
+  <button id="planets-open" aria-haspopup="dialog"><span class="nav-icon">◉</span><span>星球</span></button>
+  <button data-toggle="labels" aria-pressed="true"><span class="nav-icon">Aa</span><span>名称</span></button>
+  <span class="toolbar-rule"></span>
+  <button id="rewind" title="向后加速" aria-label="向后加速"><span class="nav-icon">«</span></button>
+  <button id="pause" title="暂停或继续（空格）" aria-label="暂停时间"><span class="nav-icon" id="pause-icon">Ⅱ</span></button>
+  <button id="forward" title="向前加速" aria-label="向前加速"><span class="nav-icon">»</span></button>
+  <span id="speed-label" class="speed-label">1×</span><button id="now" class="now-button">现在</button>
+ </nav>
+ <div class="footnote"><span id="catalog-status">载入目录星…</span><button id="about-open" class="text-button">数据与说明</button><button id="immersive" class="text-button">沉浸模式</button><button id="space-mode-link" class="text-button" type="button" data-switch-mode="space">三维探索</button></div>
+</footer>
+</div>
+<button id="exit-immersive" class="glass capsule" hidden>退出沉浸 · Esc</button>
+<div id="toast" role="status" hidden></div>
+<div id="loading" role="status"><div class="loading-orbit"></div><h2>把天空带到眼前</h2><p id="loading-text">正在载入真实星表与观测模型</p><button id="reload" hidden>重新载入</button></div>
+<dialog id="settings-dialog" class="glass dialog"><div class="dialog-header"><div><div class="eyebrow">SKY CONDITIONS</div><h2>星空显示设置</h2></div><button class="close-button" data-close aria-label="关闭">×</button></div><label>显示模式<select id="sky-mode"><option value="visual">自然星光 · 全空浏览</option><option value="enhanced">增强星光 · 显示更暗的目录星</option></select></label><label>恒星背景抑制 <output id="pollution-value">4 / 9</output><input id="pollution" type="range" min="1" max="9" step="1" value="4"></label><div class="range-captions"><span>更多星光</span><span>更少星光</span></div><label class="check-row"><span>银河摄影背景<small>天文摄影影像，非肉眼实况</small></span><input id="milkyway" type="checkbox" checked></label><p class="fineprint">全空浏览不模拟地面遮挡、昼夜压暗或大气折射。背景抑制只调整星光和银河显示，不隐藏行星。所有模式均不添加程序生成恒星。</p></dialog>
+<dialog id="about-dialog" class="glass dialog"><div class="dialog-header"><div><div class="eyebrow">BUILT FOR LOOKING UP</div><h2>真实，不等于更亮</h2></div><button class="close-button" data-close aria-label="关闭">×</button></div><p>Galaxy 全空观星版。保留真实星位与时间变化，但忽略地面和大气遮挡，所有方向的月亮与行星都可定位查看；并非 Stellarium 官方产品。</p><ul class="source-list"><li><strong>恒星</strong><span>沿用项目 HYG 系星表 LOD0–4，共 115,517 条。J2000 坐标；未引入恒星自行。具体原始目录版本未完整追溯。</span></li><li><strong>太阳系</strong><span>Astronomy Engine 2.1.19（MIT）。站心坐标、月相、距离与真实角尺寸。不是原来的固定行星大小。</span></li><li><strong>天体贴图</strong><span><a href="https://www.solarsystemscope.com/textures/" target="_blank" rel="noopener noreferrer">Solar System Scope / INOVE</a>，<a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer">CC BY 4.0</a>。按需加载 2K–8K；部分素材增强色彩或补绘，非全部实拍。金星显示云层，非地表。<a href="./textures/detail/credits.json" target="_blank" rel="noopener noreferrer">来源与处理记录</a>。</span></li><li><strong>银河</strong><span>Mellinger 全景摄影 / CDS HiPS。二维观测影像，不是实时云图；网络不可用时保留目录星空。</span></li><li><strong>渲染与边界</strong><span>本版不是所在地肉眼可见性预报。远景行星使用增强光点便于定位，放大后的圆盘仍按真实角尺寸和月相显示。不含完整食现象光照或专业观测级精度。</span></li></ul><p class="fineprint">拖动转向 · 滚轮/双指缩放 · / 搜索 · 空格暂停 · Esc 退出。点击天体查看信息，再选择居中、跟踪或放大。</p><div class="preview-notice">全空版 · 2026.10 · 无地面遮挡</div></dialog>
+<dialog id="planets-dialog" class="glass dialog"><div class="dialog-header"><div><div class="eyebrow">SOLAR SYSTEM</div><h2>想看哪一颗？</h2></div><button class="close-button" data-close aria-label="关闭">×</button></div><div id="planets-list"></div><p class="fineprint">日月及其他行星：自动定位、放大并跟踪，不受地面或大气遮挡。地球：独立球体预览，不在天空定位。没有把不同方向的天体挪到同一片天空。</p></dialog>
+<dialog id="earth-dialog" class="glass dialog earth-dialog" aria-labelledby="earth-title" aria-describedby="earth-description">
+ <div class="dialog-header"><div><div class="eyebrow">INDEPENDENT GLOBE</div><h2 id="earth-title">地球 · 球体预览</h2></div><button id="earth-close" class="close-button" aria-label="关闭地球预览">×</button></div>
+ <p id="earth-description">以地球为观测点，地球不属于当前天空目标；此处独立展示。光照为展示效果，非实时卫星影像/天气。</p>
+ <div id="earth-stage"></div>
+ <p id="earth-status" role="status" aria-live="polite">打开后按需载入地球贴图</p>
+ <div class="earth-actions"><button id="earth-back" class="primary-button">返回星空</button><div class="earth-zoom" aria-label="地球仪控制"><button id="earth-minus" class="secondary-button" aria-label="缩小地球仪">−</button><button id="earth-plus" class="secondary-button" aria-label="放大地球仪">＋</button><button id="earth-reset" class="secondary-button">重置</button></div></div>
+ <p id="earth-help" class="fineprint">拖动旋转 · 滚轮/双指缩放 · 方向键旋转 · ＋/− 缩放 · R 重置 · Esc 返回。默认朝向亚洲/太平洋，姿态与光照为简化展示，不跟随观测时间。原星空的时间速度保持不变。</p>
+ <p class="fineprint earth-credits">地球日间贴图：<a href="https://www.solarsystemscope.com/textures/" target="_blank" rel="noopener noreferrer">Solar System Scope / INOVE</a> · <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer">CC BY 4.0</a> · <a href="./textures/detail/earth-credits.json" target="_blank" rel="noopener noreferrer">地球素材与处理记录</a>。为保留星空资源，本预览最多使用 4K 贴图（设备不支持时降低精度）。</p>
+</dialog>

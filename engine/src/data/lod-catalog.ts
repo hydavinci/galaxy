@@ -8,7 +8,17 @@ export interface LODLevel {
   minFov: number; // radians - only load when FOV < this
 }
 
+function isMobileOrLowMemory(): boolean {
+  const nav = navigator as Navigator & { deviceMemory?: number };
+  return navigator.maxTouchPoints > 0 || (nav.deviceMemory !== undefined && nav.deviceMemory <= 4);
+}
+
 export class LODCatalog {
+  private readonly mobileOrLowMemory = isMobileOrLowMemory();
+
+  // LOD0-4 are catalog stars. LOD5-7 are procedural density supplements used to
+  // fill the Milky Way at deeper zoom levels, so their magnitude ranges overlap
+  // the catalog range by design.
   private levels: LODLevel[] = [
     { magMin: -2, magMax: 4, file: './data/stars-lod0.bin', data: null, loaded: false, loading: false, minFov: Math.PI },
     { magMin: 4, magMax: 5.5, file: './data/stars-lod1.bin', data: null, loaded: false, loading: false, minFov: Math.PI },
@@ -16,8 +26,8 @@ export class LODCatalog {
     { magMin: 7, magMax: 9, file: './data/stars-lod3.bin', data: null, loaded: false, loading: false, minFov: Math.PI },
     { magMin: 9, magMax: 11, file: './data/stars-lod4.bin', data: null, loaded: false, loading: false, minFov: Math.PI },
     { magMin: 9, magMax: 11, file: './data/stars-lod5.bin', data: null, loaded: false, loading: false, minFov: Math.PI },
-    { magMin: 11, magMax: 13, file: './data/stars-lod6.bin', data: null, loaded: false, loading: false, minFov: Math.PI },
-    { magMin: 13, magMax: 15, file: './data/stars-lod7.bin', data: null, loaded: false, loading: false, minFov: 30 * Math.PI / 180 },
+    { magMin: 11, magMax: 13, file: './data/stars-lod6.bin', data: null, loaded: false, loading: false, minFov: this.mobileOrLowMemory ? 45 * Math.PI / 180 : Math.PI },
+    { magMin: 13, magMax: 15, file: './data/stars-lod7.bin', data: null, loaded: false, loading: false, minFov: this.mobileOrLowMemory ? 20 * Math.PI / 180 : 30 * Math.PI / 180 },
   ];
 
   private merged: Float32Array | null = null;
@@ -25,8 +35,10 @@ export class LODCatalog {
   private totalStars = 0;
 
   async init() {
-    // Load levels 0-6 immediately (always visible stars up to mag 13)
-    await Promise.all(this.levels.slice(0, 7).map(l => this.loadLevel(l)));
+    // Desktop loads LOD0-6 immediately for dense all-sky views. Mobile/low-memory
+    // devices defer the heavier LOD6/7 files until the user zooms in.
+    const initialLevels = this.mobileOrLowMemory ? 6 : 7;
+    await Promise.all(this.levels.slice(0, initialLevels).map(l => this.loadLevel(l)));
   }
 
   update(fov: number) {
